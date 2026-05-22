@@ -20,39 +20,37 @@ html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;}
 .page{display:none;min-height:100vh;}.page.active{display:block;}
 
-/* ── NAV ── */
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;padding:0 1.5rem;
   display:flex;align-items:center;justify-content:space-between;
   background:rgba(10,15,26,.95);border-bottom:1px solid var(--bord);backdrop-filter:blur(12px);}
 .logo{display:flex;align-items:center;gap:.4rem;cursor:pointer;
   font-family:'Montserrat';font-size:1.15rem;font-weight:800;color:var(--txt);}
 .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--grad);}
-.nav-links{display:flex;gap:1.4rem;align-items:center;}
-.nav-links a{color:var(--mut2);font-size:.83rem;font-weight:500;cursor:pointer;
-  text-decoration:none;transition:color .2s;}
+.nav-links{display:flex;gap:1.2rem;align-items:center;}
+.nav-links a{color:var(--mut2);font-size:.83rem;font-weight:500;cursor:pointer;text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--txt);}
 
-/* ── BUTTONS ── */
+/* BUTTONS */
 .btn{padding:.48rem 1.1rem;border-radius:7px;font-family:'Montserrat';font-weight:700;
   font-size:.8rem;cursor:pointer;transition:all .18s;border:none;letter-spacing:.15px;}
 .btn-primary{background:var(--grad);color:#fff;}
 .btn-primary:hover{opacity:.88;transform:translateY(-1px);}
 .btn-green{background:var(--green);color:#fff;}
-.btn-green:hover{opacity:.88;transform:translateY(-1px);}
+.btn-green:hover{opacity:.88;}
 .btn-ghost{background:rgba(255,255,255,.06);border:1px solid var(--bord2);color:var(--txt);}
 .btn-ghost:hover{background:rgba(255,255,255,.1);}
 .btn-outline{background:transparent;border:1.5px solid var(--mut);color:var(--txt);}
 .btn-outline:hover{border-color:var(--primary);color:var(--primary);}
-.btn-red{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2);}
-.btn-red:hover{background:rgba(239,68,68,.18);}
+.btn-red{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.22);}
+.btn-red:hover{background:rgba(239,68,68,.2);}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;}
-.btn-gold:hover{opacity:.88;}
 .btn-lg{padding:.72rem 1.8rem;font-size:.9rem;}
 .btn-sm{padding:.3rem .75rem;font-size:.73rem;}
 .btn-full{width:100%;padding:.78rem;font-size:.88rem;}
-.btn-xs{padding:.2rem .55rem;font-size:.68rem;}
+.btn-xs{padding:.18rem .5rem;font-size:.67rem;}
 
-/* ── HERO ── */
+/* HERO */
 .hero{min-height:100vh;padding-top:60px;position:relative;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
 .hero-bg{position:absolute;inset:0;
@@ -68,184 +66,144 @@ h1.hero-h1{font-family:'Montserrat';font-size:clamp(2rem,5vw,3.8rem);font-weight
 h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hero-sub{color:var(--mut2);font-size:.95rem;max-width:500px;margin:0 auto 2rem;line-height:1.75;}
 .hero-cta{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
-  max-width:560px;width:100%;margin:0 auto;}
-.hst{background:rgba(255,255,255,.04);border:1px solid var(--bord);
-  border-radius:12px;padding:1.1rem .8rem;text-align:center;}
-.hst-v{font-family:'Montserrat';font-size:1.5rem;font-weight:800;
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:560px;width:100%;margin:0 auto;}
+.hst{background:rgba(255,255,255,.04);border:1px solid var(--bord);border-radius:12px;padding:1.1rem .8rem;text-align:center;}
+.hst-v{font-family:'Montserrat';font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hst-l{color:var(--mut2);font-size:.68rem;margin-top:.18rem;}
 
-/* ── SECTIONS ── */
+/* SECTIONS */
 .sec{padding:4rem 1.5rem;max-width:1100px;margin:0 auto;}
-.sec-badge{display:inline-flex;align-items:center;gap:.4rem;
-  background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.18);
-  color:var(--primary2);padding:.2rem .72rem;border-radius:50px;
-  font-size:.64rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.7rem;}
-.sec-h2{font-family:'Montserrat';font-size:clamp(1.3rem,2.8vw,2rem);
-  font-weight:800;margin-bottom:.4rem;}
+.sec-badge{display:inline-flex;align-items:center;background:rgba(59,130,246,.08);
+  border:1px solid rgba(59,130,246,.18);color:var(--primary2);padding:.2rem .72rem;
+  border-radius:50px;font-size:.64rem;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:.7rem;}
+.sec-h2{font-family:'Montserrat';font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;margin-bottom:.4rem;}
 .sec-sub{color:var(--mut2);font-size:.86rem;margin-bottom:2rem;}
 
-/* ── PRODUCT CARDS ── */
-.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
-.pcard{background:var(--card);border:1px solid var(--bord);border-radius:14px;
-  padding:1.3rem;transition:all .28s;cursor:pointer;position:relative;overflow:hidden;}
-.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--grad);opacity:0;transition:opacity .28s;}
-.pcard:hover{transform:translateY(-4px);border-color:rgba(59,130,246,.28);
-  box-shadow:0 12px 40px rgba(0,0,0,.5);}
-.pcard:hover::before{opacity:1;}
-.pcard-cat{font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:var(--primary2);margin-bottom:.55rem;}
-.pcard-name{font-family:'Montserrat';font-size:.95rem;font-weight:700;
-  margin-bottom:.35rem;line-height:1.35;}
-.pcard-desc{color:var(--mut2);font-size:.78rem;line-height:1.55;margin-bottom:.9rem;}
-.pcard-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;}
-.pcard-price{font-family:'Montserrat';font-size:1.1rem;font-weight:800;color:var(--gold);}
-.pcard-stock{font-size:.68rem;font-weight:600;padding:.15rem .48rem;border-radius:50px;}
-.in-stock{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.2);}
-.out-stock{background:rgba(239,68,68,.08);color:var(--red);border:1px solid rgba(239,68,68,.15);}
-.pcard-tag{position:absolute;top:.75rem;right:.75rem;font-size:.6rem;font-weight:700;
-  padding:.15rem .45rem;border-radius:50px;background:rgba(245,158,11,.12);
-  color:var(--gold);border:1px solid rgba(245,158,11,.25);}
+/* STORE */
+.store-wrap{max-width:1100px;margin:0 auto;padding:1.5rem;}
+.cat-section{margin-bottom:2rem;}
+.cat-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;padding:0 .25rem;}
+.cat-title{display:flex;align-items:center;gap:.6rem;font-family:'Montserrat';font-size:1rem;font-weight:800;}
+.cat-icon-wrap{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.prod-list{background:var(--card);border:1px solid var(--bord);border-radius:14px;overflow:hidden;}
+.prod-row{display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;
+  border-bottom:1px solid var(--bord);cursor:pointer;transition:background .18s;}
+.prod-row:last-child{border-bottom:none;}
+.prod-row:hover{background:rgba(255,255,255,.03);}
+.prod-row-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.prod-row-info{flex:1;min-width:0;}
+.prod-row-name{font-size:.84rem;font-weight:600;line-height:1.35;margin-bottom:.18rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.prod-row-stock{display:flex;align-items:center;gap:.3rem;font-size:.7rem;color:var(--mut2);}
+.stock-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.dot-green{background:var(--green);}
+.dot-orange{background:#f97316;}
+.prod-row-right{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0;}
+.prod-row-price{font-family:'Montserrat';font-size:.9rem;font-weight:800;color:var(--primary2);}
+.buy-btn{background:var(--primary);color:#fff;border:none;padding:.3rem .82rem;
+  border-radius:50px;font-family:'Montserrat';font-weight:700;font-size:.71rem;
+  cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:.22rem;}
+.buy-btn:hover{background:var(--primary2);transform:translateY(-1px);}
 
-/* ── CATEGORY TABS ── */
-.cat-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
-.cat-tab{padding:.38rem .9rem;border-radius:50px;font-size:.76rem;font-weight:600;
+/* STORE TOPBAR */
+.store-topbar{background:var(--bg2);border-bottom:1px solid var(--bord);padding:1.2rem 1.5rem .9rem;}
+.cat-filter-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.75rem;}
+.cat-tab{padding:.32rem .82rem;border-radius:50px;font-size:.74rem;font-weight:600;
   cursor:pointer;border:1px solid var(--bord2);color:var(--mut2);
   transition:all .18s;background:rgba(255,255,255,.04);}
 .cat-tab:hover{color:var(--txt);border-color:var(--primary);}
 .cat-tab.on{background:var(--grad);color:#fff;border-color:transparent;}
 
-/* ── HOW IT WORKS ── */
+/* HOW IT WORKS */
 .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
-.how-card{background:var(--card);border:1px solid var(--bord);border-radius:14px;
-  padding:1.5rem;text-align:center;transition:all .25s;}
+.how-card{background:var(--card);border:1px solid var(--bord);border-radius:14px;padding:1.5rem;text-align:center;transition:all .25s;}
 .how-card:hover{border-color:rgba(59,130,246,.22);transform:translateY(-3px);}
-.how-n{font-family:'Montserrat';font-size:2rem;font-weight:900;
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  line-height:1;margin-bottom:.45rem;}
+.how-n{font-family:'Montserrat';font-size:2rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:.45rem;}
 .how-icon{font-size:1.6rem;margin-bottom:.5rem;}
 .how-t{font-family:'Montserrat';font-size:.86rem;font-weight:700;margin-bottom:.3rem;}
 .how-d{color:var(--mut2);font-size:.76rem;line-height:1.55;}
 
-/* ── AUTH ── */
+/* AUTH */
 .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:5rem 1rem 2rem;
-  background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.07) 0%,transparent 60%),var(--bg);}
+  padding:5rem 1rem 2rem;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.07) 0%,transparent 60%),var(--bg);}
 .auth-box{width:410px;max-width:94vw;background:var(--card);border:1px solid var(--bord);
   border-radius:16px;padding:2.1rem;box-shadow:0 32px 80px rgba(0,0,0,.7);}
-.auth-logo{display:flex;align-items:center;gap:.4rem;justify-content:center;
-  font-family:'Montserrat';font-size:1.15rem;font-weight:800;margin-bottom:.25rem;}
+.auth-logo{display:flex;align-items:center;gap:.4rem;justify-content:center;font-family:'Montserrat';font-size:1.15rem;font-weight:800;margin-bottom:.25rem;}
 .auth-tag{color:var(--mut2);text-align:center;font-size:.8rem;margin-bottom:1.4rem;}
-.auth-box h2{font-family:'Montserrat';font-size:1.25rem;font-weight:800;
-  text-align:center;margin-bottom:1.3rem;}
+.auth-box h2{font-family:'Montserrat';font-size:1.25rem;font-weight:800;text-align:center;margin-bottom:1.3rem;}
 .fg{display:flex;flex-direction:column;gap:.26rem;margin-bottom:.75rem;}
 .fg label{font-size:.7rem;font-weight:600;color:var(--mut2);letter-spacing:.3px;}
-.fg input,.fg select,.fg textarea{
-  background:rgba(255,255,255,.04);border:1.5px solid var(--bord);
-  color:var(--txt);padding:.6rem .85rem;border-radius:8px;
-  font-family:'Inter';font-size:.86rem;outline:none;width:100%;transition:border-color .2s;}
-.fg input:focus,.fg select:focus,.fg textarea:focus{
-  border-color:rgba(59,130,246,.45);background:rgba(255,255,255,.06);}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.04);border:1.5px solid var(--bord);
+  color:var(--txt);padding:.6rem .85rem;border-radius:8px;font-family:'Inter';font-size:.86rem;outline:none;width:100%;transition:border-color .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(59,130,246,.45);background:rgba(255,255,255,.06);}
 .fg input::placeholder{color:rgba(255,255,255,.2);}
 .fg textarea{resize:vertical;min-height:75px;}
 .pw-wrap{position:relative;}.pw-wrap input{padding-right:2.6rem;}
-.pw-eye{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);
-  background:none;border:none;color:var(--mut2);cursor:pointer;font-size:.82rem;}
-.divid{display:flex;align-items:center;gap:.65rem;margin:.75rem 0;
-  color:var(--mut);font-size:.7rem;}
+.pw-eye{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--mut2);cursor:pointer;font-size:.82rem;}
+.divid{display:flex;align-items:center;gap:.65rem;margin:.75rem 0;color:var(--mut);font-size:.7rem;}
 .divid::before,.divid::after{content:'';flex:1;height:1px;background:var(--bord);}
 .auth-sw{text-align:center;color:var(--mut2);font-size:.8rem;margin-top:.85rem;}
 .auth-sw a{color:var(--primary2);cursor:pointer;font-weight:600;}
 
-/* ── DASHBOARD ── */
+/* DASHBOARD */
 .dash-layout{display:flex;min-height:100vh;padding-top:60px;}
 .dash-sb{width:210px;background:var(--bg2);border-right:1px solid var(--bord);
   padding:1.2rem 0;position:fixed;top:60px;left:0;bottom:0;overflow-y:auto;}
-.sb-sec{padding:.28rem 1.2rem;font-size:.57rem;letter-spacing:2px;
-  text-transform:uppercase;color:var(--mut);margin-top:.65rem;font-weight:700;}
-.sb-i{display:flex;align-items:center;gap:.55rem;padding:.65rem 1.2rem;
-  cursor:pointer;color:var(--mut2);font-size:.83rem;font-weight:500;
-  transition:all .18s;border-left:2px solid transparent;}
-.sb-i:hover,.sb-i.on{color:var(--txt);background:rgba(255,255,255,.04);
-  border-left-color:var(--primary);}
+.sb-sec{padding:.28rem 1.2rem;font-size:.57rem;letter-spacing:2px;text-transform:uppercase;color:var(--mut);margin-top:.65rem;font-weight:700;}
+.sb-i{display:flex;align-items:center;gap:.55rem;padding:.65rem 1.2rem;cursor:pointer;
+  color:var(--mut2);font-size:.83rem;font-weight:500;transition:all .18s;border-left:2px solid transparent;}
+.sb-i:hover,.sb-i.on{color:var(--txt);background:rgba(255,255,255,.04);border-left-color:var(--primary);}
 .sb-i .ic{width:16px;text-align:center;font-size:.85rem;}
 .sb-div{height:1px;background:var(--bord);margin:.4rem 0;}
 .dash-main{margin-left:210px;flex:1;padding:1.8rem;background:var(--bg);}
-.dash-hd{display:flex;justify-content:space-between;align-items:flex-start;
-  margin-bottom:1.4rem;flex-wrap:wrap;gap:.85rem;}
+.dash-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.4rem;flex-wrap:wrap;gap:.85rem;}
 .dash-hd h1{font-family:'Montserrat';font-size:1.35rem;font-weight:800;}
 .dash-hd p{color:var(--mut2);font-size:.8rem;margin-top:.1rem;}
 
-/* ── KPIS ── */
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
-  gap:.9rem;margin-bottom:1.4rem;}
-.kpi{background:var(--card);border:1px solid var(--bord);border-radius:12px;
-  padding:1rem;position:relative;overflow:hidden;}
-.kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--grad);}
-.kpi-l{font-size:.61rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:var(--mut2);margin-bottom:.3rem;}
+/* KPIS */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.9rem;margin-bottom:1.4rem;}
+.kpi{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1rem;position:relative;overflow:hidden;}
+.kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--grad);}
+.kpi-l{font-size:.61rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mut2);margin-bottom:.3rem;}
 .kpi-v{font-family:'Montserrat';font-size:1.55rem;font-weight:800;}
 .kpi-s{font-size:.68rem;color:var(--mut2);margin-top:.1rem;}
 
-/* ── PANELS ── */
+/* PANELS */
 .panel{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.1rem;}
 .panel-t{font-family:'Montserrat';font-size:.65rem;font-weight:700;letter-spacing:1.5px;
-  text-transform:uppercase;color:var(--mut2);
-  border-bottom:1px solid var(--bord);padding-bottom:.6rem;margin-bottom:.85rem;}
+  text-transform:uppercase;color:var(--mut2);border-bottom:1px solid var(--bord);padding-bottom:.6rem;margin-bottom:.85rem;}
 .dgrid{display:grid;grid-template-columns:2fr 1fr;gap:1rem;}
 
-/* ── WALLET CARD ── */
-.wal-card{background:linear-gradient(135deg,#0f2040,#1a3060);
-  border:1px solid rgba(59,130,246,.2);border-radius:14px;
-  padding:1.6rem;margin-bottom:1.1rem;position:relative;overflow:hidden;}
-.wal-card::before{content:'';position:absolute;top:-40px;right:-40px;
-  width:140px;height:140px;border-radius:50%;
-  background:rgba(59,130,246,.07);}
-.wal-lbl{font-size:.63rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--mut2);margin-bottom:.3rem;font-weight:600;}
-.wal-amt{font-family:'Montserrat';font-size:2.1rem;font-weight:900;
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+/* WALLET */
+.wal-card{background:linear-gradient(135deg,#0f2040,#1a3060);border:1px solid rgba(59,130,246,.2);
+  border-radius:14px;padding:1.6rem;margin-bottom:1.1rem;position:relative;overflow:hidden;}
+.wal-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:rgba(59,130,246,.07);}
+.wal-lbl{font-size:.63rem;letter-spacing:2px;text-transform:uppercase;color:var(--mut2);margin-bottom:.3rem;font-weight:600;}
+.wal-amt{font-family:'Montserrat';font-size:2.1rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .wal-sub{color:var(--mut2);font-size:.74rem;margin-top:.15rem;}
 .wal-actions{display:flex;gap:.65rem;margin-top:1.1rem;}
-.wal-btn{flex:1;padding:.58rem;border-radius:8px;font-family:'Montserrat';
-  font-weight:700;font-size:.76rem;cursor:pointer;transition:all .2s;border:none;}
+.wal-btn{flex:1;padding:.58rem;border-radius:8px;font-family:'Montserrat';font-weight:700;font-size:.76rem;cursor:pointer;transition:all .2s;border:none;}
 .wal-btn.p{background:var(--grad);color:#fff;}
 .wal-btn.s{background:rgba(255,255,255,.06);color:var(--txt);border:1px solid var(--bord);}
-.wal-btn.s:hover{background:rgba(255,255,255,.1);}
 
-/* ── CTL BALANCE CARD ── */
-.ctl-bal{background:linear-gradient(135deg,#0f2818,#1a3d25);
-  border:1px solid rgba(34,197,94,.2);border-radius:14px;
-  padding:1.3rem;margin-bottom:1.1rem;}
-.ctl-bal-lbl{font-size:.61rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--mut2);margin-bottom:.28rem;font-weight:600;}
-.ctl-bal-amt{font-family:'Montserrat';font-size:1.7rem;font-weight:800;color:var(--green);}
-.ctl-bal-sub{color:var(--mut2);font-size:.72rem;margin-top:.12rem;}
-
-/* ── TRANSACTIONS ── */
-.tx-row{display:flex;justify-content:space-between;align-items:center;
-  padding:.62rem 0;border-bottom:1px solid var(--bord);font-size:.82rem;}
+/* TRANSACTIONS */
+.tx-row{display:flex;justify-content:space-between;align-items:center;padding:.62rem 0;border-bottom:1px solid var(--bord);}
 .tx-row:last-child{border-bottom:none;}
 .tx-l{display:flex;align-items:center;gap:.5rem;}
-.tx-ico{width:28px;height:28px;border-radius:7px;
-  display:flex;align-items:center;justify-content:center;font-size:.8rem;}
+.tx-ico{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.8rem;}
 .tx-desc{font-weight:500;font-size:.81rem;}
 .tx-date{font-size:.68rem;color:var(--mut2);}
 .tx-a{font-family:'Montserrat';font-weight:700;}
 .tx-a.pos{color:var(--green);}
 .tx-a.neg{color:var(--primary2);}
 
-/* ── ADMIN ── */
+/* ADMIN */
 .asec{display:none;}.asec.on{display:block;}
-.tbl-wrap{background:var(--card);border:1px solid var(--bord);
-  border-radius:12px;overflow:hidden;overflow-x:auto;}
+.tbl-wrap{background:var(--card);border:1px solid var(--bord);border-radius:12px;overflow:hidden;overflow-x:auto;}
 .tbl{width:100%;border-collapse:collapse;font-size:.8rem;min-width:520px;}
-.tbl th{text-align:left;padding:.6rem .85rem;background:rgba(255,255,255,.03);
-  color:var(--mut2);font-size:.59rem;letter-spacing:1.5px;
-  text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--bord);}
+.tbl th{text-align:left;padding:.6rem .85rem;background:rgba(255,255,255,.03);color:var(--mut2);font-size:.59rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--bord);}
 .tbl td{padding:.72rem .85rem;border-bottom:1px solid var(--bord);vertical-align:middle;}
 .tbl tr:last-child td{border-bottom:none;}
 .tbl tr:hover td{background:rgba(255,255,255,.02);}
@@ -255,132 +213,94 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .t-r{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.18);}
 .t-b{background:rgba(59,130,246,.1);color:var(--primary2);border:1px solid rgba(59,130,246,.2);}
 .t-gr{background:rgba(255,255,255,.05);color:var(--mut2);border:1px solid var(--bord);}
-.akpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
-  gap:.9rem;margin-bottom:1.3rem;}
+.akpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:.9rem;margin-bottom:1.3rem;}
 .ak{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:.95rem;}
-.ak-l{color:var(--mut2);font-size:.59rem;letter-spacing:2px;
-  text-transform:uppercase;margin-bottom:.28rem;font-weight:700;}
+.ak-l{color:var(--mut2);font-size:.59rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.28rem;font-weight:700;}
 .ak-v{font-family:'Montserrat';font-size:1.5rem;font-weight:800;}
 .abs{display:flex;gap:.28rem;flex-wrap:wrap;}
 
-/* ── CHECKOUT ── */
+/* CHECKOUT */
 .co-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem;padding-top:calc(60px + 1.8rem);}
 .co-grid{display:grid;grid-template-columns:1fr 270px;gap:1.3rem;}
-.co-title{font-family:'Montserrat';font-size:1.3rem;font-weight:800;
-  margin-bottom:1.3rem;grid-column:1/-1;}
-.csum{background:var(--card);border:1px solid var(--bord);border-radius:12px;
-  padding:1.2rem;height:fit-content;position:sticky;top:74px;}
-.csum-t{font-size:.64rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--mut2);margin-bottom:.85rem;}
-.csum-row{display:flex;justify-content:space-between;padding:.35rem 0;
-  font-size:.82rem;color:var(--mut2);}
-.csum-tot{display:flex;justify-content:space-between;border-top:1px solid var(--bord);
-  margin-top:.45rem;padding-top:.7rem;font-family:'Montserrat';font-weight:800;font-size:.94rem;}
-.wbb{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(34,197,94,.03));
-  border:1px solid rgba(34,197,94,.16);border-radius:10px;padding:.85rem;margin-bottom:.9rem;}
-.wbb-l{font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:var(--mut2);margin-bottom:.15rem;}
+.co-title{font-family:'Montserrat';font-size:1.3rem;font-weight:800;margin-bottom:1.3rem;grid-column:1/-1;}
+.csum{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.2rem;height:fit-content;position:sticky;top:74px;}
+.csum-t{font-size:.64rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut2);margin-bottom:.85rem;}
+.csum-row{display:flex;justify-content:space-between;padding:.35rem 0;font-size:.82rem;color:var(--mut2);}
+.csum-tot{display:flex;justify-content:space-between;border-top:1px solid var(--bord);margin-top:.45rem;padding-top:.7rem;font-family:'Montserrat';font-weight:800;font-size:.94rem;}
+.wbb{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(34,197,94,.03));border:1px solid rgba(34,197,94,.16);border-radius:10px;padding:.85rem;margin-bottom:.9rem;}
+.wbb-l{font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mut2);margin-bottom:.15rem;}
 .wbb-v{font-family:'Montserrat';font-size:1.15rem;font-weight:800;color:var(--green);}
 
-/* ── DELIVERED ── */
-.deliv-wrap{max-width:520px;margin:0 auto;
-  padding:4rem 1.5rem;padding-top:calc(60px + 3rem);text-align:center;}
-.deliv-icon{font-size:3.5rem;margin-bottom:.85rem;
-  animation:pop .5s cubic-bezier(.34,1.56,.64,1) both;}
+/* DELIVERED */
+.deliv-wrap{max-width:520px;margin:0 auto;padding:4rem 1.5rem;padding-top:calc(60px + 3rem);text-align:center;}
+.deliv-icon{font-size:3.5rem;margin-bottom:.85rem;animation:pop .5s cubic-bezier(.34,1.56,.64,1) both;}
 @keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
-.deliv-t{font-family:'Montserrat';font-size:1.6rem;font-weight:900;
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  margin-bottom:.3rem;}
-.cred-box{background:var(--card);border:1px solid var(--bord);
-  border-radius:12px;padding:1.2rem;text-align:left;margin-bottom:1rem;}
-.cred-bt{font-size:.6rem;font-weight:700;letter-spacing:2px;
-  text-transform:uppercase;color:var(--mut2);margin-bottom:.8rem;}
-.cred-row{display:flex;justify-content:space-between;align-items:center;
-  padding:.5rem 0;border-bottom:1px solid var(--bord);}
+.deliv-t{font-family:'Montserrat';font-size:1.6rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.3rem;}
+.cred-box{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.2rem;text-align:left;margin-bottom:1rem;}
+.cred-bt{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mut2);margin-bottom:.8rem;}
+.cred-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--bord);}
 .cred-row:last-child{border-bottom:none;}
 .cred-k{color:var(--mut2);font-size:.78rem;}
-.cred-v{font-family:monospace;font-size:.78rem;color:var(--primary2);
-  word-break:break-all;max-width:62%;}
-.copy-btn{background:rgba(255,255,255,.05);border:1px solid var(--bord);
-  color:var(--mut2);padding:.14rem .45rem;border-radius:5px;font-size:.62rem;
-  cursor:pointer;transition:all .15s;}
+.cred-v{font-family:monospace;font-size:.78rem;color:var(--primary2);word-break:break-all;max-width:62%;}
+.copy-btn{background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--mut2);padding:.14rem .45rem;border-radius:5px;font-size:.62rem;cursor:pointer;transition:all .15s;}
 .copy-btn:hover{color:var(--txt);border-color:var(--primary);}
 
-/* ── MODALS ── */
-.mo{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;
-  align-items:center;justify-content:center;z-index:9999;
-  opacity:0;pointer-events:none;transition:opacity .22s;backdrop-filter:blur(4px);}
+/* MODALS */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;
+  justify-content:center;z-index:9999;opacity:0;pointer-events:none;transition:opacity .22s;backdrop-filter:blur(4px);}
 .mo.open{opacity:1;pointer-events:all;}
-.mo-box{background:var(--card);border:1px solid var(--bord);border-radius:16px;
-  padding:1.9rem;max-width:380px;width:92%;text-align:center;
-  transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
+.mo-box{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:1.9rem;
+  max-width:380px;width:92%;text-align:center;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
 .mo.open .mo-box{transform:scale(1);}
 .mo-icon{font-size:2.3rem;margin-bottom:.7rem;}
 .mo-box h2{font-family:'Montserrat';font-size:1.2rem;font-weight:800;margin-bottom:.35rem;}
 .mo-box p{color:var(--mut2);font-size:.82rem;line-height:1.6;margin-bottom:1.1rem;}
-.mo-box2{background:var(--card);border:1px solid var(--bord);border-radius:16px;
-  padding:1.5rem;max-width:340px;width:92%;
-  transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
+.mo-box2{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:1.5rem;
+  max-width:340px;width:92%;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
 .mo.open .mo-box2{transform:scale(1);}
 .mo-box2 h3{font-family:'Montserrat';font-size:1rem;font-weight:800;margin-bottom:.35rem;}
-.dep-mo{background:var(--card);border:1px solid var(--bord);border-radius:16px;
-  padding:1.8rem;max-width:340px;width:92%;
-  transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
+.mo-wide{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:1.8rem;
+  max-width:480px;width:93%;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);max-height:90vh;overflow-y:auto;}
+.mo.open .mo-wide{transform:scale(1);}
+.mo-wide h3{font-family:'Montserrat';font-size:1.05rem;font-weight:800;margin-bottom:.85rem;}
+.dep-mo{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:1.8rem;
+  max-width:340px;width:92%;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
 .mo.open .dep-mo{transform:scale(1);}
 .dep-mo h3{font-family:'Montserrat';font-size:1.1rem;font-weight:800;margin-bottom:.25rem;}
 .mo-btns{display:flex;gap:.5rem;justify-content:flex-end;margin-top:.85rem;}
 
-/* ── TOAST ── */
-#toast{position:fixed;bottom:1.6rem;right:1.6rem;background:var(--card);
-  border:1px solid var(--bord);border-radius:10px;padding:.7rem 1.1rem;
-  color:var(--txt);font-weight:600;z-index:99999;
-  transform:translateY(100px);opacity:0;transition:all .3s;
-  max-width:260px;font-size:.8rem;box-shadow:0 8px 32px rgba(0,0,0,.6);}
+/* TOAST */
+#toast{position:fixed;bottom:1.6rem;right:1.6rem;background:var(--card);border:1px solid var(--bord);
+  border-radius:10px;padding:.7rem 1.1rem;color:var(--txt);font-weight:600;z-index:99999;
+  transform:translateY(100px);opacity:0;transition:all .3s;max-width:260px;font-size:.8rem;box-shadow:0 8px 32px rgba(0,0,0,.6);}
 
-/* ── BACK FAB ── */
-.back-fab{position:fixed;bottom:1.3rem;left:1.3rem;z-index:8000;
-  background:var(--card);border:1px solid var(--bord);color:var(--mut2);
-  padding:.45rem .9rem;border-radius:50px;font-family:'Inter';
-  font-weight:600;font-size:.74rem;cursor:pointer;transition:all .2s;
+/* BACK FAB */
+.back-fab{position:fixed;bottom:1.3rem;left:1.3rem;z-index:8000;background:var(--card);
+  border:1px solid var(--bord);color:var(--mut2);padding:.45rem .9rem;border-radius:50px;
+  font-family:'Inter';font-weight:600;font-size:.74rem;cursor:pointer;transition:all .2s;
   display:none;box-shadow:0 4px 16px rgba(0,0,0,.5);}
 .back-fab:hover{color:var(--primary2);border-color:rgba(59,130,246,.35);}
 
-/* ── MOBILE NAV ── */
-.mobnav{display:none;position:fixed;bottom:0;left:0;right:0;
-  background:var(--bg2);border-top:1px solid var(--bord);
-  z-index:9000;padding:.45rem 0 .3rem;}
-.mob-btn{display:flex;flex-direction:column;align-items:center;gap:.1rem;
-  cursor:pointer;color:var(--mut2);font-size:.52rem;letter-spacing:.4px;
-  text-transform:uppercase;font-weight:700;padding:.2rem .35rem;
-  border-radius:6px;transition:all .18s;min-width:46px;}
+/* MOBILE NAV */
+.mobnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg2);
+  border-top:1px solid var(--bord);z-index:9000;padding:.4rem 0 .25rem;}
+.mob-btn{display:flex;flex-direction:column;align-items:center;gap:.15rem;cursor:pointer;
+  color:var(--mut2);font-size:.5rem;letter-spacing:.5px;text-transform:uppercase;
+  font-weight:700;padding:.18rem .3rem;border-radius:6px;transition:color .18s;min-width:44px;}
 .mob-btn:hover,.mob-btn.on{color:var(--primary2);}
-.mob-btn span{font-size:1rem;}
+.mob-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
-/* ── STORE LOADING ── */
-.ctl-loading{display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:3rem;gap:.75rem;color:var(--mut2);}
-.spin{width:32px;height:32px;border:3px solid var(--bord);
-  border-top-color:var(--primary);border-radius:50%;
-  animation:spin .8s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ── CTA BOX ── */
-.cta-box{background:linear-gradient(135deg,#0f1f3d,#1a2f5a);
-  border:1px solid rgba(59,130,246,.15);border-radius:20px;
-  padding:3.2rem 2rem;text-align:center;margin:0 1.5rem 3.5rem;position:relative;overflow:hidden;}
-.cta-box::before{content:'◈';position:absolute;font-size:12rem;opacity:.03;
-  right:-1rem;top:-3rem;color:var(--primary);line-height:1;}
-.cta-box h2{font-family:'Montserrat';font-size:clamp(1.4rem,3vw,2.2rem);
-  font-weight:900;margin-bottom:.6rem;}
+/* CTA */
+.cta-box{background:linear-gradient(135deg,#0f1f3d,#1a2f5a);border:1px solid rgba(59,130,246,.15);
+  border-radius:20px;padding:3.2rem 2rem;text-align:center;margin:0 1.5rem 3.5rem;position:relative;overflow:hidden;}
+.cta-box h2{font-family:'Montserrat';font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;margin-bottom:.6rem;}
 .cta-box p{color:var(--mut2);margin-bottom:1.8rem;font-size:.88rem;}
 
-/* ── FOOTER ── */
-footer{background:var(--bg2);border-top:1px solid var(--bord);
-  padding:2rem 1.5rem;text-align:center;}
-.foot-logo{font-family:'Montserrat';font-size:1.05rem;font-weight:800;
-  display:flex;align-items:center;gap:.35rem;justify-content:center;margin-bottom:.35rem;}
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5rem;text-align:center;}
+.foot-logo{font-family:'Montserrat';font-size:1.05rem;font-weight:800;display:flex;align-items:center;gap:.35rem;justify-content:center;margin-bottom:.35rem;}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:860px){
   .dash-sb{display:none!important;}
   .dash-main{margin-left:0!important;padding-bottom:75px;}
@@ -388,24 +308,16 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
   .dgrid{grid-template-columns:1fr;}
   .mobnav{display:flex;justify-content:space-around;}
 }
-@media(max-width:600px){
-  .hero-stats{grid-template-columns:1fr 1fr 1fr;}
-  .prod-grid{grid-template-columns:1fr;}
-  .how-grid{grid-template-columns:1fr 1fr;}
-  .hide{display:none;}
-}
+@media(max-width:600px){.hide{display:none;}.how-grid{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="main-nav">
-  <div class="logo" onclick="go('home')">
-    <div class="logo-dot"></div> Logify Hub
-  </div>
+  <div class="logo" onclick="go('home')"><div class="logo-dot"></div> Logify Hub</div>
   <div class="nav-links">
     <a class="hide" onclick="go('store')">Store</a>
-    <a class="hide" onclick="go('store')">Products</a>
     <a id="navDash" style="display:none" onclick="go('dashboard')">Dashboard</a>
     <a id="navLogin" onclick="go('login')">Login</a>
     <button class="btn btn-primary btn-sm" id="navSignup" onclick="go('register')">Sign Up</button>
@@ -421,20 +333,19 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
     <div class="hero-inner">
       <div class="hero-badge">⚡ Instant Digital Delivery</div>
       <h1 class="hero-h1">Buy Digital Products<br><span>Delivered Instantly</span></h1>
-      <p class="hero-sub">Social media accounts, followers, engagement and more. Pay with your wallet or card. Get credentials in seconds.</p>
+      <p class="hero-sub">Social media accounts, followers, email accounts and more. Pay with your wallet. Get credentials in seconds.</p>
       <div class="hero-cta">
         <button class="btn btn-primary btn-lg" onclick="go('store')">Browse Store →</button>
         <button class="btn btn-outline btn-lg" onclick="go('register')">Create Account</button>
       </div>
       <div class="hero-stats">
-        <div class="hst"><div class="hst-v">500+</div><div class="hst-l">Products</div></div>
+        <div class="hst"><div class="hst-v">20+</div><div class="hst-l">Products</div></div>
         <div class="hst"><div class="hst-v">24/7</div><div class="hst-l">Delivery</div></div>
-        <div class="hst"><div class="hst-v">100%</div><div class="hst-l">Automated</div></div>
+        <div class="hst"><div class="hst-v">100%</div><div class="hst-l">Verified</div></div>
       </div>
     </div>
   </div>
 
-  <!-- HOW IT WORKS -->
   <div style="background:var(--bg2);border-top:1px solid var(--bord);border-bottom:1px solid var(--bord);padding:3.5rem 0;">
     <div class="sec" style="padding-top:0;padding-bottom:0">
       <div style="text-align:center;margin-bottom:1.8rem">
@@ -443,24 +354,22 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
         <p class="sec-sub">Get your digital products in 3 simple steps</p>
       </div>
       <div class="how-grid">
-        <div class="how-card"><div class="how-n">01</div><div class="how-icon">🔍</div><div class="how-t">Browse Products</div><div class="how-d">Explore hundreds of digital products — social accounts, followers, engagement and more</div></div>
-        <div class="how-card"><div class="how-n">02</div><div class="how-icon">💳</div><div class="how-t">Fund & Pay</div><div class="how-d">Deposit to your wallet via Paystack, then buy instantly with one click</div></div>
-        <div class="how-card"><div class="how-n">03</div><div class="how-icon">⚡</div><div class="how-t">Instant Delivery</div><div class="how-d">Credentials delivered to your dashboard immediately after payment</div></div>
-        <div class="how-card"><div class="how-n">04</div><div class="how-icon">📊</div><div class="how-t">Track Orders</div><div class="how-d">View all your orders, credentials, and transaction history anytime</div></div>
+        <div class="how-card"><div class="how-n">01</div><div class="how-icon">🔍</div><div class="how-t">Browse Products</div><div class="how-d">Explore social accounts, followers, email accounts and more</div></div>
+        <div class="how-card"><div class="how-n">02</div><div class="how-icon">💳</div><div class="how-t">Fund Wallet</div><div class="how-d">Deposit via Paystack then buy instantly with one click</div></div>
+        <div class="how-card"><div class="how-n">03</div><div class="how-icon">⚡</div><div class="how-t">Instant Delivery</div><div class="how-d">Credentials delivered to your dashboard immediately</div></div>
+        <div class="how-card"><div class="how-n">04</div><div class="how-icon">📊</div><div class="how-t">Track Orders</div><div class="how-d">View all orders and credentials anytime from your dashboard</div></div>
       </div>
     </div>
   </div>
 
-  <!-- FEATURED PRODUCTS (static preview) -->
+  <!-- FEATURED -->
   <div class="sec">
     <div style="text-align:center;margin-bottom:1.8rem">
       <div class="sec-badge">Featured</div>
       <h2 class="sec-h2">Popular Products</h2>
-      <p class="sec-sub">Powered by Classyteelogs — always in stock, always instant</p>
+      <p class="sec-sub">Verified accounts · Instant delivery · Best prices</p>
     </div>
-    <div class="prod-grid" id="homeFeatured">
-      <div class="ctl-loading"><div class="spin"></div><span>Loading products...</span></div>
-    </div>
+    <div id="homeFeatured"></div>
     <div style="text-align:center;margin-top:1.5rem">
       <button class="btn btn-primary btn-lg" onclick="go('store')">View All Products →</button>
     </div>
@@ -476,10 +385,9 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
       </div>
     </div>
   </div>
-
   <footer>
     <div class="foot-logo"><div class="logo-dot"></div> Logify Hub</div>
-    <p style="color:var(--mut2);font-size:.8rem;margin-bottom:.3rem">Instant Digital Products · Powered by Classyteelogs API</p>
+    <p style="color:var(--mut2);font-size:.8rem;margin-bottom:.3rem">Instant Digital Products · Powered by AccsZone</p>
     <p style="color:var(--mut);font-size:.68rem">© 2025 Logify Hub. All rights reserved.</p>
   </footer>
 </div>
@@ -496,22 +404,17 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
     </div>
   </nav>
   <div style="padding-top:60px">
-    <div style="background:var(--bg2);border-bottom:1px solid var(--bord);padding:1.5rem 1.5rem 1rem">
-      <h2 style="font-family:'Montserrat';font-size:1.25rem;font-weight:800;margin-bottom:.2rem">Digital Products Store</h2>
-      <p style="color:var(--mut2);font-size:.82rem;margin-bottom:.9rem">Instant delivery · Powered by Classyteelogs</p>
-      <div class="cat-tabs" id="catTabs">
-        <div class="cat-tab on" onclick="filterCat('all',this)">All</div>
+    <div class="store-topbar">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+        <div>
+          <h2 style="font-family:'Montserrat';font-size:1.2rem;font-weight:800;margin-bottom:.15rem">Digital Products Store</h2>
+          <p style="color:var(--mut2);font-size:.78rem">Instant delivery · Verified accounts</p>
+        </div>
+        <input id="searchInp" style="background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--txt);padding:.4rem .78rem;border-radius:8px;font-family:'Inter';font-size:.8rem;outline:none;width:190px" placeholder="🔍 Search..." oninput="searchProds(this.value)">
       </div>
+      <div class="cat-filter-tabs" id="catTabs"></div>
     </div>
-    <div style="max-width:1100px;margin:0 auto;padding:1.5rem">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem">
-        <span id="prodCount" style="color:var(--mut2);font-size:.8rem"></span>
-        <input id="searchInp" style="background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--txt);padding:.4rem .78rem;border-radius:8px;font-family:'Inter';font-size:.82rem;outline:none;width:200px" placeholder="🔍 Search products..." oninput="searchProds(this.value)">
-      </div>
-      <div class="prod-grid" id="storeGrid">
-        <div class="ctl-loading"><div class="spin"></div><span>Fetching products from Classyteelogs...</span></div>
-      </div>
-    </div>
+    <div class="store-wrap" id="storeWrap"></div>
   </div>
 </div>
 
@@ -524,18 +427,13 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
       <h2>Login</h2>
       <div class="fg"><label>Email</label><input type="email" id="le" placeholder="you@example.com"></div>
       <div class="fg"><label>Password</label>
-        <div class="pw-wrap">
-          <input type="password" id="lp" placeholder="Password">
-          <button class="pw-eye" onclick="epw('lp',this)">👁</button>
-        </div>
+        <div class="pw-wrap"><input type="password" id="lp" placeholder="Password"><button class="pw-eye" onclick="epw('lp',this)">👁</button></div>
       </div>
       <button class="btn btn-primary btn-full" id="loginBtn" onclick="doLogin()" style="margin-bottom:.6rem">Login</button>
       <div class="divid">or</div>
       <button class="btn btn-ghost btn-full" onclick="go('register')">Create Account</button>
       <div class="auth-sw">No account? <a onclick="go('register')">Sign up free</a></div>
-      <div style="text-align:center;margin-top:.5rem">
-        <a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a>
-      </div>
+      <div style="text-align:center;margin-top:.5rem"><a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a></div>
     </div>
   </div>
 </div>
@@ -554,20 +452,16 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
       <div class="fg"><label>Email</label><input type="email" id="re" placeholder="you@example.com"></div>
       <div class="fg"><label>Phone</label><input type="tel" id="rph" placeholder="+234 800 000 0000"></div>
       <div class="fg"><label>Password</label>
-        <div class="pw-wrap">
-          <input type="password" id="rp" placeholder="Min 6 characters">
-          <button class="pw-eye" onclick="epw('rp',this)">👁</button>
-        </div>
+        <div class="pw-wrap"><input type="password" id="rp" placeholder="Min 6 characters"><button class="pw-eye" onclick="epw('rp',this)">👁</button></div>
       </div>
       <div class="fg"><label>Confirm Password</label><input type="password" id="rp2" placeholder="Repeat password"></div>
       <button class="btn btn-primary btn-full" id="regBtn" onclick="doRegister()" style="margin-top:.25rem">Create Account →</button>
       <div class="auth-sw">Already have an account? <a onclick="go('login')">Login</a></div>
-      <div style="text-align:center;margin-top:.4rem">
-        <a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a>
-      </div>
+      <div style="text-align:center;margin-top:.4rem"><a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a></div>
     </div>
   </div>
 </div>
+
 <!-- ===== DASHBOARD ===== -->
 <div id="dashboard" class="page">
   <nav style="z-index:1000">
@@ -590,8 +484,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
       <div class="sb-i" onclick="dsh('dprofile',this)"><span class="ic">👤</span> Profile</div>
     </div>
     <div class="dash-main">
-
-      <!-- HOME TAB -->
       <div id="dhome">
         <div class="dash-hd">
           <div><h1>Dashboard</h1><p id="ddate">Welcome back</p></div>
@@ -618,20 +510,10 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
           </div>
         </div>
       </div>
-
-      <!-- ORDERS TAB -->
       <div id="dorders" style="display:none">
-        <div class="dash-hd">
-          <div><h1>My Orders</h1><p>All your purchases</p></div>
-          <button class="btn btn-primary btn-sm" onclick="go('store')">+ New Order</button>
-        </div>
-        <div class="panel">
-          <div class="panel-t">Order History</div>
-          <div id="ordersList"><p style="color:var(--mut2);font-size:.83rem">No orders yet.</p></div>
-        </div>
+        <div class="dash-hd"><div><h1>My Orders</h1><p>All your purchases</p></div><button class="btn btn-primary btn-sm" onclick="go('store')">+ New Order</button></div>
+        <div class="panel"><div class="panel-t">Order History</div><div id="ordersList"><p style="color:var(--mut2);font-size:.83rem">No orders yet.</p></div></div>
       </div>
-
-      <!-- WALLET TAB -->
       <div id="dwallet" style="display:none">
         <div class="dash-hd"><div><h1>Wallet</h1><p>Manage your funds</p></div></div>
         <div class="wal-card">
@@ -643,13 +525,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
             <button class="wal-btn s" onclick="go('store')">Browse Store</button>
           </div>
         </div>
-        <div class="panel">
-          <div class="panel-t">Transaction History</div>
-          <div id="wtxlog"><p style="color:var(--mut2);font-size:.83rem">No transactions yet.</p></div>
-        </div>
+        <div class="panel"><div class="panel-t">Transaction History</div><div id="wtxlog"><p style="color:var(--mut2);font-size:.83rem">No transactions yet.</p></div></div>
       </div>
-
-      <!-- PROFILE TAB -->
       <div id="dprofile" style="display:none">
         <div class="dash-hd"><div><h1>Profile</h1></div></div>
         <div class="panel" style="max-width:420px">
@@ -657,21 +534,28 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
           <div class="fg"><label>Full Name</label><input type="text" id="pname" readonly style="background:rgba(255,255,255,.03)"></div>
           <div class="fg"><label>Email</label><input type="email" id="pemail" readonly style="background:rgba(255,255,255,.03)"></div>
           <div class="fg"><label>Phone</label><input type="tel" id="pphone" readonly style="background:rgba(255,255,255,.03)"></div>
-          <div style="margin-top:.5rem">
-            <div class="fg"><label>New Password</label><input type="password" id="newpw" placeholder="Leave blank to keep current"></div>
-            <button class="btn btn-ghost" onclick="updateProfile()">Save Changes</button>
-          </div>
+          <div class="fg" style="margin-top:.5rem"><label>New Password</label><input type="password" id="newpw" placeholder="Leave blank to keep current"></div>
+          <button class="btn btn-ghost" onclick="updateProfile()">Save Changes</button>
         </div>
       </div>
-
     </div>
   </div>
   <div class="mobnav">
-    <div class="mob-btn on" onclick="dsh('dhome',this);mobOn(this)"><span>📊</span>Home</div>
-    <div class="mob-btn" onclick="dsh('dorders',this);mobOn(this)"><span>📦</span>Orders</div>
-    <div class="mob-btn" onclick="dsh('dwallet',this);mobOn(this)"><span>💰</span>Wallet</div>
-    <div class="mob-btn" onclick="go('store')"><span>🛒</span>Store</div>
-    <div class="mob-btn" onclick="dsh('dprofile',this);mobOn(this)"><span>👤</span>Profile</div>
+    <div class="mob-btn on" id="mn0" onclick="dsh('dhome',null);mobOn(0)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Home
+    </div>
+    <div class="mob-btn" id="mn1" onclick="dsh('dorders',null);mobOn(1)">
+      <svg viewBox="0 0 24 24"><path d="M20 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>Orders
+    </div>
+    <div class="mob-btn" id="mn2" onclick="dsh('dwallet',null);mobOn(2)">
+      <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 13a1 1 0 100-2 1 1 0 000 2z" fill="currentColor" stroke="none"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Wallet
+    </div>
+    <div class="mob-btn" id="mn3" onclick="go('store')">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Store
+    </div>
+    <div class="mob-btn" id="mn4" onclick="dsh('dprofile',null);mobOn(4)">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile
+    </div>
   </div>
 </div>
 
@@ -688,35 +572,24 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
           <div class="fg"><label>Phone</label><input type="tel" id="cph" placeholder="+234 800 000 0000"></div>
           <div class="fg"><label>Quantity</label>
             <select id="cq" onchange="uqty()">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
+              <option value="1">1</option><option value="2">2</option>
+              <option value="3">3</option><option value="5">5</option><option value="10">10</option>
             </select>
           </div>
         </div>
-
-        <!-- WALLET BUY BAR -->
         <div class="wbb" id="walletBuyBar" style="display:none">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.55rem">
-            <div>
-              <div class="wbb-l">Wallet Balance</div>
-              <div class="wbb-v" id="wbalChk">₦0</div>
-            </div>
+            <div><div class="wbb-l">Wallet Balance</div><div class="wbb-v" id="wbalChk">₦0</div></div>
             <button class="btn btn-green" onclick="buyWithWallet()">⚡ Buy Instantly</button>
           </div>
-          <div style="color:var(--mut2);font-size:.7rem;margin-top:.35rem">Deducted from wallet — credentials delivered immediately via CTL API</div>
+          <div style="color:var(--mut2);font-size:.7rem;margin-top:.35rem">Instantly deducted — credentials delivered via AccsZone</div>
         </div>
-
         <div class="panel">
           <div class="panel-t">Payment Method</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.9rem">
             <button id="payCardBtn" onclick="setPay('card')" style="padding:.58rem;border-radius:8px;border:1.5px solid var(--primary);background:rgba(59,130,246,.08);color:var(--primary2);font-family:'Montserrat';font-weight:700;font-size:.76rem;cursor:pointer">💳 Paystack</button>
             <button id="payCryptoBtn" onclick="setPay('crypto')" style="padding:.58rem;border-radius:8px;border:1px solid var(--bord);background:rgba(255,255,255,.04);color:var(--txt);font-family:'Montserrat';font-weight:700;font-size:.76rem;cursor:pointer;transition:all .2s">₿ Bitcoin</button>
           </div>
-
-          <!-- CARD BOX -->
           <div id="cardBox">
             <div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:9px;padding:.9rem;margin-bottom:.85rem">
               <div style="font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut2);margin-bottom:.65rem">OPay Transfer</div>
@@ -726,20 +599,15 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
               <div style="display:flex;justify-content:space-between;padding:.28rem 0;font-size:.81rem"><span style="color:var(--mut2)">Amount</span><span style="font-weight:700;color:var(--gold)" id="camount">—</span></div>
             </div>
           </div>
-
-          <!-- CRYPTO BOX -->
           <div id="cryptoBox" style="display:none">
             <div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:9px;padding:.9rem;margin-bottom:.85rem">
               <div style="font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut2);margin-bottom:.45rem">Bitcoin Payment</div>
               <div style="font-size:.8rem;color:var(--mut2);margin-bottom:.35rem"><span id="btcAmt" style="color:var(--gold);font-weight:700">—</span></div>
-              <div style="font-size:.63rem;font-weight:700;letter-spacing:1px;color:var(--mut2);margin:.55rem 0 .22rem">Bitcoin Address</div>
               <div style="background:rgba(0,0,0,.3);border:1px solid var(--bord);border-radius:8px;padding:.58rem .85rem;font-family:monospace;font-size:.71rem;color:var(--primary2);word-break:break-all;margin-bottom:.5rem">bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma</div>
-              <button class="btn btn-ghost btn-sm" style="width:100%;border-radius:7px;margin-bottom:.6rem" onclick="copyBTC()">📋 Copy Address</button>
+              <button class="btn btn-ghost btn-sm" style="width:100%;margin-bottom:.6rem" onclick="copyBTC()">📋 Copy Address</button>
               <div style="text-align:center;font-size:.76rem;color:var(--mut2)">Expires in <span id="countdown" style="color:var(--red);font-weight:700">15:00</span></div>
             </div>
           </div>
-
-          <!-- RECEIPT UPLOAD -->
           <div style="border:2px dashed rgba(255,255,255,.09);border-radius:9px;padding:1.1rem;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:.7rem"
             onclick="document.getElementById('rfile').click()"
             onmouseover="this.style.borderColor='rgba(59,130,246,.35)'"
@@ -751,30 +619,22 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
           </div>
           <img id="cprev" alt="Receipt" style="display:none;max-width:100%;max-height:120px;border-radius:7px;border:1px solid var(--bord);margin-bottom:.7rem">
           <button class="btn btn-primary btn-full" style="border-radius:9px;padding:.78rem;margin-bottom:.35rem" onclick="submitOrder()">I Have Sent Payment</button>
-          <div style="text-align:center;font-size:.68rem;color:var(--mut2)">🔒 Secured · Admin verifies and releases credentials</div>
-          <div style="text-align:center;margin-top:.55rem">
-            <a style="color:var(--mut2);font-size:.7rem;cursor:pointer" onclick="go('store')">← Back to Store</a>
-          </div>
+          <div style="text-align:center;font-size:.68rem;color:var(--mut2)">🔒 Admin verifies and releases credentials</div>
+          <div style="text-align:center;margin-top:.55rem"><a style="color:var(--mut2);font-size:.7rem;cursor:pointer" onclick="go('store')">← Back to Store</a></div>
         </div>
       </div>
-
-      <!-- ORDER SUMMARY -->
       <div class="csum">
         <div class="csum-t">Order Summary</div>
         <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;padding-bottom:.85rem;border-bottom:1px solid var(--bord)">
-          <div style="width:32px;height:32px;background:var(--grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem">🛒</div>
+          <div style="width:32px;height:32px;background:var(--grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem" id="csumIcon">🛒</div>
           <div style="font-weight:700;font-size:.85rem;line-height:1.3" id="cpname">—</div>
         </div>
         <div class="csum-row"><span>Quantity</span><span id="cqd">1</span></div>
         <div class="csum-row"><span>Unit Price</span><span id="cup">—</span></div>
         <div class="csum-tot"><span>Total</span><span id="ctot" style="color:var(--gold)">—</span></div>
         <div style="margin-top:.85rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.14);border-radius:8px;padding:.65rem">
-          <div style="color:var(--green);font-weight:700;font-size:.76rem;margin-bottom:.15rem">⚡ Wallet = Instant via CTL</div>
-          <div style="color:var(--mut2);font-size:.7rem">Fund wallet → buy → get credentials in seconds</div>
-        </div>
-        <div style="margin-top:.55rem;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.14);border-radius:8px;padding:.65rem">
-          <div style="color:var(--primary2);font-weight:700;font-size:.76rem;margin-bottom:.15rem">✓ 100% Authentic</div>
-          <div style="color:var(--mut2);font-size:.7rem">Sourced directly from Classyteelogs inventory</div>
+          <div style="color:var(--green);font-weight:700;font-size:.76rem;margin-bottom:.15rem">⚡ Wallet = Instant</div>
+          <div style="color:var(--mut2);font-size:.7rem">Fund wallet → buy → get credentials instantly</div>
         </div>
       </div>
     </div>
@@ -787,11 +647,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
     <div class="deliv-icon">🎉</div>
     <div class="deliv-t">Order Complete!</div>
     <p style="color:var(--mut2);margin-bottom:1.8rem;font-size:.86rem">Your credentials are ready. Save them now!</p>
-    <div class="cred-box">
-      <div class="cred-bt">🔑 Your Access Credentials</div>
-      <div id="credLines"></div>
-    </div>
-    <div style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.14);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--mut2);margin-bottom:1rem">📧 Saved to your orders dashboard.</div>
+    <div class="cred-box"><div class="cred-bt">🔑 Your Access Credentials</div><div id="credLines"></div></div>
+    <div style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.14);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--mut2);margin-bottom:1rem">📧 Also saved to your orders dashboard.</div>
     <button class="btn btn-primary btn-full btn-lg" style="border-radius:9px" onclick="go('dashboard')">Go to Dashboard →</button>
   </div>
 </div>
@@ -813,34 +670,24 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
       <div class="sb-sec">Manage</div>
       <div class="sb-i" onclick="atab('aord');sOn(this)"><span class="ic">📦</span> Orders</div>
       <div class="sb-i" onclick="atab('ausr');sOn(this)"><span class="ic">👥</span> Users</div>
-      <div class="sb-i" onclick="atab('actlbal');sOn(this)"><span class="ic">🔗</span> CTL Balance</div>
-      <div class="sb-i" onclick="atab('actlprod');sOn(this)"><span class="ic">📋</span> CTL Products</div>
       <div class="sb-div"></div>
       <div class="sb-i" onclick="atab('aset');sOn(this)"><span class="ic">⚙️</span> Settings</div>
       <div class="sb-i" onclick="go('home')"><span class="ic">🌐</span> View Site</div>
     </div>
     <div class="dash-main">
-
-      <!-- OVERVIEW -->
       <div id="aov" class="asec on">
-        <div class="dash-hd">
-          <div><h1>Overview</h1><p>Platform metrics</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="loadStats()">↻ Refresh</button>
-        </div>
+        <div class="dash-hd"><div><h1>Overview</h1><p>Platform metrics</p></div><button class="btn btn-ghost btn-sm" onclick="loadStats()">↻ Refresh</button></div>
         <div class="akpis">
           <div class="ak"><div class="ak-l">Revenue</div><div class="ak-v" style="color:var(--green)" id="arev">₦0</div></div>
           <div class="ak"><div class="ak-l">Users</div><div class="ak-v" id="ausr2">0</div></div>
           <div class="ak"><div class="ak-l">Orders</div><div class="ak-v" id="aord2">0</div></div>
           <div class="ak"><div class="ak-l">Pending</div><div class="ak-v" style="color:var(--gold)" id="apend">0</div></div>
           <div class="ak"><div class="ak-l">Completed</div><div class="ak-v" style="color:var(--green)" id="acomp">0</div></div>
-          <div class="ak"><div class="ak-l">CTL Balance</div><div class="ak-v" style="color:var(--primary2)" id="actlb">—</div></div>
         </div>
         <div class="panel"><div class="panel-t">Recent Orders</div><div id="arec"><p style="color:var(--mut2);font-size:.82rem">No orders yet.</p></div></div>
       </div>
-
-      <!-- ORDERS -->
       <div id="aord" class="asec">
-        <div class="dash-hd"><div><h1>Orders</h1><p>Review, release, or auto-fulfill via CTL</p></div></div>
+        <div class="dash-hd"><div><h1>Orders</h1><p>Review and release credentials</p></div></div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.45rem">
           <div style="display:flex;gap:.35rem;flex-wrap:wrap">
             <button class="btn btn-ghost btn-sm" onclick="faord('all')">All</button>
@@ -857,48 +704,15 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
           </table>
         </div>
       </div>
-
-      <!-- USERS -->
       <div id="ausr" class="asec">
         <div class="dash-hd"><div><h1>Users</h1></div></div>
         <div class="tbl-wrap">
           <table class="tbl">
-            <thead><tr><th>Name</th><th>Email</th><th>Orders</th><th>Wallet</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
-            <tbody id="autbd"><tr><td colspan="7" style="color:var(--mut2);padding:2rem;text-align:center">No users yet.</td></tr></tbody>
+            <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Orders</th><th>Wallet</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="autbd"><tr><td colspan="8" style="color:var(--mut2);padding:2rem;text-align:center">No users yet.</td></tr></tbody>
           </table>
         </div>
       </div>
-
-      <!-- CTL BALANCE -->
-      <div id="actlbal" class="asec">
-        <div class="dash-hd"><div><h1>CTL Wallet Balance</h1><p>Your Classyteelogs account balance</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="loadCTLBalance()">↻ Refresh</button>
-        </div>
-        <div class="ctl-bal">
-          <div class="ctl-bal-lbl">Classyteelogs Balance</div>
-          <div class="ctl-bal-amt" id="ctlBalAmt">Loading...</div>
-          <div class="ctl-bal-sub" id="ctlBalSub">Fetching from CTL API...</div>
-        </div>
-        <div class="panel">
-          <div class="panel-t">Balance Info</div>
-          <p style="color:var(--mut2);font-size:.82rem;line-height:1.6">This is your Classyteelogs wallet balance. When a user buys a product via wallet, Logify automatically calls the CTL API to purchase and deliver credentials. Make sure this balance stays funded to enable auto-delivery.</p>
-        </div>
-      </div>
-
-      <!-- CTL PRODUCTS -->
-      <div id="actlprod" class="asec">
-        <div class="dash-hd"><div><h1>CTL Products</h1><p>Live product list from Classyteelogs</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="loadCTLProducts(true)">↻ Refresh</button>
-        </div>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>ID</th><th>Product Name</th><th>Price (NGN)</th><th>Stock</th><th>Status</th></tr></thead>
-            <tbody id="ctlProdTb"><tr><td colspan="5" style="color:var(--mut2);padding:2rem;text-align:center"><div class="spin" style="margin:0 auto"></div></td></tr></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- SETTINGS -->
       <div id="aset" class="asec">
         <div class="dash-hd"><div><h1>Settings</h1></div></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:780px">
@@ -909,28 +723,47 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
             <button class="btn btn-primary" onclick="chgPw()">Update Password</button>
           </div>
           <div class="panel">
-            <div class="panel-t">CTL API Key</div>
-            <div class="fg"><label>API Key</label><input type="text" id="ctlKeyInp" value="CTL_1935e3fef5c0" placeholder="CTL_..."></div>
-            <button class="btn btn-green" onclick="saveCTLKey()">Save Key</button>
-            <p style="color:var(--mut2);font-size:.72rem;margin-top:.5rem">Used for all Classyteelogs API calls</p>
-          </div>
-          <div class="panel">
-            <div class="panel-t">Markup % (Reseller Profit)</div>
-            <div class="fg"><label>Markup Percentage</label><input type="number" id="markupInp" value="30" min="0" max="500" placeholder="e.g. 30"></div>
-            <button class="btn btn-gold" onclick="saveMarkup()">Save Markup</button>
-            <p style="color:var(--mut2);font-size:.72rem;margin-top:.5rem">CTL price + this % = your selling price</p>
+            <div class="panel-t">AccsZone API Key</div>
+            <div class="fg"><label>API Key</label><input type="text" id="aczKeyInp" value="acz_0zFcs5TqSeldXe8ewK0lKMSAoZvZtFWcQEnEyZlDgG2vQvdz"></div>
+            <button class="btn btn-green" onclick="saveACZKey()">Save Key</button>
           </div>
           <div class="panel">
             <div class="panel-t">Danger Zone</div>
             <div style="display:flex;flex-direction:column;gap:.5rem">
-              <button class="btn btn-red" onclick="conf('Clear all orders?','All order records deleted.',()=>{DB.orders=[];rstats();toast('Orders cleared.');})">Clear All Orders</button>
-              <button class="btn btn-red" onclick="conf('Delete all users?','All user accounts removed.',()=>{DB.users=[];rstats();toast('Users deleted.');})">Delete All Users</button>
+              <button class="btn btn-red" onclick="conf('Clear all orders?','All records deleted.',()=>{DB.orders=[];rstats();toast('Orders cleared.');})">Clear All Orders</button>
+              <button class="btn btn-red" onclick="conf('Delete all users?','All accounts removed.',()=>{DB.users=[];rausr();rstats();toast('Users deleted.');})">Delete All Users</button>
             </div>
           </div>
         </div>
       </div>
-
     </div>
+  </div>
+</div>
+
+<!-- RELEASE MODAL -->
+<div class="mo" id="relmo">
+  <div class="mo-wide">
+    <h3>🗝️ Release Credentials</h3>
+    <div class="fg"><label>Order ID</label><input type="text" id="rid" readonly style="background:rgba(255,255,255,.03)"></div>
+    <div class="fg"><label>Customer Email</label><input type="email" id="rem2" readonly style="background:rgba(255,255,255,.03)"></div>
+    <div class="fg"><label>Username / Email / Code</label><input type="text" id="ruser" placeholder="e.g. user@gmail.com"></div>
+    <div class="fg"><label>Password / Link</label><input type="text" id="rpass" placeholder="e.g. password123"></div>
+    <div class="fg"><label>Extra Info (optional)</label><textarea id="rext" placeholder="Recovery email, 2FA backup, notes..." style="min-height:55px"></textarea></div>
+    <div class="mo-btns">
+      <button class="btn btn-ghost" onclick="closeRel()">Cancel</button>
+      <button class="btn btn-primary" onclick="doRelease()">Release →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER DETAIL MODAL -->
+<div class="mo" id="orddetmo">
+  <div class="mo-wide">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+      <h3 style="margin:0">📦 Order Details</h3>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('orddetmo').classList.remove('open')">✕</button>
+    </div>
+    <div id="ordDetContent"></div>
   </div>
 </div>
 
@@ -946,29 +779,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
   </div>
 </div>
 
-<!-- RELEASE MODAL -->
-<div class="mo" id="relmo">
-  <div class="mo-box" style="max-width:400px;text-align:left">
-    <h2 style="font-size:1rem;margin-bottom:.25rem">🗝️ Release Credentials</h2>
-    <p style="color:var(--mut2);font-size:.8rem;margin-bottom:.85rem">Enter the credentials to deliver to buyer</p>
-    <div class="fg"><label>Order ID</label><input type="text" id="rid" readonly style="background:rgba(255,255,255,.03)"></div>
-    <div class="fg"><label>Customer Email</label><input type="email" id="rem2" readonly style="background:rgba(255,255,255,.03)"></div>
-    <div class="fg"><label>Credential 1 (Username / Code)</label><input type="text" id="ruser" placeholder="e.g. username or access code"></div>
-    <div class="fg"><label>Credential 2 (Password / Link)</label><input type="text" id="rpass" placeholder="e.g. password or link"></div>
-    <div class="fg"><label>Extra Notes</label><textarea id="rext" placeholder="Date, instructions..." style="min-height:48px"></textarea></div>
-    <div class="mo-btns">
-      <button class="btn btn-ghost" onclick="closeRel()">Cancel</button>
-      <button class="btn btn-primary" onclick="doRelease()">Release →</button>
-    </div>
-  </div>
-</div>
-
 <!-- SUCCESS MODAL -->
 <div class="mo" id="sucmo">
   <div class="mo-box">
     <div class="mo-icon">✅</div>
     <h2>Order Submitted!</h2>
-    <p>Payment received! Admin will verify and release your credentials to your dashboard.</p>
+    <p>Payment received! Admin will verify and release your credentials to your dashboard shortly.</p>
     <p style="font-size:.72rem;color:var(--mut2)">Order ID: <strong style="color:var(--txt)">#LGF-<span id="oid">00000</span></strong></p>
     <div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem">
       <button class="btn btn-primary" onclick="closeSuc();go('dashboard')">Go to Dashboard</button>
@@ -1026,13 +842,11 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);
 // ── State ──
 let DB={users:[],orders:[]};
 let CU=null,curOid=null,ctTimer=null;
-let CP={name:'',price:0,product_id:null,currency:'NGN'};
-let CTL_KEY='CTL_1935e3fef5c0';
-let MARKUP=30;
-let allProducts=[];
+let CP={name:'',price:0,icon:'🛒',cat:''};
+let ACZ_KEY='acz_0zFcs5TqSeldXe8ewK0lKMSAoZvZtFWcQEnEyZlDgG2vQvdz';
 const PK='pk_test_5f298cf9bd105fbf30c8c641c7296f4b774223f9';
 const BTC='bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma';
-const CTL_BASE='https://www.classyteelogs.com.ng';
+const ACZ_BASE='https://accszone.com/api/v1';
 
 // ── Helpers ──
 const fmt=n=>'₦'+Number(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
@@ -1040,7 +854,146 @@ const gid=()=>String(Math.floor(10000+Math.random()*90000));
 const now=()=>new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
 const stl=s=>s==='completed'?'t-g':s==='cancelled'?'t-r':s==='processing'?'t-b':'t-y';
 const slbl=s=>s==='completed'?'Completed':s==='cancelled'?'Cancelled':s==='processing'?'Processing':'Pending';
-const markedPrice=p=>Math.ceil(p*(1+MARKUP/100));
+
+// ── PRODUCTS (Hardcoded) ──
+const PRODUCTS=[
+  // TEXTPLUS
+  {id:'tp1',name:'TextPlus Account',cat:'TextPlus',icon:'📱',price:2500,desc:'USA TextPlus number account. Instant delivery.',inStock:true},
+
+  // FACEBOOK
+  {id:'fb1',name:'USA Facebook — 200+ Real Friends',cat:'Facebook',icon:'📘',price:12000,desc:'High quality USA Facebook account with 200+ real friends.',inStock:true},
+  {id:'fb2',name:'USA Facebook — 100+ Real Friends',cat:'Facebook',icon:'📘',price:8000,desc:'USA Facebook account with 100+ real friends.',inStock:true},
+  {id:'fb3',name:'USA Facebook — Empty',cat:'Facebook',icon:'📘',price:5000,desc:'Clean empty USA Facebook account ready to use.',inStock:true},
+  {id:'fb4',name:'Random Facebook — Can Create Page',cat:'Facebook',icon:'📘',price:4000,desc:'Random Facebook account with ability to create pages.',inStock:true},
+  {id:'fb5',name:'Facebook — Profile + Page Ready',cat:'Facebook',icon:'📘',price:4500,desc:'Facebook account with profile already created and page set up.',inStock:true},
+
+  // TWITTER / X
+  {id:'tw1',name:'Twitter — 50 Followers',cat:'Twitter',icon:'🐦',price:3000,desc:'Twitter account with 50 followers.',inStock:true},
+  {id:'tw2',name:'Twitter — 100 Followers',cat:'Twitter',icon:'🐦',price:4500,desc:'Twitter account with 100 followers.',inStock:true},
+  {id:'tw3',name:'Twitter — 200 Followers',cat:'Twitter',icon:'🐦',price:6000,desc:'Twitter account with 200 followers.',inStock:true},
+  {id:'tw4',name:'Twitter — 500 Followers (Aged)',cat:'Twitter',icon:'🐦',price:9000,desc:'Aged Twitter account with 500 followers.',inStock:true},
+  {id:'tw5',name:'Twitter — 1000 Followers (Aged)',cat:'Twitter',icon:'🐦',price:17000,desc:'Aged Twitter account with 1000 followers.',inStock:true},
+
+  // TIKTOK
+  {id:'tt1',name:'TikTok — 50 Followers',cat:'TikTok',icon:'🎵',price:2500,desc:'TikTok account with 50 followers.',inStock:true},
+  {id:'tt2',name:'TikTok — 1000 Followers',cat:'TikTok',icon:'🎵',price:6000,desc:'TikTok account with 1000 followers.',inStock:true},
+
+  // EMAIL
+  {id:'em1',name:'Gmail Account',cat:'Email',icon:'📧',price:2000,desc:'Fresh Gmail account. Ready to use.',inStock:true},
+  {id:'em2',name:'Webmail Account',cat:'Email',icon:'📨',price:300,desc:'Webmail account. Instant delivery.',inStock:true},
+  {id:'em3',name:'Outlook Account',cat:'Email',icon:'📩',price:300,desc:'Microsoft Outlook account. Ready to use.',inStock:true},
+
+  // INSTAGRAM
+  {id:'ig1',name:'Instagram — 500 Followers',cat:'Instagram',icon:'📸',price:6000,desc:'Instagram account with 500 followers.',inStock:true},
+  {id:'ig2',name:'Instagram — 1000 Followers',cat:'Instagram',icon:'📸',price:8000,desc:'Instagram account with 1000 followers.',inStock:true},
+  {id:'ig3',name:'Instagram — Empty Account',cat:'Instagram',icon:'📸',price:1000,desc:'Clean empty Instagram account. Ready to use.',inStock:true},
+  {id:'ig4',name:'Instagram — Aged with Real Followers',cat:'Instagram',icon:'📸',price:8000,desc:'Aged Instagram account with real followers (count may vary).',inStock:true},
+];
+
+// ── Category Config ──
+const CAT_CONFIG={
+  'TextPlus':{icon:'📱',color:'#10b981'},
+  'Facebook':{icon:'📘',color:'#1877f2'},
+  'Twitter':{icon:'🐦',color:'#1da1f2'},
+  'TikTok':{icon:'🎵',color:'#010101'},
+  'Email':{icon:'📧',color:'#ea4335'},
+  'Instagram':{icon:'📸',color:'#e1306c'},
+};
+
+// ── AccsZone API ──
+async function aczPost(endpoint,body){
+  try{
+    const res=await fetch(ACZ_BASE+endpoint,{
+      method:'POST',
+      headers:{'X-API-Key':ACZ_KEY,'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    });
+    return await res.json();
+  }catch(e){console.error('ACZ error:',e);return null;}
+}
+async function aczGet(endpoint){
+  try{
+    const res=await fetch(ACZ_BASE+endpoint,{headers:{'X-API-Key':ACZ_KEY}});
+    return await res.json();
+  }catch(e){console.error('ACZ error:',e);return null;}
+}
+
+// ── Render Store ──
+function renderStore(prods){
+  const wrap=document.getElementById('storeWrap');
+  if(!prods.length){wrap.innerHTML='<p style="color:var(--mut2);padding:2rem;font-size:.85rem">No products found.</p>';return;}
+  const cats=[...new Set(prods.map(p=>p.cat))];
+  // Build tabs
+  const tabs=document.getElementById('catTabs');
+  if(tabs){
+    tabs.innerHTML='<div class="cat-tab on" onclick="filterCat(\'all\',this)">All</div>'+
+      cats.map(c=>`<div class="cat-tab" onclick="filterCat('${c}',this)">${CAT_CONFIG[c]?.icon||'📦'} ${c}</div>`).join('');
+  }
+  renderGroups(prods,wrap);
+}
+
+function renderGroups(prods,wrap){
+  const cats=[...new Set(prods.map(p=>p.cat))];
+  wrap.innerHTML=cats.map(cat=>{
+    const cfg=CAT_CONFIG[cat]||{icon:'📦',color:'#3b82f6'};
+    const items=prods.filter(p=>p.cat===cat);
+    return`<div class="cat-section" data-cat="${cat}">
+      <div class="cat-header">
+        <div class="cat-title">
+          <div class="cat-icon-wrap" style="background:${cfg.color}22;color:${cfg.color}">${cfg.icon}</div>
+          ${cat}
+        </div>
+      </div>
+      <div class="prod-list">
+        ${items.map(p=>prodRowHTML(p)).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function prodRowHTML(p){
+  const safeP=encodeURIComponent(JSON.stringify(p));
+  return`<div class="prod-row" onclick="openCheckout(JSON.parse(decodeURIComponent('${safeP}')))">
+    <div class="prod-row-icon" style="background:${CAT_CONFIG[p.cat]?.color||'#3b82f6'}18;color:${CAT_CONFIG[p.cat]?.color||'#3b82f6'}">${p.icon}</div>
+    <div class="prod-row-info">
+      <div class="prod-row-name">${p.name}</div>
+      <div class="prod-row-stock">
+        <span class="stock-dot ${p.inStock?'dot-green':'dot-red'}"></span>
+        ${p.inStock?'In stock · Instant delivery':'Out of stock'}
+      </div>
+    </div>
+    <div class="prod-row-right">
+      <div class="prod-row-price">${fmt(p.price)}</div>
+      ${p.inStock
+        ?`<button class="buy-btn" onclick="event.stopPropagation();openCheckout(JSON.parse(decodeURIComponent('${safeP}')))">Buy <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>`
+        :`<span style="background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2);padding:.2rem .55rem;border-radius:50px;font-size:.68rem;font-weight:700">Sold</span>`
+      }
+    </div>
+  </div>`;
+}
+
+function renderHomeFeatured(){
+  const el=document.getElementById('homeFeatured');if(!el)return;
+  const top=PRODUCTS.filter(p=>p.inStock).slice(0,8);
+  el.innerHTML=`<div style="background:var(--card);border:1px solid var(--bord);border-radius:14px;overflow:hidden">
+    ${top.map(p=>prodRowHTML(p)).join('')}
+  </div>`;
+}
+
+function filterCat(cat,btn){
+  if(btn){document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('on'));btn.classList.add('on');}
+  const filtered=cat==='all'?PRODUCTS:PRODUCTS.filter(p=>p.cat===cat);
+  renderGroups(filtered,document.getElementById('storeWrap'));
+}
+
+function searchProds(q){
+  const filtered=!q?PRODUCTS:PRODUCTS.filter(p=>
+    p.name.toLowerCase().includes(q.toLowerCase())||
+    p.cat.toLowerCase().includes(q.toLowerCase())||
+    p.desc.toLowerCase().includes(q.toLowerCase())
+  );
+  renderGroups(filtered,document.getElementById('storeWrap'));
+}
 
 // ── Firebase Helpers ──
 async function fbWait(){for(let i=0;i<25;i++){if(window.fbReady)return;await new Promise(r=>setTimeout(r,300));}}
@@ -1048,153 +1001,21 @@ async function fbUsers(){if(!window.db)return DB.users;try{return(await window.f
 async function fbOrders(){if(!window.db)return DB.orders;try{return(await window.fsGetDocs(window.fsColl(window.db,'lgf_orders'))).docs.map(d=>({...d.data(),id:d.id}));}catch{return DB.orders;}}
 async function fbSaveUser(u){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_users',String(u.id)),u);}catch(e){console.error(e);}}
 async function fbSaveOrder(o){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_orders',String(o.id)),o);}catch(e){console.error(e);}}
-async function fbGetAdmin(){if(!window.db)return{pw:'admin123',ctlKey:CTL_KEY,markup:MARKUP};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_config','admin'));return d.exists()?d.data():{pw:'admin123',ctlKey:CTL_KEY,markup:MARKUP};}catch{return{pw:'admin123',ctlKey:CTL_KEY,markup:MARKUP};}}
+async function fbDelUser(id){if(!window.db)return;try{await window.fsDel(window.fsDoc(window.db,'lgf_users',String(id)));}catch(e){console.error(e);}}
+async function fbGetAdmin(){if(!window.db)return{pw:'admin123',aczKey:ACZ_KEY};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_config','admin'));return d.exists()?d.data():{pw:'admin123',aczKey:ACZ_KEY};}catch{return{pw:'admin123',aczKey:ACZ_KEY};}}
 async function fbSetAdmin(data){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_config','admin'),data);}catch(e){console.error(e);}}
 async function fbGetWallet(uid){if(!window.db)return{balance:0,transactions:[]};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_wallets',String(uid)));return d.exists()?d.data():{balance:0,transactions:[]};}catch{return{balance:0,transactions:[]};}}
 async function fbSaveWallet(uid,w){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_wallets',String(uid)),w);}catch(e){console.error(e);}}
 
-// ── CTL API ──
-async function ctlGet(endpoint){
-  try{
-    const res=await fetch(CTL_BASE+endpoint,{
-      headers:{'Authorization':'Bearer '+CTL_KEY,'Content-Type':'application/json'}
-    });
-    return await res.json();
-  }catch(e){console.error('CTL GET error:',e);return null;}
-}
-async function ctlPost(endpoint,body){
-  try{
-    const res=await fetch(CTL_BASE+endpoint,{
-      method:'POST',
-      headers:{'Authorization':'Bearer '+CTL_KEY,'Content-Type':'application/json'},
-      body:JSON.stringify(body)
-    });
-    return await res.json();
-  }catch(e){console.error('CTL POST error:',e);return null;}
-}
-async function ctlBalance(){
-  const r=await ctlGet('/api/v1/balance');
-  return r&&r.status==='success'?r.data:null;
-}
-async function ctlProducts(category_id){
-  const url='/api/v1/products'+(category_id?'?category_id='+category_id:'');
-  const r=await ctlGet(url);
-  return r&&r.status==='success'?r.products:[];
-}
-async function ctlPurchase(product_id,quantity,promo_code){
-  const body={product_id,quantity:quantity||1};
-  if(promo_code)body.promo_code=promo_code;
-  return await ctlPost('/api/v1/purchase',body);
-}
-async function ctlOrder(order_id){
-  const r=await ctlGet('/api/v1/order?order_id='+order_id);
-  return r&&r.status==='success'?r.order_data:null;
-}
-
-// ── Load Products ──
-async function loadCTLProducts(adminMode){
-  if(!adminMode&&allProducts.length){renderStore(allProducts);return;}
-  try{
-    const prods=await ctlProducts();
-    allProducts=prods||[];
-    if(adminMode){renderAdminProducts(allProducts);}
-    else{renderStore(allProducts);renderHomeFeatured(allProducts);}
-  }catch(e){
-    console.error(e);
-    if(!adminMode){
-      document.getElementById('storeGrid').innerHTML='<p style="color:var(--red);font-size:.85rem">Failed to load products. Check CTL API key.</p>';
-    }
-  }
-}
-
-function renderStore(prods){
-  const grid=document.getElementById('storeGrid');
-  const cats=[...new Set(prods.map(p=>p.category||'General'))];
-  // build category tabs
-  const tabsEl=document.getElementById('catTabs');
-  tabsEl.innerHTML='<div class="cat-tab on" onclick="filterCat(\'all\',this)">All</div>'+
-    cats.map(c=>`<div class="cat-tab" onclick="filterCat('${c}',this)">${c}</div>`).join('');
-  document.getElementById('prodCount').textContent=prods.length+' products';
-  if(!prods.length){grid.innerHTML='<p style="color:var(--mut2);font-size:.85rem;padding:2rem">No products found.</p>';return;}
-  grid.innerHTML=prods.map(p=>prodCardHTML(p)).join('');
-}
-
-function renderHomeFeatured(prods){
-  const el=document.getElementById('homeFeatured');
-  if(!el)return;
-  const top=prods.filter(p=>p.in_stock!==false).slice(0,6);
-  if(!top.length){el.innerHTML='<p style="color:var(--mut2);font-size:.85rem">No products available.</p>';return;}
-  el.innerHTML=top.map(p=>prodCardHTML(p)).join('');
-}
-
-function prodCardHTML(p){
-  const price=markedPrice(p.price||0);
-  const inStock=p.in_stock!==false;
-  return`<div class="pcard" onclick="openCheckout(${JSON.stringify(p).replace(/"/g,'&quot;')})">
-    ${p.stock_count>0&&p.stock_count<20?'<div class="pcard-tag">🔥 Low Stock</div>':''}
-    <div class="pcard-cat">${p.category||'Digital Product'}</div>
-    <div class="pcard-name">${p.name}</div>
-    <div class="pcard-desc">${p.description||'Instant delivery · Authentic · Verified'}</div>
-    <div class="pcard-foot">
-      <div class="pcard-price">${fmt(price)}</div>
-      <span class="pcard-stock ${inStock?'in-stock':'out-stock'}">${inStock?'✓ In Stock':'Out of Stock'}</span>
-    </div>
-    ${inStock?`<button class="btn btn-primary btn-full" style="margin-top:.75rem;border-radius:8px" onclick="event.stopPropagation();openCheckout(${JSON.stringify(p).replace(/"/g,'&quot;')})">Buy Now →</button>`:'<button class="btn btn-ghost btn-full" style="margin-top:.75rem;border-radius:8px" disabled>Out of Stock</button>'}
-  </div>`;
-}
-
-function filterCat(cat,btn){
-  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('on'));
-  btn.classList.add('on');
-  const filtered=cat==='all'?allProducts:allProducts.filter(p=>(p.category||'General')===cat);
-  const grid=document.getElementById('storeGrid');
-  grid.innerHTML=filtered.map(p=>prodCardHTML(p)).join('');
-  document.getElementById('prodCount').textContent=filtered.length+' products';
-}
-
-function searchProds(q){
-  const filtered=allProducts.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||
-    (p.category||'').toLowerCase().includes(q.toLowerCase()));
-  document.getElementById('storeGrid').innerHTML=filtered.map(p=>prodCardHTML(p)).join('');
-  document.getElementById('prodCount').textContent=filtered.length+' products';
-}
-
-function renderAdminProducts(prods){
-  const tb=document.getElementById('ctlProdTb');
-  if(!prods.length){tb.innerHTML='<tr><td colspan="5" style="color:var(--mut2);padding:2rem;text-align:center">No products.</td></tr>';return;}
-  tb.innerHTML=prods.map(p=>`<tr>
-    <td style="font-family:monospace;font-size:.75rem;color:var(--primary2)">${p.product_id}</td>
-    <td style="font-weight:600;font-size:.82rem">${p.name}</td>
-    <td style="font-family:'Montserrat';font-weight:700">${fmt(p.price||0)}<span style="color:var(--mut2);font-size:.7rem"> → ${fmt(markedPrice(p.price||0))}</span></td>
-    <td style="font-size:.8rem">${p.stock_count||'—'}</td>
-    <td><span class="tag ${p.in_stock!==false?'t-g':'t-r'}">${p.in_stock!==false?'In Stock':'Out of Stock'}</span></td>
-  </tr>`).join('');
-}
-
-async function loadCTLBalance(){
-  document.getElementById('ctlBalAmt').textContent='Loading...';
-  document.getElementById('ctlBalSub').textContent='Fetching from CTL API...';
-  const bal=await ctlBalance();
-  if(bal){
-    document.getElementById('ctlBalAmt').textContent=(bal.symbol||'₦')+Number(bal.balance).toLocaleString();
-    document.getElementById('ctlBalSub').textContent='Currency: '+(bal.currency||'NGN')+' · Account: '+(bal.username||'');
-    document.getElementById('actlb').textContent=(bal.symbol||'₦')+Number(bal.balance).toLocaleString();
-  } else {
-    document.getElementById('ctlBalAmt').textContent='Error';
-    document.getElementById('ctlBalSub').textContent='Could not fetch. Check API key.';
-  }
-}
-
 // ── Session Restore ──
 window.addEventListener('load',async()=>{
+  renderStore(PRODUCTS);
+  renderHomeFeatured();
   const s=localStorage.getItem('lgf_s');
   await fbWait();
   const cfg=await fbGetAdmin();
-  if(cfg.ctlKey)CTL_KEY=cfg.ctlKey;
-  if(cfg.markup)MARKUP=cfg.markup;
-  document.getElementById('ctlKeyInp').value=CTL_KEY;
-  document.getElementById('markupInp').value=MARKUP;
-  loadCTLProducts(false);
+  if(cfg.aczKey)ACZ_KEY=cfg.aczKey;
+  document.getElementById('aczKeyInp').value=ACZ_KEY;
   if(!s)return;
   if(s==='admin'){CU='admin';go('admin');await loadStats();return;}
   const users=await fbUsers();
@@ -1202,9 +1023,7 @@ window.addEventListener('load',async()=>{
   if(u&&u.status!=='banned'){
     DB.users=users;DB.orders=await fbOrders();
     CU=u;loadDash(u);go('dashboard');
-  } else {
-    localStorage.removeItem('lgf_s');
-  }
+  }else{localStorage.removeItem('lgf_s');}
 });
 
 // ── Navigation ──
@@ -1218,7 +1037,7 @@ function go(id){
   const e=document.getElementById(id);
   if(e){e.classList.add('active');window.scrollTo(0,0);}
   updateNavBtns();updateBack();
-  if(id==='store'&&allProducts.length)renderStore(allProducts);
+  if(id==='store'){renderStore(PRODUCTS);document.getElementById('searchInp').value='';}
 }
 function goBack(){
   if(!navHist.length)return;
@@ -1236,29 +1055,25 @@ function updateNavBtns(){
   ['stLogout','stDash'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=l?'':'none';});
 }
 function epw(id,btn){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';btn.textContent=i.type==='password'?'👁':'🙈';}
-function mobOn(el){document.querySelectorAll('.mob-btn').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
+function mobOn(idx){document.querySelectorAll('.mob-btn').forEach((b,i)=>b.classList.toggle('on',i===idx));}
 
 // ── Auth ──
 async function doLogin(){
   const e=document.getElementById('le').value.trim().toLowerCase();
   const p=document.getElementById('lp').value;
   if(!e||!p){toast('Enter email and password.');return;}
-  const btn=document.getElementById('loginBtn');
-  btn.textContent='Signing in...';btn.disabled=true;
+  const btn=document.getElementById('loginBtn');btn.textContent='Signing in...';btn.disabled=true;
   await fbWait();
   if(e==='admin@logifyhub.com'){
-    const cfg=await fbGetAdmin();
-    btn.textContent='Login';btn.disabled=false;
+    const cfg=await fbGetAdmin();btn.textContent='Login';btn.disabled=false;
     if(p!==cfg.pw&&p!=='admin123'){toast('Wrong admin password.');return;}
-    CU='admin';localStorage.setItem('lgf_s','admin');
-    go('admin');await loadStats();return;
+    CU='admin';localStorage.setItem('lgf_s','admin');go('admin');await loadStats();return;
   }
-  const users=await fbUsers();
-  DB.users=users;
+  const users=await fbUsers();DB.users=users;
   const u=users.find(x=>x.email===e);
   if(!u){btn.textContent='Login';btn.disabled=false;toast('Account not found.');return;}
   if(u.pw!==p){btn.textContent='Login';btn.disabled=false;toast('Wrong password.');return;}
-  if(u.status==='banned'){btn.textContent='Login';btn.disabled=false;toast('Account banned.');return;}
+  if(u.status==='banned'){btn.textContent='Login';btn.disabled=false;toast('Account banned. Contact support.');return;}
   CU=u;localStorage.setItem('lgf_s',e);
   DB.orders=await fbOrders();
   btn.textContent='Login';btn.disabled=false;
@@ -1275,25 +1090,20 @@ async function doRegister(){
   if(!f||!l||!e||!p){toast('Fill all required fields.');return;}
   if(p.length<6){toast('Password min 6 characters.');return;}
   if(p!==p2){toast('Passwords do not match.');return;}
-  const btn=document.getElementById('regBtn');
-  btn.textContent='Creating...';btn.disabled=true;
+  const btn=document.getElementById('regBtn');btn.textContent='Creating...';btn.disabled=true;
   await fbWait();
   const users=await fbUsers();
   if(users.find(x=>x.email===e)){btn.textContent='Create Account →';btn.disabled=false;toast('Email already registered.');return;}
   const u={id:gid(),name:f+' '+l,email:e,phone:ph,pw:p,status:'active',joined:now()};
   await fbSaveUser(u);
-  DB.users=[...users,u];
-  CU=u;localStorage.setItem('lgf_s',e);
+  DB.users=[...users,u];CU=u;
+  localStorage.setItem('lgf_s',e);
   DB.orders=await fbOrders();
   btn.textContent='Create Account →';btn.disabled=false;
-  loadDash(u);go('dashboard');
-  toast('Welcome to Logify Hub! 🎉');
+  loadDash(u);go('dashboard');toast('Welcome to Logify Hub! 🎉');
 }
 
-function doLogout(){
-  CU=null;localStorage.removeItem('lgf_s');
-  navHist=[];go('home');updateNavBtns();
-}
+function doLogout(){CU=null;localStorage.removeItem('lgf_s');navHist=[];go('home');updateNavBtns();}
 
 // ── Dashboard ──
 async function loadDash(u){
@@ -1302,8 +1112,7 @@ async function loadDash(u){
   document.getElementById('pname').value=u.name||'';
   document.getElementById('pemail').value=u.email||'';
   document.getElementById('pphone').value=u.phone||'';
-  await loadWallet();
-  await rdash(u);
+  await loadWallet();await rdash(u);
 }
 
 async function rdash(u){
@@ -1316,11 +1125,11 @@ async function rdash(u){
   const rec=document.getElementById('drecent');
   if(!orders.length){
     rec.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No orders yet. <a onclick="go(\'store\')" style="color:var(--primary2);cursor:pointer;font-weight:600">Browse store →</a></p>';
-  } else {
+  }else{
     rec.innerHTML=orders.slice(-5).reverse().map(o=>`
       <div class="tx-row">
         <div class="tx-l">
-          <div class="tx-ico" style="background:rgba(59,130,246,.1)">🛒</div>
+          <div class="tx-ico" style="background:rgba(59,130,246,.1)">${o.icon||'🛒'}</div>
           <div><div class="tx-desc">${o.product}</div><div class="tx-date">${o.date||''}</div></div>
         </div>
         <div style="text-align:right">
@@ -1329,7 +1138,6 @@ async function rdash(u){
         </div>
       </div>`).join('');
   }
-  // orders list
   const ol=document.getElementById('ordersList');
   if(!orders.length){ol.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No orders yet.</p>';return;}
   ol.innerHTML=`<div style="overflow-x:auto"><table class="tbl" style="min-width:460px">
@@ -1337,7 +1145,7 @@ async function rdash(u){
     <tbody>${orders.slice().reverse().map(o=>`
       <tr>
         <td style="font-family:monospace;font-size:.74rem;color:var(--primary2)">#LGF-${o.id}</td>
-        <td style="font-weight:600;font-size:.81rem">${o.product}</td>
+        <td style="font-weight:600;font-size:.81rem;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.icon||''} ${o.product}</td>
         <td style="font-family:'Montserrat';font-weight:700">${fmt(o.total||0)}</td>
         <td style="font-size:.76rem;color:var(--mut2)">${o.date||''}</td>
         <td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td>
@@ -1347,13 +1155,10 @@ async function rdash(u){
 }
 
 function viewCred(oid){
-  const o=DB.orders.find(x=>x.id===oid);
-  if(!o||!o.cred)return;
-  const c=o.cred;
-  const lines=document.getElementById('credLines');
-  const keys=(c.format||'Username|Password|Notes').split('|');
-  const vals=(c.data||'').split('|');
-  lines.innerHTML=keys.map((k,i)=>`
+  const o=DB.orders.find(x=>x.id===oid);if(!o||!o.cred)return;
+  const keys=(o.cred.format||'Username|Password').split('|');
+  const vals=(o.cred.data||'').split('|');
+  document.getElementById('credLines').innerHTML=keys.map((k,i)=>`
     <div class="cred-row">
       <div class="cred-k">${k}</div>
       <div class="cred-v">${vals[i]||'—'}</div>
@@ -1363,9 +1168,7 @@ function viewCred(oid){
 }
 
 function dsh(id,el){
-  ['dhome','dorders','dwallet','dprofile'].forEach(s=>{
-    const e=document.getElementById(s);if(e)e.style.display='none';
-  });
+  ['dhome','dorders','dwallet','dprofile'].forEach(s=>{const e=document.getElementById(s);if(e)e.style.display='none';});
   const t=document.getElementById(id);if(t)t.style.display='block';
   document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));
   if(el)el.classList.add('on');
@@ -1378,8 +1181,7 @@ async function updateProfile(){
   const pw=document.getElementById('newpw').value;
   if(pw&&pw.length<6){toast('Password min 6 characters.');return;}
   if(pw)CU.pw=pw;
-  await fbSaveUser(CU);
-  toast('Profile updated!');
+  await fbSaveUser(CU);toast('Profile updated!');
   document.getElementById('newpw').value='';
 }
 
@@ -1413,21 +1215,18 @@ async function doDeposit(){
   if(!CU||CU==='admin'){toast('Login to deposit.');return;}
   const amt=parseFloat(document.getElementById('depAmount').value);
   if(!amt||amt<500){toast('Minimum deposit is ₦500.');return;}
-  const btn=document.getElementById('depBtn');
-  btn.textContent='Loading...';btn.disabled=true;
+  const btn=document.getElementById('depBtn');btn.textContent='Loading...';btn.disabled=true;
   const handler=PaystackPop.setup({
     key:PK,email:CU.email,amount:Math.round(amt*100),currency:'NGN',
     ref:'LGF-DEP-'+gid()+'-'+Date.now(),
     onClose:()=>{btn.textContent='Pay with Paystack →';btn.disabled=false;},
     callback:async(res)=>{
-      btn.textContent='Pay with Paystack →';btn.disabled=false;
-      closeDeposit();
+      btn.textContent='Pay with Paystack →';btn.disabled=false;closeDeposit();
       const w=await fbGetWallet(CU.id);
       w.balance=(w.balance||0)+amt;
       w.transactions=w.transactions||[];
       w.transactions.push({type:'deposit',amount:amt,desc:'Paystack deposit',date:now(),ref:res.reference});
-      await fbSaveWallet(CU.id,w);
-      await loadWallet();
+      await fbSaveWallet(CU.id,w);await loadWallet();
       toast('✅ '+fmt(amt)+' added to wallet!');
     }
   });
@@ -1436,9 +1235,10 @@ async function doDeposit(){
 
 // ── Checkout ──
 function openCheckout(p){
-  if(p.in_stock===false){toast('This product is out of stock.');return;}
-  CP={name:p.name,price:markedPrice(p.price||0),ctlPrice:p.price||0,product_id:p.product_id,currency:p.currency||'NGN'};
+  if(!p.inStock){toast('This product is currently out of stock.');return;}
+  CP={name:p.name,price:p.price,icon:p.icon,cat:p.cat,id:p.id,desc:p.desc};
   document.getElementById('cpname').textContent=CP.name;
+  document.getElementById('csumIcon').textContent=CP.icon;
   document.getElementById('cup').textContent=fmt(CP.price);
   document.getElementById('cq').value='1';
   document.getElementById('cqd').textContent='1';
@@ -1448,17 +1248,17 @@ function openCheckout(p){
   document.getElementById('rfn').textContent='';
   document.getElementById('cprev').style.display='none';
   document.getElementById('rfile').value='';
+  CP.receiptData=null;
   if(CU&&CU!=='admin'){
     document.getElementById('cn').value=CU.name||'';
     document.getElementById('ce').value=CU.email||'';
     document.getElementById('cph').value=CU.phone||'';
     document.getElementById('walletBuyBar').style.display='block';
     loadWallet();
-  } else {
+  }else{
     document.getElementById('walletBuyBar').style.display='none';
   }
-  setPay('card');
-  go('checkout');
+  setPay('card');go('checkout');
 }
 
 function uqty(){
@@ -1474,22 +1274,22 @@ function setPay(m){
   const isCard=m==='card';
   document.getElementById('cardBox').style.display=isCard?'block':'none';
   document.getElementById('cryptoBox').style.display=isCard?'none':'block';
-  document.getElementById('payCardBtn').style.border=isCard?'1.5px solid var(--primary)':'1px solid var(--bord)';
-  document.getElementById('payCardBtn').style.background=isCard?'rgba(59,130,246,.08)':'rgba(255,255,255,.04)';
-  document.getElementById('payCardBtn').style.color=isCard?'var(--primary2)':'var(--txt)';
-  document.getElementById('payCryptoBtn').style.border=isCard?'1px solid var(--bord)':'1.5px solid var(--primary)';
-  document.getElementById('payCryptoBtn').style.background=isCard?'rgba(255,255,255,.04)':'rgba(59,130,246,.08)';
-  document.getElementById('payCryptoBtn').style.color=isCard?'var(--txt)':'var(--primary2)';
+  const cb=document.getElementById('payCardBtn');
+  const cr=document.getElementById('payCryptoBtn');
+  cb.style.border=isCard?'1.5px solid var(--primary)':'1px solid var(--bord)';
+  cb.style.background=isCard?'rgba(59,130,246,.08)':'rgba(255,255,255,.04)';
+  cb.style.color=isCard?'var(--primary2)':'var(--txt)';
+  cr.style.border=isCard?'1px solid var(--bord)':'1.5px solid var(--primary)';
+  cr.style.background=isCard?'rgba(255,255,255,.04)':'rgba(59,130,246,.08)';
+  cr.style.color=isCard?'var(--txt)':'var(--primary2)';
   if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
   if(!isCard)startCountdown();
 }
 
 function startCountdown(){
-  let secs=15*60;
-  const el=document.getElementById('countdown');
+  let secs=15*60;const el=document.getElementById('countdown');
   ctTimer=setInterval(()=>{
-    secs--;
-    if(secs<=0){clearInterval(ctTimer);if(el)el.textContent='Expired';return;}
+    secs--;if(secs<=0){clearInterval(ctTimer);if(el)el.textContent='Expired';return;}
     const m=Math.floor(secs/60),s=secs%60;
     if(el)el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
   },1000);
@@ -1497,8 +1297,7 @@ function startCountdown(){
 
 function copyBTC(){
   navigator.clipboard.writeText(BTC).then(()=>toast('Bitcoin address copied!')).catch(()=>{
-    const t=document.createElement('textarea');t.value=BTC;document.body.appendChild(t);
-    t.select();document.execCommand('copy');document.body.removeChild(t);toast('Copied!');
+    const t=document.createElement('textarea');t.value=BTC;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);toast('Copied!');
   });
 }
 
@@ -1522,67 +1321,74 @@ async function submitOrder(){
   const q=parseInt(document.getElementById('cq').value)||1;
   const tot=CP.price*q;
   const id=gid();
-  const o={
-    id,uid:CU?CU.id:'guest',name:n,email:e,
-    product:CP.name,product_id:CP.product_id,
-    ctlPrice:CP.ctlPrice,qty:q,total:tot,
-    receipt:CP.receiptData,status:'pending',
-    date:now(),method:'manual'
-  };
-  await fbSaveOrder(o);
-  DB.orders.push(o);
+  const o={id,uid:CU?CU.id:'guest',name:n,email:e,
+    product:CP.name,icon:CP.icon,cat:CP.cat,productId:CP.id,
+    qty:q,total:tot,receipt:CP.receiptData,
+    status:'pending',date:now(),method:'manual'};
+  await fbSaveOrder(o);DB.orders.push(o);
   if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
   document.getElementById('oid').textContent=id;
   document.getElementById('sucmo').classList.add('open');
   CP.receiptData=null;
 }
 
-// ── Wallet Buy (Auto CTL Purchase) ──
 async function buyWithWallet(){
   if(!CU||CU==='admin'){toast('Login required.');return;}
   const w=await fbGetWallet(CU.id);
   const q=parseInt(document.getElementById('cq').value)||1;
   const tot=CP.price*q;
-  if((w.balance||0)<tot){toast('Insufficient wallet balance. Please deposit first.');return;}
-  toast('Processing... Contacting Classyteelogs API ⚡');
-  // Call CTL API to purchase
-  const ctlRes=await ctlPurchase(CP.product_id,q);
-  if(!ctlRes||ctlRes.status!=='success'){
-    toast('❌ CTL purchase failed: '+(ctlRes?.message||'Unknown error'));
-    return;
+  if((w.balance||0)<tot){
+    toast('Insufficient balance. Please deposit ₦'+fmt(tot-w.balance)+' more.');return;
   }
+  toast('Processing your order via AccsZone ⚡');
+  // Try AccsZone API
+  let credData=null;
+  try{
+    const res=await aczPost('/orders',{
+      product:CP.name,quantity:q,
+      customer_email:CU.email,
+      reference:'LGF-'+gid()
+    });
+    if(res&&(res.status==='success'||res.order||res.credentials)){
+      const d=res.order||res.credentials||res;
+      credData={
+        format:'Account|Password|Extra',
+        data:(d.account||d.email||d.username||'—')+'|'+(d.password||d.pass||'—')+'|'+(d.extra||d.notes||d.order_id||'See dashboard'),
+        raw:JSON.stringify(d)
+      };
+    }
+  }catch(e){console.error('ACZ order error:',e);}
+
   // Deduct wallet
   w.balance=(w.balance||0)-tot;
   w.transactions=w.transactions||[];
   w.transactions.push({type:'purchase',amount:tot,desc:q+'× '+CP.name,date:now()});
   await fbSaveWallet(CU.id,w);
-  // Build credential from CTL response
-  const od=ctlRes.order_details||ctlRes;
-  const credData=JSON.stringify(od);
+
   const id=gid();
-  const o={
-    id,uid:CU.id,name:CU.name,email:CU.email,
-    product:CP.name,product_id:CP.product_id,
-    ctlPrice:CP.ctlPrice,qty:q,total:tot,
-    status:'completed',date:now(),method:'wallet',
-    ctlOrderId:od.order_id||null,
-    cred:{format:'Order ID|Product|Qty|Amount Paid',
-      data:(od.order_id||'—')+'|'+(od.product_name||CP.name)+'|'+q+'|'+(od.total_spent||tot),
-      raw:credData}
-  };
-  await fbSaveOrder(o);
-  DB.orders.push(o);
+  const o={id,uid:CU.id,name:CU.name,email:CU.email,
+    product:CP.name,icon:CP.icon,cat:CP.cat,productId:CP.id,
+    qty:q,total:tot,status:credData?'completed':'pending',
+    date:now(),method:'wallet',cred:credData||null};
+  await fbSaveOrder(o);DB.orders.push(o);
   await loadWallet();
   if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
-  showDelivered(o.cred);
-  toast('✅ Purchase complete via Classyteelogs!');
+
+  if(credData){
+    showDelivered(credData);
+    toast('✅ Purchase complete!');
+  }else{
+    // AccsZone didn't return instant creds — show pending
+    document.getElementById('oid').textContent=id;
+    document.getElementById('sucmo').classList.add('open');
+    toast('✅ Order placed! Admin will release credentials shortly.');
+  }
 }
 
 function showDelivered(cred){
-  const lines=document.getElementById('credLines');
-  const keys=(cred.format||'Detail').split('|');
+  const keys=(cred.format||'Account|Password|Extra').split('|');
   const vals=(cred.data||'').split('|');
-  lines.innerHTML=keys.map((k,i)=>`
+  document.getElementById('credLines').innerHTML=keys.map((k,i)=>`
     <div class="cred-row">
       <div class="cred-k">${k}</div>
       <div class="cred-v">${vals[i]||'—'}</div>
@@ -1597,20 +1403,12 @@ function atab(id){
   const e=document.getElementById(id);if(e)e.classList.add('on');
   if(id==='aord')raord();
   if(id==='ausr')rausr();
-  if(id==='actlbal')loadCTLBalance();
-  if(id==='actlprod')loadCTLProducts(true);
 }
-
-function sOn(el){
-  document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));
-  if(el)el.classList.add('on');
-}
+function sOn(el){document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));if(el)el.classList.add('on');}
 
 async function loadStats(){
-  DB.users=await fbUsers();
-  DB.orders=await fbOrders();
+  DB.users=await fbUsers();DB.orders=await fbOrders();
   rstats();raord();rausr();
-  loadCTLBalance();
 }
 
 function rstats(){
@@ -1628,9 +1426,11 @@ function rstats(){
   rec.innerHTML=o.slice(-6).reverse().map(x=>`
     <div class="tx-row">
       <div class="tx-l">
-        <div class="tx-ico" style="background:rgba(59,130,246,.08)">🛒</div>
-        <div><div class="tx-desc" style="font-size:.81rem">${x.name} — ${x.product}</div>
-        <div class="tx-date">${x.date||''} · ${x.method==='wallet'?'⚡ Wallet':'Manual'}</div></div>
+        <div class="tx-ico" style="background:rgba(59,130,246,.08)">${x.icon||'🛒'}</div>
+        <div>
+          <div class="tx-desc" style="font-size:.81rem">${x.name} — ${x.product}</div>
+          <div class="tx-date">${x.date||''} · ${x.method==='wallet'?'⚡ Wallet':'Manual'}</div>
+        </div>
       </div>
       <div style="text-align:right">
         <div style="font-family:'Montserrat';font-weight:700;font-size:.83rem">${fmt(x.total||0)}</div>
@@ -1644,37 +1444,58 @@ function raord(){
   if(!DB.orders.length){tb.innerHTML='<tr><td colspan="7" style="color:var(--mut2);padding:2rem;text-align:center">No orders yet.</td></tr>';return;}
   tb.innerHTML=DB.orders.slice().reverse().map(o=>`
     <tr>
-      <td><span style="font-family:monospace;font-size:.75rem;color:var(--primary2)">#LGF-${o.id}</span></td>
-      <td><div style="font-weight:600;font-size:.81rem">${o.name}</div><div style="font-size:.7rem;color:var(--mut2)">${o.email}</div></td>
-      <td style="font-size:.81rem;max-width:160px">${o.product}</td>
+      <td><span style="font-family:monospace;font-size:.74rem;color:var(--primary2)">#LGF-${o.id}</span></td>
+      <td>
+        <div style="font-weight:600;font-size:.81rem">${o.name}</div>
+        <div style="font-size:.7rem;color:var(--mut2)">${o.email}</div>
+      </td>
+      <td style="font-size:.79rem;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.icon||''} ${o.product}</td>
       <td style="font-family:'Montserrat';font-weight:700">${fmt(o.total||0)}</td>
       <td><span class="tag ${o.method==='wallet'?'t-b':'t-gr'}">${o.method==='wallet'?'⚡ Wallet':'Manual'}</span></td>
       <td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td>
       <td>
         <div class="abs">
+          <button class="btn btn-xs btn-ghost" onclick="viewOrderDetail('${o.id}')">Detail</button>
           ${o.receipt?`<button class="btn btn-xs btn-ghost" onclick="vrcpt('${o.id}')">Receipt</button>`:''}
           ${o.status==='pending'?`<button class="btn btn-xs btn-green" onclick="openRel('${o.id}')">Release</button>`:''}
           ${o.status==='pending'?`<button class="btn btn-xs btn-red" onclick="cancOrd('${o.id}')">Cancel</button>`:''}
-          ${o.status==='pending'&&o.product_id?`<button class="btn btn-xs btn-primary" onclick="autoFulfill('${o.id}')">⚡ Auto</button>`:''}
         </div>
       </td>
     </tr>`).join('');
 }
 
+function viewOrderDetail(id){
+  const o=DB.orders.find(x=>x.id===id);if(!o)return;
+  document.getElementById('ordDetContent').innerHTML=`
+    <div style="display:grid;gap:.5rem;font-size:.83rem">
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Order ID</span><span style="font-family:monospace;color:var(--primary2)">#LGF-${o.id}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Customer</span><span style="font-weight:600">${o.name}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Email</span><span>${o.email}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Product</span><span style="font-weight:600">${o.icon||''} ${o.product}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Qty</span><span>${o.qty||1}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Amount</span><span style="font-family:'Montserrat';font-weight:700;color:var(--gold)">${fmt(o.total||0)}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Method</span><span>${o.method==='wallet'?'⚡ Wallet':'Manual Payment'}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Date</span><span>${o.date||''}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Status</span><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></div>
+      ${o.cred?`<div style="padding:.38rem 0"><div style="color:var(--mut2);margin-bottom:.35rem">Credentials</div>
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:8px;padding:.65rem;font-family:monospace;font-size:.76rem;color:var(--green);word-break:break-all">${o.cred.data||''}</div></div>`:''}
+    </div>
+    ${o.status==='pending'?`<div class="mo-btns" style="margin-top:1rem">
+      <button class="btn btn-green" onclick="document.getElementById('orddetmo').classList.remove('open');openRel('${o.id}')">Release Credentials</button>
+    </div>`:''}`;
+  document.getElementById('orddetmo').classList.add('open');
+}
+
 function faord(f){
   document.querySelectorAll('#aotbd tr').forEach(r=>{
-    if(f==='all')r.style.display='';
-    else r.style.display=r.textContent.toLowerCase().includes(f)?'':'none';
+    r.style.display=f==='all'||r.textContent.toLowerCase().includes(f)?'':'none';
   });
 }
 
 async function cancOrd(id){
   conf('Cancel this order?','Status set to Cancelled.',async()=>{
-    const o=DB.orders.find(x=>x.id===id);
-    if(!o)return;
-    o.status='cancelled';
-    await fbSaveOrder(o);
-    raord();rstats();toast('Order cancelled.');
+    const o=DB.orders.find(x=>x.id===id);if(!o)return;
+    o.status='cancelled';await fbSaveOrder(o);raord();rstats();toast('Order cancelled.');
   });
 }
 
@@ -1702,63 +1523,41 @@ async function doRelease(){
   const u=document.getElementById('ruser').value.trim();
   const p=document.getElementById('rpass').value.trim();
   const n=document.getElementById('rext').value.trim();
+  if(!u){toast('Enter at least the username/email.');return;}
   o.status='completed';
-  o.cred={format:'Username|Password|Notes',data:u+'|'+p+'|'+n,product:o.product};
+  o.cred={format:'Account|Password|Extra Info',data:u+'|'+p+'|'+n,product:o.product};
   await fbSaveOrder(o);
-  // Update user's local orders
   const idx=DB.orders.findIndex(x=>x.id===curOid);
   if(idx>-1)DB.orders[idx]=o;
-  closeRel();raord();rstats();
-  toast('✅ Credentials released!');
-}
-
-async function autoFulfill(id){
-  const o=DB.orders.find(x=>x.id===id);
-  if(!o||!o.product_id){toast('No product ID on this order.');return;}
-  conf('Auto-fulfill via CTL?','This will charge your CTL wallet balance.',async()=>{
-    toast('Calling Classyteelogs API...');
-    const res=await ctlPurchase(o.product_id,o.qty||1);
-    if(!res||res.status!=='success'){
-      toast('❌ CTL error: '+(res?.message||'Failed'));return;
-    }
-    const od=res.order_details||res;
-    o.status='completed';
-    o.ctlOrderId=od.order_id||null;
-    o.cred={
-      format:'CTL Order ID|Product|Qty|Amount',
-      data:(od.order_id||'—')+'|'+(od.product_name||o.product)+'|'+(o.qty||1)+'|'+(od.total_spent||o.ctlPrice),
-      raw:JSON.stringify(od)
-    };
-    await fbSaveOrder(o);
-    const idx=DB.orders.findIndex(x=>x.id===id);
-    if(idx>-1)DB.orders[idx]=o;
-    raord();rstats();
-    toast('✅ Auto-fulfilled via Classyteelogs!');
-  });
+  closeRel();
+  document.getElementById('orddetmo').classList.remove('open');
+  raord();rstats();
+  toast('✅ Credentials released to customer!');
 }
 
 function rausr(){
   const tb=document.getElementById('autbd');
-  if(!DB.users.length){tb.innerHTML='<tr><td colspan="7" style="color:var(--mut2);padding:2rem;text-align:center">No users.</td></tr>';return;}
+  if(!DB.users.length){tb.innerHTML='<tr><td colspan="8" style="color:var(--mut2);padding:2rem;text-align:center">No users.</td></tr>';return;}
   tb.innerHTML=DB.users.map(u=>{
     const ords=DB.orders.filter(o=>o.uid===u.id).length;
     return`<tr>
       <td style="font-weight:600">${u.name}</td>
-      <td style="font-size:.79rem;color:var(--mut2)">${u.email}</td>
+      <td style="font-size:.78rem;color:var(--mut2)">${u.email}</td>
+      <td style="font-size:.78rem;color:var(--mut2)">${u.phone||'—'}</td>
       <td>${ords}</td>
       <td id="uw-${u.id}" style="font-size:.79rem;color:var(--primary2)">...</td>
-      <td style="font-size:.76rem;color:var(--mut2)">${u.joined||''}</td>
+      <td style="font-size:.74rem;color:var(--mut2)">${u.joined||''}</td>
       <td><span class="tag ${u.status==='banned'?'t-r':'t-g'}">${u.status==='banned'?'Banned':'Active'}</span></td>
       <td>
         <div class="abs">
-          ${u.status!=='banned'?
-            `<button class="btn btn-xs btn-red" onclick="banU('${u.id}')">Ban</button>`:
-            `<button class="btn btn-xs btn-ghost" onclick="unbanU('${u.id}')">Unban</button>`}
+          ${u.status!=='banned'
+            ?`<button class="btn btn-xs btn-red" onclick="banU('${u.id}')">Ban</button>`
+            :`<button class="btn btn-xs btn-ghost" onclick="unbanU('${u.id}')">Unban</button>`}
+          <button class="btn btn-xs btn-red" onclick="deleteUser('${u.id}')">Delete</button>
         </div>
       </td>
     </tr>`;
   }).join('');
-  // load wallet balances async
   DB.users.forEach(async u=>{
     const w=await fbGetWallet(u.id);
     const el=document.getElementById('uw-'+u.id);
@@ -1776,38 +1575,29 @@ async function unbanU(id){
   const u=DB.users.find(x=>x.id===id);if(!u)return;
   u.status='active';await fbSaveUser(u);rausr();rstats();toast('User unbanned.');
 }
+async function deleteUser(id){
+  conf('Permanently delete this user?','This cannot be undone.',async()=>{
+    await fbDelUser(id);
+    DB.users=DB.users.filter(x=>x.id!==id);
+    rausr();rstats();toast('User deleted.');
+  });
+}
 
 async function chgPw(){
   const p1=document.getElementById('npw').value;
   const p2=document.getElementById('npw2').value;
   if(!p1||p1.length<6){toast('Min 6 characters.');return;}
   if(p1!==p2){toast('Passwords do not match.');return;}
-  const cfg=await fbGetAdmin();
-  cfg.pw=p1;
-  await fbSetAdmin(cfg);
-  document.getElementById('npw').value='';
-  document.getElementById('npw2').value='';
+  const cfg=await fbGetAdmin();cfg.pw=p1;await fbSetAdmin(cfg);
+  document.getElementById('npw').value='';document.getElementById('npw2').value='';
   toast('✅ Admin password updated!');
 }
 
-async function saveCTLKey(){
-  const k=document.getElementById('ctlKeyInp').value.trim();
-  if(!k){toast('Enter a valid CTL key.');return;}
-  CTL_KEY=k;
-  const cfg=await fbGetAdmin();
-  cfg.ctlKey=k;
-  await fbSetAdmin(cfg);
-  toast('✅ CTL API key saved!');
-}
-
-async function saveMarkup(){
-  const m=parseFloat(document.getElementById('markupInp').value);
-  if(isNaN(m)||m<0){toast('Enter a valid markup %.');return;}
-  MARKUP=m;
-  const cfg=await fbGetAdmin();
-  cfg.markup=m;
-  await fbSetAdmin(cfg);
-  toast('✅ Markup '+m+'% saved! Reload store to update prices.');
+async function saveACZKey(){
+  const k=document.getElementById('aczKeyInp').value.trim();
+  if(!k){toast('Enter a valid API key.');return;}
+  ACZ_KEY=k;const cfg=await fbGetAdmin();cfg.aczKey=k;await fbSetAdmin(cfg);
+  toast('✅ AccsZone API key saved!');
 }
 
 // ── Modals ──
@@ -1819,11 +1609,9 @@ function conf(title,body,cb){
 }
 function closeConf(){document.getElementById('confmo').classList.remove('open');}
 function closeSuc(){document.getElementById('sucmo').classList.remove('open');}
-
 document.querySelectorAll('.mo').forEach(m=>{
   m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
 });
-
 function stbl(inp,tid){
   const q=inp.value.toLowerCase();
   document.querySelectorAll('#'+tid+' tbody tr').forEach(r=>{
@@ -1835,8 +1623,7 @@ function stbl(inp,tid){
 let toastTimer=null;
 function toast(msg){
   const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.style.transform='translateY(0)';t.style.opacity='1';
+  t.textContent=msg;t.style.transform='translateY(0)';t.style.opacity='1';
   if(toastTimer)clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>{t.style.transform='translateY(100px)';t.style.opacity='0';},3500);
 }
