@@ -329,3 +329,528 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
 @media(max-width:600px){.hide{display:none;}.how-grid{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="logo" onclick="go('home')"><div class="logo-dot"></div> Logify Hub</div>
+  <div class="nav-links">
+    <a id="navLogin" onclick="go('login')">Login</a>
+    <button class="btn btn-primary btn-sm" id="navSignup" onclick="go('register')">Sign Up</button>
+    <button class="btn btn-ghost btn-sm" id="navLogout" style="display:none" onclick="doLogout()">Logout</button>
+    <a id="navDash" style="display:none" onclick="go('dashboard')">Dashboard</a>
+  </div>
+</nav>
+<button class="back-fab" id="backFab" onclick="goBack()">← Back</button>
+
+<!-- ===== HOME ===== -->
+<div id="home" class="page active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">⚡ Instant Digital Delivery</div>
+      <h1 class="hero-h1">Buy Digital Products<br><span>Delivered Instantly</span></h1>
+      <p class="hero-sub">Social media accounts, followers, email accounts and more. Create an account, fund your personal wallet and get credentials in seconds.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" onclick="go('register')">Get Started Free →</button>
+        <button class="btn btn-outline btn-lg" onclick="go('login')">Login</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hst"><div class="hst-v">20+</div><div class="hst-l">Products</div></div>
+        <div class="hst"><div class="hst-v">24/7</div><div class="hst-l">Delivery</div></div>
+        <div class="hst"><div class="hst-v">100%</div><div class="hst-l">Verified</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg2);border-top:1px solid var(--bord);border-bottom:1px solid var(--bord);padding:3.5rem 0;">
+    <div class="sec" style="padding-top:0;padding-bottom:0">
+      <div style="text-align:center;margin-bottom:1.8rem">
+        <div class="sec-badge">Process</div>
+        <h2 class="sec-h2">How It Works</h2>
+        <p class="sec-sub">Get your digital products in 3 simple steps</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-card"><div class="how-n">01</div><div class="how-icon">👤</div><div class="how-t">Create Account</div><div class="how-d">Sign up free and get your own personal virtual bank account number instantly</div></div>
+        <div class="how-card"><div class="how-n">02</div><div class="how-icon">🏦</div><div class="how-t">Fund Your Wallet</div><div class="how-d">Transfer any amount to your personal account number. Balance updates automatically</div></div>
+        <div class="how-card"><div class="how-n">03</div><div class="how-icon">⚡</div><div class="how-t">Buy & Receive</div><div class="how-d">Browse store, buy with wallet balance, get credentials instantly in your dashboard</div></div>
+        <div class="how-card"><div class="how-n">04</div><div class="how-icon">📊</div><div class="how-t">Track Everything</div><div class="how-d">View all orders, credentials and transactions from your personal dashboard anytime</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCKED STORE PREVIEW -->
+  <div class="sec">
+    <div style="text-align:center;margin-bottom:1.8rem">
+      <div class="sec-badge">Products</div>
+      <h2 class="sec-h2">What We Sell</h2>
+      <p class="sec-sub">Login or sign up to see all products and prices</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bord);border-radius:16px;overflow:hidden;position:relative;">
+      <!-- BLURRED PREVIEW ROWS -->
+      <div style="filter:blur(4px);pointer-events:none;user-select:none">
+        <div class="prod-row"><div class="prod-row-icon" style="background:#1877f218;color:#1877f2">📘</div><div class="prod-row-info"><div class="prod-row-name">USA Facebook — 200+ Real Friends</div><div class="prod-row-stock"><span class="stock-dot dot-green"></span>In stock</div></div><div class="prod-row-right"><div class="prod-row-price">₦12,000</div></div></div>
+        <div class="prod-row"><div class="prod-row-icon" style="background:#1da1f218;color:#1da1f2">🐦</div><div class="prod-row-info"><div class="prod-row-name">Twitter — 1000 Followers (Aged)</div><div class="prod-row-stock"><span class="stock-dot dot-green"></span>In stock</div></div><div class="prod-row-right"><div class="prod-row-price">₦17,000</div></div></div>
+        <div class="prod-row"><div class="prod-row-icon" style="background:#e1306c18;color:#e1306c">📸</div><div class="prod-row-info"><div class="prod-row-name">Instagram — 1000 Followers</div><div class="prod-row-stock"><span class="stock-dot dot-green"></span>In stock</div></div><div class="prod-row-right"><div class="prod-row-price">₦8,000</div></div></div>
+        <div class="prod-row"><div class="prod-row-icon" style="background:#ea443518;color:#ea4335">📧</div><div class="prod-row-info"><div class="prod-row-name">Gmail Account</div><div class="prod-row-stock"><span class="stock-dot dot-green"></span>In stock</div></div><div class="prod-row-right"><div class="prod-row-price">₦2,000</div></div></div>
+      </div>
+      <!-- LOCK OVERLAY -->
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(10,15,26,.75);backdrop-filter:blur(2px)">
+        <div style="font-size:2.5rem;margin-bottom:.75rem">🔒</div>
+        <div style="font-family:'Montserrat';font-size:1rem;font-weight:800;margin-bottom:.35rem">Login to See All Products</div>
+        <div style="color:var(--mut2);font-size:.82rem;margin-bottom:1.2rem;text-align:center;max-width:260px">Create a free account to browse our full product catalog and prices</div>
+        <div style="display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center">
+          <button class="btn btn-primary" onclick="go('register')">Sign Up Free →</button>
+          <button class="btn btn-ghost" onclick="go('login')">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 1.5rem 3.5rem">
+    <div class="cta-box">
+      <h2>Your Own Personal<br><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Bank Account Number</span></h2>
+      <p>Every account gets a dedicated Monnify virtual account. Transfer from any Nigerian bank and your wallet funds automatically.</p>
+      <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary btn-lg" onclick="go('register')">Create Free Account →</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="foot-logo"><div class="logo-dot"></div> Logify Hub</div>
+    <p style="color:var(--mut2);font-size:.8rem;margin-bottom:.3rem">Instant Digital Products · Virtual Wallet · Powered by Monnify</p>
+    <p style="color:var(--mut);font-size:.68rem">© 2025 Logify Hub. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- ===== STORE (LOGIN REQUIRED) ===== -->
+<div id="store" class="page">
+  <nav style="z-index:1001">
+    <div class="logo" onclick="go('home')"><div class="logo-dot"></div> Logify Hub</div>
+    <div class="nav-links">
+      <a onclick="go('dashboard')">Dashboard</a>
+      <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+  <div style="padding-top:60px">
+    <div class="store-topbar">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+        <div>
+          <h2 style="font-family:'Montserrat';font-size:1.2rem;font-weight:800;margin-bottom:.15rem">Digital Products Store</h2>
+          <p style="color:var(--mut2);font-size:.78rem">Instant delivery · Verified accounts · Buy with wallet</p>
+        </div>
+        <input id="searchInp" style="background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--txt);padding:.4rem .78rem;border-radius:8px;font-family:'Inter';font-size:.8rem;outline:none;width:190px" placeholder="🔍 Search..." oninput="searchProds(this.value)">
+      </div>
+      <div class="cat-filter-tabs" id="catTabs"></div>
+    </div>
+    <div class="store-wrap" id="storeWrap"></div>
+  </div>
+</div>
+
+<!-- ===== LOGIN ===== -->
+<div id="login" class="page">
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-logo"><div class="logo-dot"></div> Logify Hub</div>
+      <div class="auth-tag">Login to access your wallet and store</div>
+      <h2>Welcome Back</h2>
+      <div class="fg"><label>Email</label><input type="email" id="le" placeholder="you@example.com"></div>
+      <div class="fg"><label>Password</label>
+        <div class="pw-wrap"><input type="password" id="lp" placeholder="Password"><button class="pw-eye" onclick="epw('lp',this)">👁</button></div>
+      </div>
+      <button class="btn btn-primary btn-full" id="loginBtn" onclick="doLogin()" style="margin-bottom:.6rem">Login</button>
+      <div class="divid">or</div>
+      <button class="btn btn-ghost btn-full" onclick="go('register')">Create Free Account</button>
+      <div class="auth-sw">No account? <a onclick="go('register')">Sign up free</a></div>
+      <div style="text-align:center;margin-top:.5rem"><a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REGISTER ===== -->
+<div id="register" class="page">
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-logo"><div class="logo-dot"></div> Logify Hub</div>
+      <div class="auth-tag">Get your personal virtual account + store access</div>
+      <h2>Create Account</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
+        <div class="fg"><label>First Name</label><input type="text" id="rf" placeholder="John"></div>
+        <div class="fg"><label>Last Name</label><input type="text" id="rl" placeholder="Doe"></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" id="re" placeholder="you@example.com"></div>
+      <div class="fg"><label>Phone (for account name)</label><input type="tel" id="rph" placeholder="+234 800 000 0000"></div>
+      <div class="fg"><label>Password</label>
+        <div class="pw-wrap"><input type="password" id="rp" placeholder="Min 6 characters"><button class="pw-eye" onclick="epw('rp',this)">👁</button></div>
+      </div>
+      <div class="fg"><label>Confirm Password</label><input type="password" id="rp2" placeholder="Repeat password"></div>
+      <div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:.75rem;margin-bottom:.85rem;font-size:.78rem;color:var(--mut2)">
+        🏦 <strong style="color:var(--primary2)">You'll get a personal virtual account number</strong> instantly after signup — transfer from any Nigerian bank to fund your wallet!
+      </div>
+      <button class="btn btn-primary btn-full" id="regBtn" onclick="doRegister()">Create Account & Get Account Number →</button>
+      <div class="auth-sw">Already have an account? <a onclick="go('login')">Login</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div id="dashboard" class="page">
+  <nav style="z-index:1000">
+    <div class="logo"><div class="logo-dot"></div> Logify Hub</div>
+    <div class="nav-links">
+      <a onclick="go('store')">Store</a>
+      <span style="color:var(--mut2);font-size:.8rem" id="dwelcome">👤 User</span>
+      <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+  <div class="dash-layout">
+    <div class="dash-sb">
+      <div class="sb-sec">Main</div>
+      <div class="sb-i on" onclick="dsh('dhome',this)"><span class="ic">📊</span> Dashboard</div>
+      <div class="sb-i" onclick="dsh('dorders',this)"><span class="ic">📦</span> My Orders</div>
+      <div class="sb-i" onclick="dsh('dwallet',this)"><span class="ic">💰</span> My Wallet</div>
+      <div class="sb-i" onclick="go('store')"><span class="ic">🛒</span> Browse Store</div>
+      <div class="sb-div"></div>
+      <div class="sb-sec">Account</div>
+      <div class="sb-i" onclick="dsh('dprofile',this)"><span class="ic">👤</span> Profile</div>
+    </div>
+    <div class="dash-main">
+
+      <!-- HOME TAB -->
+      <div id="dhome">
+        <div class="dash-hd">
+          <div><h1>Dashboard</h1><p id="ddate">Welcome back</p></div>
+          <button class="btn btn-primary btn-sm" onclick="go('store')">+ Buy Products</button>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="kpi-l">Wallet Balance</div><div class="kpi-v" id="kwbal" style="color:var(--green)">₦0</div><div class="kpi-s">Available</div></div>
+          <div class="kpi"><div class="kpi-l">Account Number</div><div class="kpi-v" id="kacct" style="font-size:1rem;color:var(--primary2)">—</div><div class="kpi-s" id="kbank">Loading...</div></div>
+          <div class="kpi"><div class="kpi-l">Total Orders</div><div class="kpi-v" id="ktord">0</div></div>
+          <div class="kpi"><div class="kpi-l">Completed</div><div class="kpi-v" id="ktcomp" style="color:var(--green)">0</div></div>
+        </div>
+        <div class="dgrid">
+          <div class="panel">
+            <div class="panel-t">Recent Orders</div>
+            <div id="drecent"><p style="color:var(--mut2);font-size:.83rem">No orders yet. <a onclick="go('store')" style="color:var(--primary2);cursor:pointer;font-weight:600">Browse store →</a></p></div>
+          </div>
+          <div class="panel">
+            <div class="panel-t">Quick Actions</div>
+            <div style="display:flex;flex-direction:column;gap:.55rem">
+              <button class="btn btn-primary btn-full" onclick="go('store')" style="border-radius:8px">🛒 Browse Products</button>
+              <button class="btn btn-ghost btn-full" onclick="dsh('dwallet',null)" style="border-radius:8px">🏦 My Wallet & Account</button>
+              <button class="btn btn-ghost btn-full" onclick="dsh('dorders',null)" style="border-radius:8px">📦 View Orders</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORDERS TAB -->
+      <div id="dorders" style="display:none">
+        <div class="dash-hd"><div><h1>My Orders</h1><p>All your purchases</p></div><button class="btn btn-primary btn-sm" onclick="go('store')">+ New Order</button></div>
+        <div class="panel"><div class="panel-t">Order History</div><div id="ordersList"><p style="color:var(--mut2);font-size:.83rem">No orders yet.</p></div></div>
+      </div>
+
+      <!-- WALLET TAB -->
+      <div id="dwallet" style="display:none">
+        <div class="dash-hd"><div><h1>My Wallet</h1><p>Your personal virtual account</p></div></div>
+
+        <!-- VIRTUAL ACCOUNT CARD -->
+        <div class="vacct-card">
+          <div class="vacct-top">
+            <div>
+              <div class="vacct-label">Your Personal Account</div>
+              <div class="vacct-bank" id="vacctBank">Loading bank...</div>
+            </div>
+            <div class="vacct-logo">🏦</div>
+          </div>
+          <div class="vacct-num" id="vacctNum">—— —— ——</div>
+          <div class="vacct-name" id="vacctName">Logifyhub_ Your Name</div>
+          <div class="vacct-bal">
+            <div>
+              <div class="vacct-bal-l">Available Balance</div>
+              <div class="vacct-bal-v" id="wbal">₦0.00</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:.62rem;color:var(--mut2);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:.18rem">Auto-Refresh</div>
+              <div style="font-size:.72rem;color:var(--primary2)" id="lastRefresh">—</div>
+            </div>
+          </div>
+          <div class="vacct-actions">
+            <button class="vacct-btn copy" onclick="copyAcctNum()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy Account Number
+            </button>
+            <button class="vacct-btn ref" onclick="refreshWallet()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+              Refresh Balance
+            </button>
+          </div>
+        </div>
+
+        <!-- HOW TO FUND -->
+        <div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.14);border-radius:12px;padding:1rem;margin-bottom:1.1rem">
+          <div style="font-family:'Montserrat';font-weight:700;font-size:.82rem;margin-bottom:.5rem;color:var(--primary2)">📱 How to Fund Your Wallet</div>
+          <div style="display:flex;flex-direction:column;gap:.35rem;font-size:.78rem;color:var(--mut2)">
+            <div>1. Open your banking app (GTBank, Access, OPay, Kuda, etc.)</div>
+            <div>2. Transfer any amount to your account number above</div>
+            <div>3. Your wallet balance updates automatically within seconds</div>
+            <div>4. Use balance to buy any product instantly</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-t">Transaction History</div>
+          <div id="wtxlog"><p style="color:var(--mut2);font-size:.83rem">No transactions yet.</p></div>
+        </div>
+      </div>
+
+      <!-- PROFILE TAB -->
+      <div id="dprofile" style="display:none">
+        <div class="dash-hd"><div><h1>Profile</h1></div></div>
+        <div class="panel" style="max-width:420px">
+          <div class="panel-t">Account Info</div>
+          <div class="fg"><label>Full Name</label><input type="text" id="pname" readonly style="background:rgba(255,255,255,.03)"></div>
+          <div class="fg"><label>Email</label><input type="email" id="pemail" readonly style="background:rgba(255,255,255,.03)"></div>
+          <div class="fg"><label>Phone</label><input type="tel" id="pphone" readonly style="background:rgba(255,255,255,.03)"></div>
+          <div class="fg"><label>Virtual Account Number</label><input type="text" id="pAcctNum" readonly style="background:rgba(255,255,255,.03);color:var(--primary2);font-family:monospace"></div>
+          <div class="fg"><label>Bank</label><input type="text" id="pAcctBank" readonly style="background:rgba(255,255,255,.03)"></div>
+          <div class="fg" style="margin-top:.5rem"><label>New Password</label><input type="password" id="newpw" placeholder="Leave blank to keep current"></div>
+          <button class="btn btn-ghost" onclick="updateProfile()">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE NAV -->
+  <div class="mobnav">
+    <div class="mob-btn on" id="mn0" onclick="dsh('dhome',null);mobOn(0)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Home
+    </div>
+    <div class="mob-btn" id="mn1" onclick="dsh('dorders',null);mobOn(1)">
+      <svg viewBox="0 0 24 24"><path d="M20 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>Orders
+    </div>
+    <div class="mob-btn" id="mn2" onclick="dsh('dwallet',null);mobOn(2)">
+      <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 13a1 1 0 100-2 1 1 0 000 2z" fill="currentColor" stroke="none"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Wallet
+    </div>
+    <div class="mob-btn" id="mn3" onclick="go('store')">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Store
+    </div>
+    <div class="mob-btn" id="mn4" onclick="dsh('dprofile',null);mobOn(4)">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHECKOUT ===== -->
+<div id="checkout" class="page">
+  <div class="co-wrap">
+    <div class="co-title">Complete Purchase</div>
+    <div class="co-grid">
+      <div>
+        <div class="panel" style="margin-bottom:1rem">
+          <div class="panel-t">Your Details</div>
+          <div class="fg"><label>Full Name</label><input type="text" id="cn" placeholder="Your full name"></div>
+          <div class="fg"><label>Email</label><input type="email" id="ce" placeholder="you@example.com"></div>
+          <div class="fg"><label>Quantity</label>
+            <select id="cq" onchange="uqty()">
+              <option value="1">1</option><option value="2">2</option>
+              <option value="3">3</option><option value="5">5</option><option value="10">10</option>
+            </select>
+          </div>
+        </div>
+        <div class="wbb" id="walletBuyBar">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.55rem">
+            <div><div class="wbb-l">Wallet Balance</div><div class="wbb-v" id="wbalChk">₦0</div></div>
+            <button class="btn btn-green" onclick="buyWithWallet()">⚡ Buy Instantly</button>
+          </div>
+          <div style="color:var(--mut2);font-size:.7rem;margin-top:.35rem">Deducted from wallet — credentials delivered instantly</div>
+        </div>
+        <div class="panel" style="margin-top:1rem">
+          <div class="panel-t">Need to top up?</div>
+          <div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.14);border-radius:9px;padding:.9rem">
+            <div style="font-size:.8rem;color:var(--mut2);margin-bottom:.5rem">Transfer to your personal account to fund wallet:</div>
+            <div style="font-family:'Montserrat';font-size:1.1rem;font-weight:800;color:var(--primary2)" id="coAcctNum">—</div>
+            <div style="font-size:.74rem;color:var(--mut2);margin-top:.18rem" id="coAcctBank">—</div>
+            <button class="btn btn-ghost btn-sm" style="margin-top:.6rem;border-radius:6px" onclick="copyAcctNum()">📋 Copy Account Number</button>
+          </div>
+          <div style="text-align:center;margin-top:.6rem"><a style="color:var(--mut2);font-size:.7rem;cursor:pointer" onclick="go('store')">← Back to Store</a></div>
+        </div>
+      </div>
+      <div class="csum">
+        <div class="csum-t">Order Summary</div>
+        <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;padding-bottom:.85rem;border-bottom:1px solid var(--bord)">
+          <div style="width:32px;height:32px;background:var(--grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem" id="csumIcon">🛒</div>
+          <div style="font-weight:700;font-size:.85rem;line-height:1.3" id="cpname">—</div>
+        </div>
+        <div class="csum-row"><span>Quantity</span><span id="cqd">1</span></div>
+        <div class="csum-row"><span>Unit Price</span><span id="cup">—</span></div>
+        <div class="csum-tot"><span>Total</span><span id="ctot" style="color:var(--gold)">—</span></div>
+        <div style="margin-top:.85rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.14);border-radius:8px;padding:.65rem">
+          <div style="color:var(--green);font-weight:700;font-size:.76rem;margin-bottom:.15rem">⚡ Instant Delivery</div>
+          <div style="color:var(--mut2);font-size:.7rem">Credentials in your dashboard seconds after purchase</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DELIVERED ===== -->
+<div id="delivered" class="page">
+  <div class="deliv-wrap">
+    <div class="deliv-icon">🎉</div>
+    <div class="deliv-t">Order Complete!</div>
+    <p style="color:var(--mut2);margin-bottom:1.8rem;font-size:.86rem">Your credentials are ready. Save them now!</p>
+    <div class="cred-box"><div class="cred-bt">🔑 Your Access Credentials</div><div id="credLines"></div></div>
+    <div style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.14);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--mut2);margin-bottom:1rem">📧 Also saved to your orders dashboard.</div>
+    <button class="btn btn-primary btn-full btn-lg" style="border-radius:9px" onclick="go('dashboard')">Go to Dashboard →</button>
+  </div>
+</div>
+
+<!-- ===== ADMIN ===== -->
+<div id="admin" class="page">
+  <nav style="z-index:1000;background:rgba(8,12,22,.97)">
+    <div class="logo"><div class="logo-dot"></div> Logify Hub</div>
+    <div class="nav-links">
+      <span class="tag t-b" style="font-size:.6rem">⚙ Admin</span>
+      <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+  <div class="dash-layout">
+    <div class="dash-sb">
+      <div class="sb-sec">Overview</div>
+      <div class="sb-i on" onclick="atab('aov');sOn(this)"><span class="ic">📊</span> Overview</div>
+      <div class="sb-div"></div>
+      <div class="sb-sec">Manage</div>
+      <div class="sb-i" onclick="atab('aord');sOn(this)"><span class="ic">📦</span> Orders</div>
+      <div class="sb-i" onclick="atab('ausr');sOn(this)"><span class="ic">👥</span> Users</div>
+      <div class="sb-div"></div>
+      <div class="sb-i" onclick="atab('aset');sOn(this)"><span class="ic">⚙️</span> Settings</div>
+      <div class="sb-i" onclick="go('home')"><span class="ic">🌐</span> View Site</div>
+    </div>
+    <div class="dash-main">
+      <div id="aov" class="asec on">
+        <div class="dash-hd"><div><h1>Overview</h1><p>Platform metrics</p></div><button class="btn btn-ghost btn-sm" onclick="loadStats()">↻ Refresh</button></div>
+        <div class="akpis">
+          <div class="ak"><div class="ak-l">Revenue</div><div class="ak-v" style="color:var(--green)" id="arev">₦0</div></div>
+          <div class="ak"><div class="ak-l">Users</div><div class="ak-v" id="ausr2">0</div></div>
+          <div class="ak"><div class="ak-l">Orders</div><div class="ak-v" id="aord2">0</div></div>
+          <div class="ak"><div class="ak-l">Pending</div><div class="ak-v" style="color:var(--gold)" id="apend">0</div></div>
+          <div class="ak"><div class="ak-l">Completed</div><div class="ak-v" style="color:var(--green)" id="acomp">0</div></div>
+        </div>
+        <div class="panel"><div class="panel-t">Recent Orders</div><div id="arec"><p style="color:var(--mut2);font-size:.82rem">No orders yet.</p></div></div>
+      </div>
+      <div id="aord" class="asec">
+        <div class="dash-hd"><div><h1>Orders</h1></div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.45rem">
+          <div style="display:flex;gap:.35rem;flex-wrap:wrap">
+            <button class="btn btn-ghost btn-sm" onclick="faord('all')">All</button>
+            <button class="btn btn-ghost btn-sm" onclick="faord('pending')">Pending</button>
+            <button class="btn btn-ghost btn-sm" onclick="faord('completed')">Completed</button>
+          </div>
+          <input style="background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--txt);padding:.38rem .75rem;border-radius:7px;font-family:'Inter';font-size:.8rem;outline:none;width:180px" placeholder="Search..." oninput="stbl(this,'aotb')">
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl" id="aotb">
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="aotbd"><tr><td colspan="6" style="color:var(--mut2);padding:2rem;text-align:center">No orders yet.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="ausr" class="asec">
+        <div class="dash-hd"><div><h1>Users</h1></div></div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Name</th><th>Email</th><th>Account No.</th><th>Wallet</th><th>Orders</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="autbd"><tr><td colspan="7" style="color:var(--mut2);padding:2rem;text-align:center">No users yet.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="aset" class="asec">
+        <div class="dash-hd"><div><h1>Settings</h1></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:780px">
+          <div class="panel">
+            <div class="panel-t">Admin Password</div>
+            <div class="fg"><label>New Password</label><input type="password" id="npw" placeholder="New password"></div>
+            <div class="fg"><label>Confirm</label><input type="password" id="npw2" placeholder="Confirm"></div>
+            <button class="btn btn-primary" onclick="chgPw()">Update Password</button>
+          </div>
+          <div class="panel">
+            <div class="panel-t">AccsZone API Key</div>
+            <div class="fg"><label>API Key</label><input type="text" id="aczKeyInp" value="acz_0zFcs5TqSeldXe8ewK0lKMSAoZvZtFWcQEnEyZlDgG2vQvdz"></div>
+            <button class="btn btn-green" onclick="saveACZKey()">Save Key</button>
+          </div>
+          <div class="panel">
+            <div class="panel-t">Monnify Keys</div>
+            <div class="fg"><label>API Key</label><input type="text" id="monnKeyInp" value="MK_TEST_YS3BQVZQGK"></div>
+            <div class="fg"><label>Secret Key</label><input type="text" id="monnSecInp" value="RL0BA0DZA25L4E196694HNDZ"></div>
+            <div class="fg"><label>Contract Code</label><input type="text" id="monnContInp" value="8381669011"></div>
+            <button class="btn btn-green" onclick="saveMonnifyKeys()">Save Keys</button>
+          </div>
+          <div class="panel">
+            <div class="panel-t">Danger Zone</div>
+            <div style="display:flex;flex-direction:column;gap:.5rem">
+              <button class="btn btn-red" onclick="conf('Clear all orders?','All records deleted.',()=>{DB.orders=[];rstats();toast('Orders cleared.');})">Clear All Orders</button>
+              <button class="btn btn-red" onclick="conf('Delete all users?','All accounts removed.',()=>{DB.users=[];rausr();rstats();toast('Users deleted.');})">Delete All Users</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RELEASE MODAL -->
+<div class="mo" id="relmo">
+  <div class="mo-wide">
+    <h3>🗝️ Release Credentials</h3>
+    <div class="fg"><label>Order ID</label><input type="text" id="rid" readonly style="background:rgba(255,255,255,.03)"></div>
+    <div class="fg"><label>Customer Email</label><input type="email" id="rem2" readonly style="background:rgba(255,255,255,.03)"></div>
+    <div class="fg"><label>Username / Email / Code</label><input type="text" id="ruser" placeholder="e.g. user@gmail.com"></div>
+    <div class="fg"><label>Password / Link</label><input type="text" id="rpass" placeholder="e.g. password123"></div>
+    <div class="fg"><label>Extra Info (optional)</label><textarea id="rext" placeholder="Recovery email, 2FA backup, notes..." style="min-height:55px"></textarea></div>
+    <div class="mo-btns">
+      <button class="btn btn-ghost" onclick="closeRel()">Cancel</button>
+      <button class="btn btn-primary" onclick="doRelease()">Release →</button>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="mo" id="sucmo">
+  <div class="mo-box">
+    <div class="mo-icon">✅</div>
+    <h2>Order Submitted!</h2>
+    <p>Your order is being processed. Credentials will appear in your dashboard shortly.</p>
+    <p style="font-size:.72rem;color:var(--mut2)">Order ID: <strong style="color:var(--txt)">#LGF-<span id="oid">00000</span></strong></p>
+    <div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem">
+      <button class="btn btn-primary" onclick="closeSuc();go('dashboard')">Go to Dashboard</button>
+      <button class="btn btn-ghost" onclick="closeSuc();go('store')">Browse More</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="mo" id="confmo">
+  <div class="mo-box2">
+    <h3 id="ct">Are you sure?</h3>
+    <p id="cb" style="color:var(--mut2);font-size:.81rem;margin-bottom:.85rem">This cannot be undone.</p>
+    <div class="mo-btns">
+      <button class="btn btn-ghost" onclick="closeConf()">Cancel</button>
+      <button class="btn btn-red" id="cok">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER DETAIL MODAL -->
+<div class="mo" id="orddetmo">
+  <div class="mo-wide">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+      <h3 style="margin:0">📦 Order Details</h3>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('orddetmo').classList.remove('open')">✕</button>
+    </div>
+    <div id="ordDetContent"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
