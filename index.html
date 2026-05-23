@@ -853,4 +853,866 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
 </div>
 
 <div id="toast"></div>
+<script>
+// ── Firebase Init ──
+(async()=>{
+  const{initializeApp}=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js');
+  const{getFirestore,doc,setDoc,getDoc,collection,getDocs,deleteDoc}=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+  const app=initializeApp({
+    apiKey:"AIzaSyALnbcOWMZxQ3S4sUB_vjl3GAxkUmsGI8o",
+    authDomain:"logifyhub-6d127.firebaseapp.com",
+    projectId:"logifyhub-6d127",
+    storageBucket:"logifyhub-6d127.firebasestorage.app",
+    messagingSenderId:"400535870848",
+    appId:"1:400535870848:web:8b35105361ee57f1afb565"
+  });
+  const db=getFirestore(app);
+  window.db=db;window.fsDoc=doc;window.fsSet=setDoc;window.fsGet=getDoc;
+  window.fsColl=collection;window.fsGetDocs=getDocs;window.fsDel=deleteDoc;
+  window.fbReady=true;
+})();
+
+// ── Config ──
+let ACZ_KEY='acz_0zFcs5TqSeldXe8ewK0lKMSAoZvZtFWcQEnEyZlDgG2vQvdz';
+let MONN_KEY='MK_TEST_YS3BQVZQGK';
+let MONN_SECRET='RL0BA0DZA25L4E196694HNDZ';
+let MONN_CONTRACT='8381669011';
+const MONN_BASE='https://sandbox.monnify.com';
+const ACZ_BASE='https://accszone.com/api/v1';
+
+// ── State ──
+let DB={users:[],orders:[]};
+let CU=null,curOid=null;
+let CP={name:'',price:0,icon:'🛒',cat:'',id:''};
+let walletRefreshTimer=null;
+
+// ── Helpers ──
+const fmt=n=>'₦'+Number(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const gid=()=>String(Math.floor(10000+Math.random()*90000));
+const now=()=>new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+const stl=s=>s==='completed'?'t-g':s==='cancelled'?'t-r':s==='processing'?'t-b':'t-y';
+const slbl=s=>s==='completed'?'Completed':s==='cancelled'?'Cancelled':s==='processing'?'Processing':'Pending';
+
+// ── PRODUCTS ──
+const PRODUCTS=[
+  {id:'tp1',name:'TextPlus Account',cat:'TextPlus',icon:'📱',price:2500,desc:'USA TextPlus number account. Instant delivery.',inStock:true},
+  {id:'fb1',name:'USA Facebook — 200+ Real Friends',cat:'Facebook',icon:'📘',price:12000,desc:'High quality USA Facebook with 200+ real friends.',inStock:true},
+  {id:'fb2',name:'USA Facebook — 100+ Real Friends',cat:'Facebook',icon:'📘',price:8000,desc:'USA Facebook account with 100+ real friends.',inStock:true},
+  {id:'fb3',name:'USA Facebook — Empty',cat:'Facebook',icon:'📘',price:5000,desc:'Clean empty USA Facebook account.',inStock:true},
+  {id:'fb4',name:'Random Facebook — Can Create Page',cat:'Facebook',icon:'📘',price:4000,desc:'Random Facebook with ability to create pages.',inStock:true},
+  {id:'fb5',name:'Facebook — Profile + Page Ready',cat:'Facebook',icon:'📘',price:4500,desc:'Facebook with profile and page already set up.',inStock:true},
+  {id:'tw1',name:'Twitter — 50 Followers',cat:'Twitter',icon:'🐦',price:3000,desc:'Twitter account with 50 followers.',inStock:true},
+  {id:'tw2',name:'Twitter — 100 Followers',cat:'Twitter',icon:'🐦',price:4500,desc:'Twitter account with 100 followers.',inStock:true},
+  {id:'tw3',name:'Twitter — 200 Followers',cat:'Twitter',icon:'🐦',price:6000,desc:'Twitter account with 200 followers.',inStock:true},
+  {id:'tw4',name:'Twitter — 500 Followers (Aged)',cat:'Twitter',icon:'🐦',price:9000,desc:'Aged Twitter account with 500 followers.',inStock:true},
+  {id:'tw5',name:'Twitter — 1000 Followers (Aged)',cat:'Twitter',icon:'🐦',price:17000,desc:'Aged Twitter account with 1000 followers.',inStock:true},
+  {id:'tt1',name:'TikTok — 50 Followers',cat:'TikTok',icon:'🎵',price:2500,desc:'TikTok account with 50 followers.',inStock:true},
+  {id:'tt2',name:'TikTok — 1000 Followers',cat:'TikTok',icon:'🎵',price:6000,desc:'TikTok account with 1000 followers.',inStock:true},
+  {id:'em1',name:'Gmail Account',cat:'Email',icon:'📧',price:2000,desc:'Fresh Gmail account. Ready to use.',inStock:true},
+  {id:'em2',name:'Webmail Account',cat:'Email',icon:'📨',price:300,desc:'Webmail account. Instant delivery.',inStock:true},
+  {id:'em3',name:'Outlook Account',cat:'Email',icon:'📩',price:300,desc:'Microsoft Outlook account.',inStock:true},
+  {id:'ig1',name:'Instagram — 500 Followers',cat:'Instagram',icon:'📸',price:6000,desc:'Instagram with 500 followers.',inStock:true},
+  {id:'ig2',name:'Instagram — 1000 Followers',cat:'Instagram',icon:'📸',price:8000,desc:'Instagram with 1000 followers.',inStock:true},
+  {id:'ig3',name:'Instagram — Empty Account',cat:'Instagram',icon:'📸',price:1000,desc:'Clean empty Instagram account.',inStock:true},
+  {id:'ig4',name:'Instagram — Aged with Real Followers',cat:'Instagram',icon:'📸',price:8000,desc:'Aged Instagram with real followers (count may vary).',inStock:true},
+];
+
+const CAT_CONFIG={
+  'TextPlus':{icon:'📱',color:'#10b981'},
+  'Facebook':{icon:'📘',color:'#1877f2'},
+  'Twitter':{icon:'🐦',color:'#1da1f2'},
+  'TikTok':{icon:'🎵',color:'#fe2c55'},
+  'Email':{icon:'📧',color:'#ea4335'},
+  'Instagram':{icon:'📸',color:'#e1306c'},
+};
+
+// ── Monnify Auth ──
+async function monnifyAuth(){
+  try{
+    const creds=btoa(MONN_KEY+':'+MONN_SECRET);
+    const res=await fetch(MONN_BASE+'/api/v1/auth/login',{
+      method:'POST',
+      headers:{'Authorization':'Basic '+creds,'Content-Type':'application/json'}
+    });
+    const d=await res.json();
+    return d.responseBody?.accessToken||null;
+  }catch(e){console.error('Monnify auth error:',e);return null;}
+}
+
+// ── Create Virtual Account ──
+async function createVirtualAccount(user){
+  try{
+    const token=await monnifyAuth();
+    if(!token){console.error('No Monnify token');return null;}
+    const res=await fetch(MONN_BASE+'/api/v2/bank-transfer/reserved-accounts',{
+      method:'POST',
+      headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'},
+      body:JSON.stringify({
+        accountReference:'LGF-'+user.id+'-'+Date.now(),
+        accountName:'Logifyhub_ '+user.name,
+        currencyCode:'NGN',
+        contractCode:MONN_CONTRACT,
+        customerEmail:user.email,
+        customerName:user.name,
+        getAllAvailableBanks:false,
+        preferredBanks:['035']
+      })
+    });
+    const d=await res.json();
+    if(d.requestSuccessful&&d.responseBody?.accounts?.length){
+      const acct=d.responseBody.accounts[0];
+      return{
+        accountNumber:acct.accountNumber,
+        bankName:acct.bankName,
+        accountName:d.responseBody.accountName,
+        accountReference:d.responseBody.accountReference
+      };
+    }
+    console.error('Monnify VA error:',d);
+    return null;
+  }catch(e){console.error('Create VA error:',e);return null;}
+}
+
+// ── Check Monnify Balance (poll transactions) ──
+async function getMonnifyBalance(acctRef){
+  try{
+    const token=await monnifyAuth();
+    if(!token)return null;
+    const res=await fetch(MONN_BASE+'/api/v1/bank-transfer/reserved-accounts/transactions?accountReference='+acctRef+'&page=0&size=100',{
+      headers:{'Authorization':'Bearer '+token}
+    });
+    const d=await res.json();
+    if(d.requestSuccessful){
+      const txs=d.responseBody?.content||[];
+      const total=txs.filter(t=>t.paymentStatus==='PAID').reduce((s,t)=>s+Number(t.amountPaid||0),0);
+      return{total,txs};
+    }
+    return null;
+  }catch(e){console.error('Balance check error:',e);return null;}
+}
+
+// ── Firebase Helpers ──
+async function fbWait(){for(let i=0;i<25;i++){if(window.fbReady)return;await new Promise(r=>setTimeout(r,300));}}
+async function fbUsers(){if(!window.db)return DB.users;try{return(await window.fsGetDocs(window.fsColl(window.db,'lgf_users'))).docs.map(d=>({id:d.id,...d.data()}));}catch{return DB.users;}}
+async function fbOrders(){if(!window.db)return DB.orders;try{return(await window.fsGetDocs(window.fsColl(window.db,'lgf_orders'))).docs.map(d=>({...d.data(),id:d.id}));}catch{return DB.orders;}}
+async function fbSaveUser(u){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_users',String(u.id)),u);}catch(e){console.error(e);}}
+async function fbSaveOrder(o){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_orders',String(o.id)),o);}catch(e){console.error(e);}}
+async function fbDelUser(id){if(!window.db)return;try{await window.fsDel(window.fsDoc(window.db,'lgf_users',String(id)));}catch(e){console.error(e);}}
+async function fbGetAdmin(){if(!window.db)return{pw:'admin123'};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_config','admin'));return d.exists()?d.data():{pw:'admin123'};}catch{return{pw:'admin123'};}}
+async function fbSetAdmin(data){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_config','admin'),data);}catch(e){console.error(e);}}
+async function fbGetWallet(uid){if(!window.db)return{balance:0,transactions:[]};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_wallets',String(uid)));return d.exists()?d.data():{balance:0,transactions:[]};}catch{return{balance:0,transactions:[]};}}
+async function fbSaveWallet(uid,w){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_wallets',String(uid)),w);}catch(e){console.error(e);}}
+
+// ── AccsZone API ──
+async function aczPost(endpoint,body){
+  try{
+    const res=await fetch(ACZ_BASE+endpoint,{
+      method:'POST',
+      headers:{'X-API-Key':ACZ_KEY,'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    });
+    return await res.json();
+  }catch(e){console.error('ACZ error:',e);return null;}
+}
+
+// ── Session Restore ──
+window.addEventListener('load',async()=>{
+  const s=localStorage.getItem('lgf_s');
+  await fbWait();
+  const cfg=await fbGetAdmin();
+  if(cfg.aczKey)ACZ_KEY=cfg.aczKey;
+  if(cfg.monnKey)MONN_KEY=cfg.monnKey;
+  if(cfg.monnSecret)MONN_SECRET=cfg.monnSecret;
+  if(cfg.monnContract)MONN_CONTRACT=cfg.monnContract;
+  if(!s)return;
+  if(s==='admin'){CU='admin';go('admin');await loadStats();return;}
+  const users=await fbUsers();
+  const u=users.find(x=>x.email===s);
+  if(u&&u.status!=='banned'){
+    DB.users=users;DB.orders=await fbOrders();
+    CU=u;await loadDash(u);go('dashboard');
+  }else{localStorage.removeItem('lgf_s');}
+});
+
+// ── Navigation ──
+let navHist=[];
+function updateBack(){const b=document.getElementById('backFab');if(b)b.style.display=navHist.length?'block':'none';}
+function go(id){
+  // Block store if not logged in
+  if(id==='store'&&(!CU||CU==='admin')){go('login');toast('Please login to access the store.');return;}
+  const cur=document.querySelector('.page.active');
+  if(cur&&cur.id!==id)navHist.push(cur.id);
+  if(navHist.length>10)navHist.shift();
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const e=document.getElementById(id);
+  if(e){e.classList.add('active');window.scrollTo(0,0);}
+  updateNavBtns();updateBack();
+  if(id==='store')renderStore(PRODUCTS);
+  if(id==='dashboard'&&CU&&CU!=='admin')startWalletRefresh();
+  else stopWalletRefresh();
+}
+function goBack(){
+  if(!navHist.length)return;
+  const p=navHist.pop();
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  const e=document.getElementById(p);
+  if(e){e.classList.add('active');window.scrollTo(0,0);}
+  updateNavBtns();updateBack();
+}
+function updateNavBtns(){
+  const l=CU&&CU!=='admin';
+  ['navLogin','navSignup'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=l?'none':'';});
+  ['navLogout','navDash'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=l?'':'none';});
+}
+function epw(id,btn){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';btn.textContent=i.type==='password'?'👁':'🙈';}
+function mobOn(idx){document.querySelectorAll('.mob-btn').forEach((b,i)=>b.classList.toggle('on',i===idx));}
+
+// ── Auth ──
+async function doLogin(){
+  const e=document.getElementById('le').value.trim().toLowerCase();
+  const p=document.getElementById('lp').value;
+  if(!e||!p){toast('Enter email and password.');return;}
+  const btn=document.getElementById('loginBtn');btn.textContent='Signing in...';btn.disabled=true;
+  await fbWait();
+  if(e==='admin@logifyhub.com'){
+    const cfg=await fbGetAdmin();btn.textContent='Login';btn.disabled=false;
+    if(p!==cfg.pw&&p!=='admin123'){toast('Wrong admin password.');return;}
+    CU='admin';localStorage.setItem('lgf_s','admin');go('admin');await loadStats();return;
+  }
+  const users=await fbUsers();DB.users=users;
+  const u=users.find(x=>x.email===e);
+  if(!u){btn.textContent='Login';btn.disabled=false;toast('Account not found.');return;}
+  if(u.pw!==p){btn.textContent='Login';btn.disabled=false;toast('Wrong password.');return;}
+  if(u.status==='banned'){btn.textContent='Login';btn.disabled=false;toast('Account banned.');return;}
+  CU=u;localStorage.setItem('lgf_s',e);
+  DB.orders=await fbOrders();
+  btn.textContent='Login';btn.disabled=false;
+  await loadDash(u);go('dashboard');
+}
+
+async function doRegister(){
+  const f=document.getElementById('rf').value.trim();
+  const l=document.getElementById('rl').value.trim();
+  const e=document.getElementById('re').value.trim().toLowerCase();
+  const ph=document.getElementById('rph').value.trim();
+  const p=document.getElementById('rp').value;
+  const p2=document.getElementById('rp2').value;
+  if(!f||!l||!e||!p){toast('Fill all required fields.');return;}
+  if(p.length<6){toast('Password min 6 characters.');return;}
+  if(p!==p2){toast('Passwords do not match.');return;}
+  const btn=document.getElementById('regBtn');
+  btn.textContent='Creating account...';btn.disabled=true;
+  await fbWait();
+  const users=await fbUsers();
+  if(users.find(x=>x.email===e)){btn.textContent='Create Account →';btn.disabled=false;toast('Email already registered.');return;}
+  const u={id:gid(),name:f+' '+l,email:e,phone:ph,pw:p,status:'active',joined:now(),virtualAccount:null};
+  // Create Monnify virtual account
+  btn.textContent='Generating your account number...';
+  toast('Creating your personal bank account... ⚡');
+  const va=await createVirtualAccount(u);
+  if(va){
+    u.virtualAccount=va;
+    toast('✅ Personal account number created!');
+  }else{
+    toast('Account created! Bank account will be assigned shortly.');
+  }
+  await fbSaveUser(u);
+  DB.users=[...users,u];CU=u;
+  localStorage.setItem('lgf_s',e);
+  DB.orders=await fbOrders();
+  btn.textContent='Create Account →';btn.disabled=false;
+  await loadDash(u);go('dashboard');
+  toast('Welcome to Logify Hub! 🎉');
+}
+
+function doLogout(){
+  CU=null;localStorage.removeItem('lgf_s');
+  navHist=[];stopWalletRefresh();go('home');updateNavBtns();
+}
+
+// ── Dashboard ──
+async function loadDash(u){
+  document.getElementById('dwelcome').textContent='👤 '+u.name.split(' ')[0];
+  document.getElementById('ddate').textContent='Welcome back, '+u.name.split(' ')[0]+'!';
+  document.getElementById('pname').value=u.name||'';
+  document.getElementById('pemail').value=u.email||'';
+  document.getElementById('pphone').value=u.phone||'';
+  // Virtual account info
+  const va=u.virtualAccount;
+  if(va){
+    const num=va.accountNumber||'—';
+    document.getElementById('kacct').textContent=num;
+    document.getElementById('kbank').textContent=va.bankName||'';
+    document.getElementById('vacctNum').textContent=num;
+    document.getElementById('vacctBank').textContent=va.bankName||'';
+    document.getElementById('vacctName').textContent=va.accountName||('Logifyhub_ '+u.name);
+    document.getElementById('pAcctNum').value=num;
+    document.getElementById('pAcctBank').value=va.bankName||'';
+    if(document.getElementById('coAcctNum'))document.getElementById('coAcctNum').textContent=num;
+    if(document.getElementById('coAcctBank'))document.getElementById('coAcctBank').textContent=va.bankName||'';
+  }else{
+    document.getElementById('kacct').textContent='Pending';
+    document.getElementById('kbank').textContent='Generating...';
+    document.getElementById('vacctNum').textContent='Generating...';
+    document.getElementById('vacctBank').textContent='Please wait';
+    // Try to create if missing
+    retryVirtualAccount(u);
+  }
+  await loadWallet();
+  await rdash(u);
+}
+
+async function retryVirtualAccount(u){
+  const va=await createVirtualAccount(u);
+  if(va){
+    u.virtualAccount=va;
+    CU.virtualAccount=va;
+    await fbSaveUser(u);
+    const num=va.accountNumber;
+    document.getElementById('kacct').textContent=num;
+    document.getElementById('kbank').textContent=va.bankName||'';
+    document.getElementById('vacctNum').textContent=num;
+    document.getElementById('vacctBank').textContent=va.bankName||'';
+    document.getElementById('vacctName').textContent=va.accountName||('Logifyhub_ '+u.name);
+    document.getElementById('pAcctNum').value=num;
+    document.getElementById('pAcctBank').value=va.bankName||'';
+    if(document.getElementById('coAcctNum'))document.getElementById('coAcctNum').textContent=num;
+    if(document.getElementById('coAcctBank'))document.getElementById('coAcctBank').textContent=va.bankName||'';
+    toast('✅ Your personal account number is ready!');
+  }
+}
+
+async function rdash(u){
+  const orders=(DB.orders||[]).filter(o=>o.uid===u.id);
+  const comp=orders.filter(o=>o.status==='completed').length;
+  document.getElementById('ktord').textContent=orders.length;
+  document.getElementById('ktcomp').textContent=comp;
+  const rec=document.getElementById('drecent');
+  if(!orders.length){
+    rec.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No orders yet. <a onclick="go(\'store\')" style="color:var(--primary2);cursor:pointer;font-weight:600">Browse store →</a></p>';
+  }else{
+    rec.innerHTML=orders.slice(-5).reverse().map(o=>`
+      <div class="tx-row">
+        <div class="tx-l">
+          <div class="tx-ico" style="background:rgba(59,130,246,.1)">${o.icon||'🛒'}</div>
+          <div><div class="tx-desc">${o.product}</div><div class="tx-date">${o.date||''}</div></div>
+        </div>
+        <div style="text-align:right">
+          <div class="tx-a neg">${fmt(o.total||0)}</div>
+          <span class="tag ${stl(o.status)}">${slbl(o.status)}</span>
+        </div>
+      </div>`).join('');
+  }
+  const ol=document.getElementById('ordersList');
+  if(!orders.length){ol.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No orders yet.</p>';return;}
+  ol.innerHTML=`<div style="overflow-x:auto"><table class="tbl" style="min-width:460px">
+    <thead><tr><th>Order ID</th><th>Product</th><th>Amount</th><th>Date</th><th>Status</th><th>Credentials</th></tr></thead>
+    <tbody>${orders.slice().reverse().map(o=>`
+      <tr>
+        <td style="font-family:monospace;font-size:.74rem;color:var(--primary2)">#LGF-${o.id}</td>
+        <td style="font-weight:600;font-size:.81rem;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.icon||''} ${o.product}</td>
+        <td style="font-family:'Montserrat';font-weight:700">${fmt(o.total||0)}</td>
+        <td style="font-size:.76rem;color:var(--mut2)">${o.date||''}</td>
+        <td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td>
+        <td>${o.cred?`<button class="btn btn-xs btn-ghost" onclick="viewCred('${o.id}')">View</button>`:'<span style="color:var(--mut2);font-size:.72rem">Pending</span>'}</td>
+      </tr>`).join('')}
+    </tbody></table></div>`;
+}
+
+function viewCred(oid){
+  const o=DB.orders.find(x=>x.id===oid);if(!o||!o.cred)return;
+  const keys=(o.cred.format||'Username|Password').split('|');
+  const vals=(o.cred.data||'').split('|');
+  document.getElementById('credLines').innerHTML=keys.map((k,i)=>`
+    <div class="cred-row">
+      <div class="cred-k">${k}</div>
+      <div class="cred-v">${vals[i]||'—'}</div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('${(vals[i]||'').replace(/'/g,"\\'")}');toast('Copied!')">Copy</button>
+    </div>`).join('');
+  go('delivered');
+}
+
+function dsh(id,el){
+  ['dhome','dorders','dwallet','dprofile'].forEach(s=>{const e=document.getElementById(s);if(e)e.style.display='none';});
+  const t=document.getElementById(id);if(t)t.style.display='block';
+  document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));
+  if(el)el.classList.add('on');
+  if(id==='dwallet'){loadWallet();startWalletRefresh();}
+  if(id==='dorders'&&CU&&CU!=='admin')rdash(CU);
+}
+
+async function updateProfile(){
+  if(!CU||CU==='admin')return;
+  const pw=document.getElementById('newpw').value;
+  if(pw&&pw.length<6){toast('Password min 6 characters.');return;}
+  if(pw)CU.pw=pw;
+  await fbSaveUser(CU);toast('Profile updated!');
+  document.getElementById('newpw').value='';
+}
+
+// ── Wallet ──
+async function loadWallet(){
+  if(!CU||CU==='admin')return;
+  const w=await fbGetWallet(CU.id);
+  // Check Monnify for new deposits
+  if(CU.virtualAccount?.accountReference){
+    await syncMonnifyDeposits(w);
+  }
+  const bal=w.balance||0;
+  updateBalanceUI(bal);
+  const log=document.getElementById('wtxlog');
+  const txs=w.transactions||[];
+  if(!txs.length){log.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No transactions yet. Transfer to your account number to fund your wallet!</p>';return;}
+  log.innerHTML=txs.slice().reverse().map(t=>`
+    <div class="tx-row">
+      <div class="tx-l">
+        <div class="tx-ico" style="background:${t.type==='deposit'?'rgba(34,197,94,.12)':'rgba(59,130,246,.1)'}">
+          ${t.type==='deposit'?'↓':'↑'}
+        </div>
+        <div>
+          <div class="tx-desc">${t.desc||t.type}</div>
+          <div class="tx-date">${t.date||''}</div>
+        </div>
+      </div>
+      <div class="tx-a ${t.type==='deposit'?'pos':'neg'}">${t.type==='deposit'?'+':'-'}${fmt(t.amount||0)}</div>
+    </div>`).join('');
+  // Update last refresh time
+  const el=document.getElementById('lastRefresh');
+  if(el)el.textContent=new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+}
+
+async function syncMonnifyDeposits(w){
+  try{
+    const result=await getMonnifyBalance(CU.virtualAccount.accountReference);
+    if(!result)return;
+    const{txs:monnTxs}=result;
+    const existingRefs=new Set((w.transactions||[]).map(t=>t.ref));
+    let newDeposits=0;
+    for(const mt of monnTxs){
+      if(mt.paymentStatus==='PAID'&&!existingRefs.has(mt.paymentReference)){
+        const amt=Number(mt.amountPaid||0);
+        w.balance=(w.balance||0)+amt;
+        w.transactions=w.transactions||[];
+        w.transactions.push({
+          type:'deposit',amount:amt,
+          desc:'Bank transfer — '+mt.paymentDescription||'Deposit',
+          date:now(),ref:mt.paymentReference
+        });
+        newDeposits+=amt;
+      }
+    }
+    if(newDeposits>0){
+      await fbSaveWallet(CU.id,w);
+      toast('💰 '+fmt(newDeposits)+' received! Wallet updated.');
+    }
+  }catch(e){console.error('Sync error:',e);}
+}
+
+function updateBalanceUI(bal){
+  ['wbal','kwbal','wbalChk'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=fmt(bal);});
+}
+
+async function refreshWallet(){
+  toast('Checking for new deposits...');
+  await loadWallet();
+  toast('Wallet refreshed!');
+}
+
+function startWalletRefresh(){
+  stopWalletRefresh();
+  walletRefreshTimer=setInterval(()=>{
+    if(CU&&CU!=='admin')loadWallet();
+  },30000); // every 30 seconds
+}
+function stopWalletRefresh(){
+  if(walletRefreshTimer){clearInterval(walletRefreshTimer);walletRefreshTimer=null;}
+}
+
+function copyAcctNum(){
+  const num=CU?.virtualAccount?.accountNumber;
+  if(!num){toast('No account number yet.');return;}
+  navigator.clipboard.writeText(num).then(()=>toast('Account number copied! ✅')).catch(()=>{
+    const t=document.createElement('textarea');t.value=num;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);toast('Copied!');
+  });
+}
+
+// ── Store ──
+function renderStore(prods){
+  const cats=[...new Set(prods.map(p=>p.cat))];
+  const tabs=document.getElementById('catTabs');
+  if(tabs){
+    tabs.innerHTML='<div class="cat-tab on" onclick="filterCat(\'all\',this)">All</div>'+
+      cats.map(c=>`<div class="cat-tab" onclick="filterCat('${c}',this)">${CAT_CONFIG[c]?.icon||'📦'} ${c}</div>`).join('');
+  }
+  renderGroups(prods);
+}
+
+function renderGroups(prods){
+  const wrap=document.getElementById('storeWrap');
+  if(!prods.length){wrap.innerHTML='<p style="color:var(--mut2);padding:2rem;font-size:.85rem">No products found.</p>';return;}
+  const cats=[...new Set(prods.map(p=>p.cat))];
+  wrap.innerHTML=cats.map(cat=>{
+    const cfg=CAT_CONFIG[cat]||{icon:'📦',color:'#3b82f6'};
+    const items=prods.filter(p=>p.cat===cat);
+    return`<div class="cat-section">
+      <div class="cat-header">
+        <div class="cat-title">
+          <div class="cat-icon-wrap" style="background:${cfg.color}22;color:${cfg.color}">${cfg.icon}</div>
+          ${cat}
+        </div>
+      </div>
+      <div class="prod-list">${items.map(p=>prodRowHTML(p)).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+function prodRowHTML(p){
+  const safeP=encodeURIComponent(JSON.stringify(p));
+  return`<div class="prod-row" onclick="openCheckout(JSON.parse(decodeURIComponent('${safeP}')))">
+    <div class="prod-row-icon" style="background:${CAT_CONFIG[p.cat]?.color||'#3b82f6'}18;color:${CAT_CONFIG[p.cat]?.color||'#3b82f6'}">${p.icon}</div>
+    <div class="prod-row-info">
+      <div class="prod-row-name">${p.name}</div>
+      <div class="prod-row-stock"><span class="stock-dot ${p.inStock?'dot-green':'dot-red'}"></span>${p.inStock?'In stock · Instant delivery':'Out of stock'}</div>
+    </div>
+    <div class="prod-row-right">
+      <div class="prod-row-price">${fmt(p.price)}</div>
+      ${p.inStock
+        ?`<button class="buy-btn" onclick="event.stopPropagation();openCheckout(JSON.parse(decodeURIComponent('${safeP}')))">Buy <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>`
+        :`<span style="background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2);padding:.2rem .55rem;border-radius:50px;font-size:.68rem;font-weight:700">Sold</span>`
+      }
+    </div>
+  </div>`;
+}
+
+function filterCat(cat,btn){
+  if(btn){document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('on'));btn.classList.add('on');}
+  const filtered=cat==='all'?PRODUCTS:PRODUCTS.filter(p=>p.cat===cat);
+  renderGroups(filtered);
+}
+
+function searchProds(q){
+  const filtered=!q?PRODUCTS:PRODUCTS.filter(p=>
+    p.name.toLowerCase().includes(q.toLowerCase())||
+    p.cat.toLowerCase().includes(q.toLowerCase())
+  );
+  renderGroups(filtered);
+}
+
+// ── Checkout ──
+function openCheckout(p){
+  if(!p.inStock){toast('This product is out of stock.');return;}
+  CP={name:p.name,price:p.price,icon:p.icon,cat:p.cat,id:p.id};
+  document.getElementById('cpname').textContent=CP.name;
+  document.getElementById('csumIcon').textContent=CP.icon;
+  document.getElementById('cup').textContent=fmt(CP.price);
+  document.getElementById('cq').value='1';
+  document.getElementById('cqd').textContent='1';
+  document.getElementById('ctot').textContent=fmt(CP.price);
+  document.getElementById('cn').value=CU?.name||'';
+  document.getElementById('ce').value=CU?.email||'';
+  if(document.getElementById('coAcctNum'))document.getElementById('coAcctNum').textContent=CU?.virtualAccount?.accountNumber||'—';
+  if(document.getElementById('coAcctBank'))document.getElementById('coAcctBank').textContent=CU?.virtualAccount?.bankName||'—';
+  loadWallet();
+  go('checkout');
+}
+
+function uqty(){
+  const q=parseInt(document.getElementById('cq').value)||1;
+  const tot=CP.price*q;
+  document.getElementById('cqd').textContent=q;
+  document.getElementById('ctot').textContent=fmt(tot);
+}
+
+async function buyWithWallet(){
+  if(!CU||CU==='admin'){toast('Login required.');return;}
+  const w=await fbGetWallet(CU.id);
+  const q=parseInt(document.getElementById('cq').value)||1;
+  const tot=CP.price*q;
+  if((w.balance||0)<tot){
+    toast('Insufficient balance. Fund your wallet by transferring to your account number.');return;
+  }
+  toast('Processing your order ⚡');
+  // Try AccsZone API
+  let credData=null;
+  try{
+    const res=await aczPost('/orders',{
+      product:CP.name,quantity:q,
+      customer_email:CU.email,
+      reference:'LGF-'+gid()
+    });
+    if(res&&(res.status==='success'||res.order||res.credentials)){
+      const d=res.order||res.credentials||res;
+      credData={
+        format:'Account|Password|Extra',
+        data:(d.account||d.email||d.username||'—')+'|'+(d.password||d.pass||'—')+'|'+(d.extra||d.notes||d.order_id||'See dashboard'),
+        raw:JSON.stringify(d)
+      };
+    }
+  }catch(e){console.error('ACZ error:',e);}
+  // Deduct wallet
+  w.balance=(w.balance||0)-tot;
+  w.transactions=w.transactions||[];
+  w.transactions.push({type:'purchase',amount:tot,desc:q+'× '+CP.name,date:now()});
+  await fbSaveWallet(CU.id,w);
+  const id=gid();
+  const o={
+    id,uid:CU.id,name:CU.name,email:CU.email,
+    product:CP.name,icon:CP.icon,cat:CP.cat,productId:CP.id,
+    qty:q,total:tot,status:credData?'completed':'pending',
+    date:now(),method:'wallet',cred:credData||null
+  };
+  await fbSaveOrder(o);DB.orders.push(o);
+  updateBalanceUI(w.balance);
+  if(credData){
+    showDelivered(credData);
+    toast('✅ Purchase complete!');
+  }else{
+    document.getElementById('oid').textContent=id;
+    document.getElementById('sucmo').classList.add('open');
+    toast('Order placed! Credentials coming soon.');
+  }
+}
+
+function showDelivered(cred){
+  const keys=(cred.format||'Account|Password|Extra').split('|');
+  const vals=(cred.data||'').split('|');
+  document.getElementById('credLines').innerHTML=keys.map((k,i)=>`
+    <div class="cred-row">
+      <div class="cred-k">${k}</div>
+      <div class="cred-v">${vals[i]||'—'}</div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('${(vals[i]||'').replace(/'/g,"\\'")}');toast('Copied!')">Copy</button>
+    </div>`).join('');
+  go('delivered');
+}
+
+// ── Admin ──
+function atab(id){
+  document.querySelectorAll('.asec').forEach(s=>s.classList.remove('on'));
+  const e=document.getElementById(id);if(e)e.classList.add('on');
+  if(id==='aord')raord();
+  if(id==='ausr')rausr();
+}
+function sOn(el){document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));if(el)el.classList.add('on');}
+
+async function loadStats(){
+  DB.users=await fbUsers();DB.orders=await fbOrders();
+  rstats();raord();rausr();
+}
+
+function rstats(){
+  const o=DB.orders,u=DB.users;
+  const rev=o.filter(x=>x.status==='completed').reduce((s,x)=>s+Number(x.total||0),0);
+  const pend=o.filter(x=>x.status==='pending').length;
+  const comp=o.filter(x=>x.status==='completed').length;
+  document.getElementById('arev').textContent=fmt(rev);
+  document.getElementById('ausr2').textContent=u.length;
+  document.getElementById('aord2').textContent=o.length;
+  document.getElementById('apend').textContent=pend;
+  document.getElementById('acomp').textContent=comp;
+  const rec=document.getElementById('arec');
+  if(!o.length){rec.innerHTML='<p style="color:var(--mut2);font-size:.82rem">No orders yet.</p>';return;}
+  rec.innerHTML=o.slice(-6).reverse().map(x=>`
+    <div class="tx-row">
+      <div class="tx-l">
+        <div class="tx-ico" style="background:rgba(59,130,246,.08)">${x.icon||'🛒'}</div>
+        <div>
+          <div class="tx-desc" style="font-size:.81rem">${x.name} — ${x.product}</div>
+          <div class="tx-date">${x.date||''}</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:'Montserrat';font-weight:700;font-size:.83rem">${fmt(x.total||0)}</div>
+        <span class="tag ${stl(x.status)}">${slbl(x.status)}</span>
+      </div>
+    </div>`).join('');
+}
+
+function raord(){
+  const tb=document.getElementById('aotbd');
+  if(!DB.orders.length){tb.innerHTML='<tr><td colspan="6" style="color:var(--mut2);padding:2rem;text-align:center">No orders yet.</td></tr>';return;}
+  tb.innerHTML=DB.orders.slice().reverse().map(o=>`
+    <tr>
+      <td><span style="font-family:monospace;font-size:.74rem;color:var(--primary2)">#LGF-${o.id}</span></td>
+      <td><div style="font-weight:600;font-size:.81rem">${o.name}</div><div style="font-size:.7rem;color:var(--mut2)">${o.email}</div></td>
+      <td style="font-size:.79rem;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.icon||''} ${o.product}</td>
+      <td style="font-family:'Montserrat';font-weight:700">${fmt(o.total||0)}</td>
+      <td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td>
+      <td>
+        <div class="abs">
+          <button class="btn btn-xs btn-ghost" onclick="viewOrderDetail('${o.id}')">Detail</button>
+          ${o.status==='pending'?`<button class="btn btn-xs btn-green" onclick="openRel('${o.id}')">Release</button>`:''}
+          ${o.status==='pending'?`<button class="btn btn-xs btn-red" onclick="cancOrd('${o.id}')">Cancel</button>`:''}
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+function viewOrderDetail(id){
+  const o=DB.orders.find(x=>x.id===id);if(!o)return;
+  document.getElementById('ordDetContent').innerHTML=`
+    <div style="display:grid;gap:.5rem;font-size:.83rem">
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Order ID</span><span style="font-family:monospace;color:var(--primary2)">#LGF-${o.id}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Customer</span><span style="font-weight:600">${o.name}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Email</span><span>${o.email}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Product</span><span style="font-weight:600">${o.icon||''} ${o.product}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Amount</span><span style="font-family:'Montserrat';font-weight:700;color:var(--gold)">${fmt(o.total||0)}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Date</span><span>${o.date||''}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Status</span><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></div>
+      ${o.cred?`<div style="padding:.38rem 0"><div style="color:var(--mut2);margin-bottom:.35rem">Credentials</div>
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:8px;padding:.65rem;font-family:monospace;font-size:.76rem;color:var(--green);word-break:break-all">${o.cred.data||''}</div></div>`:''}
+    </div>
+    ${o.status==='pending'?`<div class="mo-btns" style="margin-top:1rem">
+      <button class="btn btn-green" onclick="document.getElementById('orddetmo').classList.remove('open');openRel('${o.id}')">Release Credentials</button>
+    </div>`:''}`;
+  document.getElementById('orddetmo').classList.add('open');
+}
+
+function faord(f){
+  document.querySelectorAll('#aotbd tr').forEach(r=>{
+    r.style.display=f==='all'||r.textContent.toLowerCase().includes(f)?'':'none';
+  });
+}
+
+async function cancOrd(id){
+  conf('Cancel this order?','Status set to Cancelled.',async()=>{
+    const o=DB.orders.find(x=>x.id===id);if(!o)return;
+    o.status='cancelled';await fbSaveOrder(o);raord();rstats();toast('Order cancelled.');
+  });
+}
+
+function openRel(id){
+  const o=DB.orders.find(x=>x.id===id);if(!o)return;
+  curOid=id;
+  document.getElementById('rid').value='#LGF-'+id;
+  document.getElementById('rem2').value=o.email;
+  document.getElementById('ruser').value='';
+  document.getElementById('rpass').value='';
+  document.getElementById('rext').value='';
+  document.getElementById('relmo').classList.add('open');
+}
+function closeRel(){document.getElementById('relmo').classList.remove('open');}
+
+async function doRelease(){
+  const o=DB.orders.find(x=>x.id===curOid);if(!o)return;
+  const u=document.getElementById('ruser').value.trim();
+  const p=document.getElementById('rpass').value.trim();
+  const n=document.getElementById('rext').value.trim();
+  if(!u){toast('Enter at least the username/email.');return;}
+  o.status='completed';
+  o.cred={format:'Account|Password|Extra Info',data:u+'|'+p+'|'+n};
+  await fbSaveOrder(o);
+  const idx=DB.orders.findIndex(x=>x.id===curOid);
+  if(idx>-1)DB.orders[idx]=o;
+  closeRel();raord();rstats();
+  toast('✅ Credentials released!');
+}
+
+function rausr(){
+  const tb=document.getElementById('autbd');
+  if(!DB.users.length){tb.innerHTML='<tr><td colspan="7" style="color:var(--mut2);padding:2rem;text-align:center">No users.</td></tr>';return;}
+  tb.innerHTML=DB.users.map(u=>{
+    const ords=DB.orders.filter(o=>o.uid===u.id).length;
+    const va=u.virtualAccount;
+    return`<tr>
+      <td style="font-weight:600">${u.name}</td>
+      <td style="font-size:.78rem;color:var(--mut2)">${u.email}</td>
+      <td style="font-family:monospace;font-size:.76rem;color:var(--primary2)">${va?.accountNumber||'Pending'}</td>
+      <td id="uw-${u.id}" style="font-size:.79rem;color:var(--green)">...</td>
+      <td>${ords}</td>
+      <td><span class="tag ${u.status==='banned'?'t-r':'t-g'}">${u.status==='banned'?'Banned':'Active'}</span></td>
+      <td>
+        <div class="abs">
+          ${u.status!=='banned'
+            ?`<button class="btn btn-xs btn-red" onclick="banU('${u.id}')">Ban</button>`
+            :`<button class="btn btn-xs btn-ghost" onclick="unbanU('${u.id}')">Unban</button>`}
+          <button class="btn btn-xs btn-red" onclick="deleteUser('${u.id}')">Delete</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+  DB.users.forEach(async u=>{
+    const w=await fbGetWallet(u.id);
+    const el=document.getElementById('uw-'+u.id);
+    if(el)el.textContent=fmt(w.balance||0);
+  });
+}
+
+async function banU(id){
+  const u=DB.users.find(x=>x.id===id);if(!u)return;
+  conf('Ban this user?','They cannot login.',async()=>{
+    u.status='banned';await fbSaveUser(u);rausr();rstats();toast('User banned.');
+  });
+}
+async function unbanU(id){
+  const u=DB.users.find(x=>x.id===id);if(!u)return;
+  u.status='active';await fbSaveUser(u);rausr();rstats();toast('User unbanned.');
+}
+async function deleteUser(id){
+  conf('Permanently delete this user?','Cannot be undone.',async()=>{
+    await fbDelUser(id);
+    DB.users=DB.users.filter(x=>x.id!==id);
+    rausr();rstats();toast('User deleted.');
+  });
+}
+
+async function chgPw(){
+  const p1=document.getElementById('npw').value;
+  const p2=document.getElementById('npw2').value;
+  if(!p1||p1.length<6){toast('Min 6 characters.');return;}
+  if(p1!==p2){toast('Passwords do not match.');return;}
+  const cfg=await fbGetAdmin();cfg.pw=p1;await fbSetAdmin(cfg);
+  document.getElementById('npw').value='';document.getElementById('npw2').value='';
+  toast('✅ Admin password updated!');
+}
+
+async function saveACZKey(){
+  const k=document.getElementById('aczKeyInp').value.trim();
+  if(!k)return;ACZ_KEY=k;
+  const cfg=await fbGetAdmin();cfg.aczKey=k;await fbSetAdmin(cfg);
+  toast('✅ AccsZone key saved!');
+}
+
+async function saveMonnifyKeys(){
+  const k=document.getElementById('monnKeyInp').value.trim();
+  const s=document.getElementById('monnSecInp').value.trim();
+  const c=document.getElementById('monnContInp').value.trim();
+  if(!k||!s||!c){toast('Fill all Monnify fields.');return;}
+  MONN_KEY=k;MONN_SECRET=s;MONN_CONTRACT=c;
+  const cfg=await fbGetAdmin();
+  cfg.monnKey=k;cfg.monnSecret=s;cfg.monnContract=c;
+  await fbSetAdmin(cfg);
+  toast('✅ Monnify keys saved!');
+}
+
+// ── Modals ──
+function conf(title,body,cb){
+  document.getElementById('ct').textContent=title;
+  document.getElementById('cb').textContent=body;
+  document.getElementById('cok').onclick=()=>{closeConf();cb();};
+  document.getElementById('confmo').classList.add('open');
+}
+function closeConf(){document.getElementById('confmo').classList.remove('open');}
+function closeSuc(){document.getElementById('sucmo').classList.remove('open');}
+document.querySelectorAll('.mo').forEach(m=>{
+  m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
+});
+function stbl(inp,tid){
+  const q=inp.value.toLowerCase();
+  document.querySelectorAll('#'+tid+' tbody tr').forEach(r=>{
+    r.style.display=r.textContent.toLowerCase().includes(q)?'':'none';
+  });
+}
+
+// ── Toast ──
+let toastTimer=null;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.style.transform='translateY(0)';t.style.opacity='1';
+  if(toastTimer)clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>{t.style.transform='translateY(100px)';t.style.opacity='0';},3500);
+}
+</script>
+</body>
+</html>
+
 
