@@ -19,8 +19,6 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;}
 .page{display:none;min-height:100vh;}.page.active{display:block;}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;padding:0 1.5rem;
   display:flex;align-items:center;justify-content:space-between;
   background:rgba(10,15,26,.95);border-bottom:1px solid var(--bord);backdrop-filter:blur(12px);}
@@ -30,8 +28,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;padding:0 1.5rem
 .nav-links{display:flex;gap:1.2rem;align-items:center;}
 .nav-links a{color:var(--mut2);font-size:.83rem;font-weight:500;cursor:pointer;text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--txt);}
-
-/* BUTTONS */
 .btn{padding:.48rem 1.1rem;border-radius:7px;font-family:'Montserrat';font-weight:700;
   font-size:.8rem;cursor:pointer;transition:all .18s;border:none;letter-spacing:.15px;}
 .btn-primary{background:var(--grad);color:#fff;}
@@ -49,8 +45,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;padding:0 1.5rem
 .btn-sm{padding:.3rem .75rem;font-size:.73rem;}
 .btn-full{width:100%;padding:.78rem;font-size:.88rem;}
 .btn-xs{padding:.18rem .5rem;font-size:.67rem;}
-
-/* HERO */
 .hero{min-height:100vh;padding-top:60px;position:relative;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
 .hero-bg{position:absolute;inset:0;
@@ -70,17 +64,12 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .hst{background:rgba(255,255,255,.04);border:1px solid var(--bord);border-radius:12px;padding:1.1rem .8rem;text-align:center;}
 .hst-v{font-family:'Montserrat';font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hst-l{color:var(--mut2);font-size:.68rem;margin-top:.18rem;}
-
-/* SECTIONS */
 .sec{padding:4rem 1.5rem;max-width:1100px;margin:0 auto;}
 .sec-badge{display:inline-flex;align-items:center;background:rgba(59,130,246,.08);
   border:1px solid rgba(59,130,246,.18);color:var(--primary2);padding:.2rem .72rem;
-  border-radius:50px;font-size:.64rem;font-weight:700;letter-spacing:1px;
-  text-transform:uppercase;margin-bottom:.7rem;}
+  border-radius:50px;font-size:.64rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.7rem;}
 .sec-h2{font-family:'Montserrat';font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;margin-bottom:.4rem;}
 .sec-sub{color:var(--mut2);font-size:.86rem;margin-bottom:2rem;}
-
-/* STORE */
 .store-wrap{max-width:1100px;margin:0 auto;padding:1.5rem;}
 .cat-section{margin-bottom:2rem;}
 .cat-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;padding:0 .25rem;}
@@ -106,17 +95,12 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
   border-radius:50px;font-family:'Montserrat';font-weight:700;font-size:.71rem;
   cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:.22rem;}
 .buy-btn:hover{background:var(--primary2);transform:translateY(-1px);}
-
-/* STORE TOPBAR */
 .store-topbar{background:var(--bg2);border-bottom:1px solid var(--bord);padding:1.2rem 1.5rem .9rem;}
 .cat-filter-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.75rem;}
 .cat-tab{padding:.32rem .82rem;border-radius:50px;font-size:.74rem;font-weight:600;
-  cursor:pointer;border:1px solid var(--bord2);color:var(--mut2);
-  transition:all .18s;background:rgba(255,255,255,.04);}
+  cursor:pointer;border:1px solid var(--bord2);color:var(--mut2);transition:all .18s;background:rgba(255,255,255,.04);}
 .cat-tab:hover{color:var(--txt);border-color:var(--primary);}
 .cat-tab.on{background:var(--grad);color:#fff;border-color:transparent;}
-
-/* HOW IT WORKS */
 .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
 .how-card{background:var(--card);border:1px solid var(--bord);border-radius:14px;padding:1.5rem;text-align:center;transition:all .25s;}
 .how-card:hover{border-color:rgba(59,130,246,.22);transform:translateY(-3px);}
@@ -124,8 +108,6 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .how-icon{font-size:1.6rem;margin-bottom:.5rem;}
 .how-t{font-family:'Montserrat';font-size:.86rem;font-weight:700;margin-bottom:.3rem;}
 .how-d{color:var(--mut2);font-size:.76rem;line-height:1.55;}
-
-/* AUTH */
 .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;
   padding:5rem 1rem 2rem;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.07) 0%,transparent 60%),var(--bg);}
 .auth-box{width:410px;max-width:94vw;background:var(--card);border:1px solid var(--bord);
@@ -146,11 +128,9 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .divid::before,.divid::after{content:'';flex:1;height:1px;background:var(--bord);}
 .auth-sw{text-align:center;color:var(--mut2);font-size:.8rem;margin-top:.85rem;}
 .auth-sw a{color:var(--primary2);cursor:pointer;font-weight:600;}
-
-/* DASHBOARD */
 .dash-layout{display:flex;min-height:100vh;padding-top:60px;}
 .dash-sb{width:210px;background:var(--bg2);border-right:1px solid var(--bord);
-  padding:1.2rem 0;position:fixed;top:60px;left:0;bottom:0;overflow-y:auto;}
+  padding:1.2rem 0;position:fixed;top:60px;left:0;bottom:0;overflow-y:auto;z-index:100;}
 .sb-sec{padding:.28rem 1.2rem;font-size:.57rem;letter-spacing:2px;text-transform:uppercase;color:var(--mut);margin-top:.65rem;font-weight:700;}
 .sb-i{display:flex;align-items:center;gap:.55rem;padding:.65rem 1.2rem;cursor:pointer;
   color:var(--mut2);font-size:.83rem;font-weight:500;transition:all .18s;border-left:2px solid transparent;}
@@ -161,22 +141,16 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .dash-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.4rem;flex-wrap:wrap;gap:.85rem;}
 .dash-hd h1{font-family:'Montserrat';font-size:1.35rem;font-weight:800;}
 .dash-hd p{color:var(--mut2);font-size:.8rem;margin-top:.1rem;}
-
-/* KPIS */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.9rem;margin-bottom:1.4rem;}
 .kpi{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1rem;position:relative;overflow:hidden;}
 .kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--grad);}
 .kpi-l{font-size:.61rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mut2);margin-bottom:.3rem;}
 .kpi-v{font-family:'Montserrat';font-size:1.55rem;font-weight:800;}
 .kpi-s{font-size:.68rem;color:var(--mut2);margin-top:.1rem;}
-
-/* PANELS */
 .panel{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.1rem;}
 .panel-t{font-family:'Montserrat';font-size:.65rem;font-weight:700;letter-spacing:1.5px;
   text-transform:uppercase;color:var(--mut2);border-bottom:1px solid var(--bord);padding-bottom:.6rem;margin-bottom:.85rem;}
 .dgrid{display:grid;grid-template-columns:2fr 1fr;gap:1rem;}
-
-/* VIRTUAL ACCOUNT CARD */
 .vacct-card{background:linear-gradient(135deg,#0f2040,#1a3060);
   border:1px solid rgba(59,130,246,.25);border-radius:16px;
   padding:1.6rem;margin-bottom:1.1rem;position:relative;overflow:hidden;}
@@ -193,8 +167,7 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
   margin-bottom:.25rem;position:relative;z-index:1;}
 .vacct-name{font-size:.78rem;color:var(--mut2);font-weight:500;position:relative;z-index:1;}
 .vacct-bal{position:relative;z-index:1;margin-top:1rem;padding-top:1rem;
-  border-top:1px solid rgba(255,255,255,.08);
-  display:flex;justify-content:space-between;align-items:center;}
+  border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;}
 .vacct-bal-l{font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut2);font-weight:600;}
 .vacct-bal-v{font-family:'Montserrat';font-size:1.4rem;font-weight:800;color:var(--green);}
 .vacct-actions{display:flex;gap:.55rem;margin-top:.9rem;position:relative;z-index:1;}
@@ -204,8 +177,6 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .vacct-btn.copy:hover{background:rgba(255,255,255,.14);}
 .vacct-btn.ref{background:var(--grad);color:#fff;}
 .vacct-btn.ref:hover{opacity:.88;}
-
-/* TRANSACTIONS */
 .tx-row{display:flex;justify-content:space-between;align-items:center;padding:.62rem 0;border-bottom:1px solid var(--bord);}
 .tx-row:last-child{border-bottom:none;}
 .tx-l{display:flex;align-items:center;gap:.5rem;}
@@ -215,11 +186,18 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .tx-a{font-family:'Montserrat';font-weight:700;}
 .tx-a.pos{color:var(--green);}
 .tx-a.neg{color:var(--primary2);}
-
-/* ADMIN */
+/* ADMIN TABS FOR MOBILE */
+.admin-mob-tabs{display:none;position:fixed;top:60px;left:0;right:0;z-index:998;
+  background:var(--bg2);border-bottom:1px solid var(--bord);
+  padding:.45rem .5rem;gap:.3rem;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;}
+.admin-mob-tabs::-webkit-scrollbar{display:none;}
+.adm-tab{padding:.32rem .75rem;border-radius:50px;font-size:.72rem;font-weight:700;
+  cursor:pointer;border:1px solid var(--bord2);color:var(--mut2);
+  transition:all .18s;background:rgba(255,255,255,.04);white-space:nowrap;flex-shrink:0;font-family:'Montserrat';}
+.adm-tab.on{background:var(--grad);color:#fff;border-color:transparent;}
 .asec{display:none;}.asec.on{display:block;}
 .tbl-wrap{background:var(--card);border:1px solid var(--bord);border-radius:12px;overflow:hidden;overflow-x:auto;}
-.tbl{width:100%;border-collapse:collapse;font-size:.8rem;min-width:520px;}
+.tbl{width:100%;border-collapse:collapse;font-size:.8rem;min-width:500px;}
 .tbl th{text-align:left;padding:.6rem .85rem;background:rgba(255,255,255,.03);color:var(--mut2);font-size:.59rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--bord);}
 .tbl td{padding:.72rem .85rem;border-bottom:1px solid var(--bord);vertical-align:middle;}
 .tbl tr:last-child td{border-bottom:none;}
@@ -230,13 +208,11 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .t-r{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.18);}
 .t-b{background:rgba(59,130,246,.1);color:var(--primary2);border:1px solid rgba(59,130,246,.2);}
 .t-gr{background:rgba(255,255,255,.05);color:var(--mut2);border:1px solid var(--bord);}
-.akpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:.9rem;margin-bottom:1.3rem;}
+.akpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.9rem;margin-bottom:1.3rem;}
 .ak{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:.95rem;}
 .ak-l{color:var(--mut2);font-size:.59rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.28rem;font-weight:700;}
 .ak-v{font-family:'Montserrat';font-size:1.5rem;font-weight:800;}
 .abs{display:flex;gap:.28rem;flex-wrap:wrap;}
-
-/* CHECKOUT */
 .co-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem;padding-top:calc(60px + 1.8rem);}
 .co-grid{display:grid;grid-template-columns:1fr 270px;gap:1.3rem;}
 .co-title{font-family:'Montserrat';font-size:1.3rem;font-weight:800;margin-bottom:1.3rem;grid-column:1/-1;}
@@ -247,8 +223,6 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .wbb{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(34,197,94,.03));border:1px solid rgba(34,197,94,.16);border-radius:10px;padding:.85rem;margin-bottom:.9rem;}
 .wbb-l{font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mut2);margin-bottom:.15rem;}
 .wbb-v{font-family:'Montserrat';font-size:1.15rem;font-weight:800;color:var(--green);}
-
-/* DELIVERED */
 .deliv-wrap{max-width:520px;margin:0 auto;padding:4rem 1.5rem;padding-top:calc(60px + 3rem);text-align:center;}
 .deliv-icon{font-size:3.5rem;margin-bottom:.85rem;animation:pop .5s cubic-bezier(.34,1.56,.64,1) both;}
 @keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
@@ -261,8 +235,6 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .cred-v{font-family:monospace;font-size:.78rem;color:var(--primary2);word-break:break-all;max-width:62%;}
 .copy-btn{background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--mut2);padding:.14rem .45rem;border-radius:5px;font-size:.62rem;cursor:pointer;transition:all .15s;}
 .copy-btn:hover{color:var(--txt);border-color:var(--primary);}
-
-/* MODALS */
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;
   justify-content:center;z-index:9999;opacity:0;pointer-events:none;transition:opacity .22s;backdrop-filter:blur(4px);}
 .mo.open{opacity:1;pointer-events:all;}
@@ -282,20 +254,14 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .mo.open .mo-wide{transform:scale(1);}
 .mo-wide h3{font-family:'Montserrat';font-size:1.05rem;font-weight:800;margin-bottom:.85rem;}
 .mo-btns{display:flex;gap:.5rem;justify-content:flex-end;margin-top:.85rem;}
-
-/* TOAST */
 #toast{position:fixed;bottom:1.6rem;right:1.6rem;background:var(--card);border:1px solid var(--bord);
   border-radius:10px;padding:.7rem 1.1rem;color:var(--txt);font-weight:600;z-index:99999;
   transform:translateY(100px);opacity:0;transition:all .3s;max-width:260px;font-size:.8rem;box-shadow:0 8px 32px rgba(0,0,0,.6);}
-
-/* BACK FAB */
 .back-fab{position:fixed;bottom:1.3rem;left:1.3rem;z-index:8000;background:var(--card);
   border:1px solid var(--bord);color:var(--mut2);padding:.45rem .9rem;border-radius:50px;
   font-family:'Inter';font-weight:600;font-size:.74rem;cursor:pointer;transition:all .2s;
   display:none;box-shadow:0 4px 16px rgba(0,0,0,.5);}
 .back-fab:hover{color:var(--primary2);border-color:rgba(59,130,246,.35);}
-
-/* MOBILE NAV */
 .mobnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg2);
   border-top:1px solid var(--bord);z-index:9000;padding:.4rem 0 .25rem;}
 .mob-btn{display:flex;flex-direction:column;align-items:center;gap:.15rem;cursor:pointer;
@@ -303,29 +269,27 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
   font-weight:700;padding:.18rem .3rem;border-radius:6px;transition:color .18s;min-width:44px;}
 .mob-btn:hover,.mob-btn.on{color:var(--primary2);}
 .mob-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-
-/* LOADING */
 .spin{width:28px;height:28px;border:3px solid var(--bord);border-top-color:var(--primary);
   border-radius:50%;animation:spin .8s linear infinite;display:inline-block;}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* CTA */
 .cta-box{background:linear-gradient(135deg,#0f1f3d,#1a2f5a);border:1px solid rgba(59,130,246,.15);
   border-radius:20px;padding:3.2rem 2rem;text-align:center;margin:0 1.5rem 3.5rem;position:relative;overflow:hidden;}
 .cta-box h2{font-family:'Montserrat';font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;margin-bottom:.6rem;}
 .cta-box p{color:var(--mut2);margin-bottom:1.8rem;font-size:.88rem;}
-
-/* FOOTER */
 footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5rem;text-align:center;}
 .foot-logo{font-family:'Montserrat';font-size:1.05rem;font-weight:800;display:flex;align-items:center;gap:.35rem;justify-content:center;margin-bottom:.35rem;}
-
-/* RESPONSIVE */
 @media(max-width:860px){
   .dash-sb{display:none!important;}
   .dash-main{margin-left:0!important;padding-bottom:75px;}
   .co-grid{grid-template-columns:1fr;}
   .dgrid{grid-template-columns:1fr;}
   .mobnav{display:flex;justify-content:space-around;}
+  .admin-mob-tabs{display:flex!important;}
+  .admin-dash-main{padding-top:calc(1.8rem + 44px)!important;}
+}
+@media(min-width:861px){
+  .dash-sb{display:block!important;}
+  .admin-mob-tabs{display:none!important;}
 }
 @media(max-width:600px){.hide{display:none;}.how-grid{grid-template-columns:1fr 1fr;}}
 </style>
@@ -380,7 +344,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
     </div>
   </div>
 
-  <!-- LOCKED STORE PREVIEW -->
   <div class="sec">
     <div style="text-align:center;margin-bottom:1.8rem">
       <div class="sec-badge">Products</div>
@@ -388,18 +351,16 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       <p class="sec-sub">Login or sign up to see all products and prices</p>
     </div>
     <div style="background:var(--card);border:1px solid var(--bord);border-radius:16px;overflow:hidden;position:relative;">
-      <!-- BLURRED PREVIEW ROWS -->
       <div style="filter:blur(4px);pointer-events:none;user-select:none">
         <div class="prod-row"><div class="prod-row-icon" style="background:#1877f218;color:#1877f2">📘</div><div class="prod-row-info"><div class="prod-row-name">USA Facebook — 200+ Real Friends</div><div class="prod-row-stock"><span class="stock-dot dot-green"></span>In stock</div></div><div class="prod-row-right"><div class="prod-row-price">₦12,000</div></div></div>
         <div class="prod-row"><div class="prod-row-icon" style="background:#1da1f218;color:#1da1f2">🐦</div><div class="prod-row-info"><div class="prod-row-name">Twitter — 1000 Followers (Aged)</div><div class="prod-row-stock"><span class="stock-dot dot-green"></span>In stock</div></div><div class="prod-row-right"><div class="prod-row-price">₦17,000</div></div></div>
         <div class="prod-row"><div class="prod-row-icon" style="background:#e1306c18;color:#e1306c">📸</div><div class="prod-row-info"><div class="prod-row-name">Instagram — 1000 Followers</div><div class="prod-row-stock"><span class="stock-dot dot-green"></span>In stock</div></div><div class="prod-row-right"><div class="prod-row-price">₦8,000</div></div></div>
         <div class="prod-row"><div class="prod-row-icon" style="background:#ea443518;color:#ea4335">📧</div><div class="prod-row-info"><div class="prod-row-name">Gmail Account</div><div class="prod-row-stock"><span class="stock-dot dot-green"></span>In stock</div></div><div class="prod-row-right"><div class="prod-row-price">₦2,000</div></div></div>
       </div>
-      <!-- LOCK OVERLAY -->
       <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(10,15,26,.75);backdrop-filter:blur(2px)">
         <div style="font-size:2.5rem;margin-bottom:.75rem">🔒</div>
         <div style="font-family:'Montserrat';font-size:1rem;font-weight:800;margin-bottom:.35rem">Login to See All Products</div>
-        <div style="color:var(--mut2);font-size:.82rem;margin-bottom:1.2rem;text-align:center;max-width:260px">Create a free account to browse our full product catalog and prices</div>
+        <div style="color:var(--mut2);font-size:.82rem;margin-bottom:1.2rem;text-align:center;max-width:260px">Create a free account to browse our full catalog</div>
         <div style="display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center">
           <button class="btn btn-primary" onclick="go('register')">Sign Up Free →</button>
           <button class="btn btn-ghost" onclick="go('login')">Login</button>
@@ -411,10 +372,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
   <div style="padding:0 1.5rem 3.5rem">
     <div class="cta-box">
       <h2>Your Own Personal<br><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Bank Account Number</span></h2>
-      <p>Every account gets a dedicated Monnify virtual account. Transfer from any Nigerian bank and your wallet funds automatically.</p>
-      <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-primary btn-lg" onclick="go('register')">Create Free Account →</button>
-      </div>
+      <p>Every account gets a dedicated virtual account. Transfer from any Nigerian bank and your wallet funds automatically.</p>
+      <button class="btn btn-primary btn-lg" onclick="go('register')">Create Free Account →</button>
     </div>
   </div>
   <footer>
@@ -424,7 +383,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
   </footer>
 </div>
 
-<!-- ===== STORE (LOGIN REQUIRED) ===== -->
+<!-- ===== STORE ===== -->
 <div id="store" class="page">
   <nav style="z-index:1001">
     <div class="logo" onclick="go('home')"><div class="logo-dot"></div> Logify Hub</div>
@@ -480,13 +439,13 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
         <div class="fg"><label>Last Name</label><input type="text" id="rl" placeholder="Doe"></div>
       </div>
       <div class="fg"><label>Email</label><input type="email" id="re" placeholder="you@example.com"></div>
-      <div class="fg"><label>Phone (for account name)</label><input type="tel" id="rph" placeholder="+234 800 000 0000"></div>
+      <div class="fg"><label>Phone</label><input type="tel" id="rph" placeholder="+234 800 000 0000"></div>
       <div class="fg"><label>Password</label>
         <div class="pw-wrap"><input type="password" id="rp" placeholder="Min 6 characters"><button class="pw-eye" onclick="epw('rp',this)">👁</button></div>
       </div>
       <div class="fg"><label>Confirm Password</label><input type="password" id="rp2" placeholder="Repeat password"></div>
       <div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:.75rem;margin-bottom:.85rem;font-size:.78rem;color:var(--mut2)">
-        🏦 <strong style="color:var(--primary2)">You'll get a personal virtual account number</strong> instantly after signup — transfer from any Nigerian bank to fund your wallet!
+        🏦 <strong style="color:var(--primary2)">You'll get a personal virtual account number</strong> instantly after signup!
       </div>
       <button class="btn btn-primary btn-full" id="regBtn" onclick="doRegister()">Create Account & Get Account Number →</button>
       <div class="auth-sw">Already have an account? <a onclick="go('login')">Login</a></div>
@@ -516,8 +475,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       <div class="sb-i" onclick="dsh('dprofile',this)"><span class="ic">👤</span> Profile</div>
     </div>
     <div class="dash-main">
-
-      <!-- HOME TAB -->
       <div id="dhome">
         <div class="dash-hd">
           <div><h1>Dashboard</h1><p id="ddate">Welcome back</p></div>
@@ -544,37 +501,22 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
           </div>
         </div>
       </div>
-
-      <!-- ORDERS TAB -->
       <div id="dorders" style="display:none">
         <div class="dash-hd"><div><h1>My Orders</h1><p>All your purchases</p></div><button class="btn btn-primary btn-sm" onclick="go('store')">+ New Order</button></div>
         <div class="panel"><div class="panel-t">Order History</div><div id="ordersList"><p style="color:var(--mut2);font-size:.83rem">No orders yet.</p></div></div>
       </div>
-
-      <!-- WALLET TAB -->
       <div id="dwallet" style="display:none">
         <div class="dash-hd"><div><h1>My Wallet</h1><p>Your personal virtual account</p></div></div>
-
-        <!-- VIRTUAL ACCOUNT CARD -->
         <div class="vacct-card">
           <div class="vacct-top">
-            <div>
-              <div class="vacct-label">Your Personal Account</div>
-              <div class="vacct-bank" id="vacctBank">Loading bank...</div>
-            </div>
+            <div><div class="vacct-label">Your Personal Account</div><div class="vacct-bank" id="vacctBank">Loading...</div></div>
             <div class="vacct-logo">🏦</div>
           </div>
           <div class="vacct-num" id="vacctNum">—— —— ——</div>
           <div class="vacct-name" id="vacctName">Logifyhub_ Your Name</div>
           <div class="vacct-bal">
-            <div>
-              <div class="vacct-bal-l">Available Balance</div>
-              <div class="vacct-bal-v" id="wbal">₦0.00</div>
-            </div>
-            <div style="text-align:right">
-              <div style="font-size:.62rem;color:var(--mut2);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:.18rem">Auto-Refresh</div>
-              <div style="font-size:.72rem;color:var(--primary2)" id="lastRefresh">—</div>
-            </div>
+            <div><div class="vacct-bal-l">Available Balance</div><div class="vacct-bal-v" id="wbal">₦0.00</div></div>
+            <div style="text-align:right"><div style="font-size:.62rem;color:var(--mut2);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:.18rem">Last Refresh</div><div style="font-size:.72rem;color:var(--primary2)" id="lastRefresh">—</div></div>
           </div>
           <div class="vacct-actions">
             <button class="vacct-btn copy" onclick="copyAcctNum()">
@@ -587,8 +529,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
             </button>
           </div>
         </div>
-
-        <!-- HOW TO FUND -->
         <div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.14);border-radius:12px;padding:1rem;margin-bottom:1.1rem">
           <div style="font-family:'Montserrat';font-weight:700;font-size:.82rem;margin-bottom:.5rem;color:var(--primary2)">📱 How to Fund Your Wallet</div>
           <div style="display:flex;flex-direction:column;gap:.35rem;font-size:.78rem;color:var(--mut2)">
@@ -598,14 +538,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
             <div>4. Use balance to buy any product instantly</div>
           </div>
         </div>
-
-        <div class="panel">
-          <div class="panel-t">Transaction History</div>
-          <div id="wtxlog"><p style="color:var(--mut2);font-size:.83rem">No transactions yet.</p></div>
-        </div>
+        <div class="panel"><div class="panel-t">Transaction History</div><div id="wtxlog"><p style="color:var(--mut2);font-size:.83rem">No transactions yet.</p></div></div>
       </div>
-
-      <!-- PROFILE TAB -->
       <div id="dprofile" style="display:none">
         <div class="dash-hd"><div><h1>Profile</h1></div></div>
         <div class="panel" style="max-width:420px">
@@ -621,8 +555,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       </div>
     </div>
   </div>
-
-  <!-- MOBILE NAV -->
   <div class="mobnav">
     <div class="mob-btn on" id="mn0" onclick="dsh('dhome',null);mobOn(0)">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Home
@@ -669,7 +601,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
         <div class="panel" style="margin-top:1rem">
           <div class="panel-t">Need to top up?</div>
           <div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.14);border-radius:9px;padding:.9rem">
-            <div style="font-size:.8rem;color:var(--mut2);margin-bottom:.5rem">Transfer to your personal account to fund wallet:</div>
+            <div style="font-size:.8rem;color:var(--mut2);margin-bottom:.5rem">Transfer to your personal account:</div>
             <div style="font-family:'Montserrat';font-size:1.1rem;font-weight:800;color:var(--primary2)" id="coAcctNum">—</div>
             <div style="font-size:.74rem;color:var(--mut2);margin-top:.18rem" id="coAcctBank">—</div>
             <button class="btn btn-ghost btn-sm" style="margin-top:.6rem;border-radius:6px" onclick="copyAcctNum()">📋 Copy Account Number</button>
@@ -716,6 +648,15 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
     </div>
   </nav>
+  <!-- MOBILE ADMIN TABS -->
+  <div class="admin-mob-tabs" id="adminMobTabs">
+    <div class="adm-tab on" onclick="atab('aov');setAdmTab(this)">📊 Overview</div>
+    <div class="adm-tab" onclick="atab('aord');setAdmTab(this)">📦 Orders</div>
+    <div class="adm-tab" onclick="atab('ausr');setAdmTab(this)">👥 Users</div>
+    <div class="adm-tab" onclick="atab('awal');setAdmTab(this)">💰 Wallets</div>
+    <div class="adm-tab" onclick="atab('aprod');setAdmTab(this)">➕ Products</div>
+    <div class="adm-tab" onclick="atab('aset');setAdmTab(this)">⚙️ Settings</div>
+  </div>
   <div class="dash-layout">
     <div class="dash-sb">
       <div class="sb-sec">Overview</div>
@@ -724,11 +665,15 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       <div class="sb-sec">Manage</div>
       <div class="sb-i" onclick="atab('aord');sOn(this)"><span class="ic">📦</span> Orders</div>
       <div class="sb-i" onclick="atab('ausr');sOn(this)"><span class="ic">👥</span> Users</div>
+      <div class="sb-i" onclick="atab('awal');sOn(this)"><span class="ic">💰</span> Credit Wallets</div>
+      <div class="sb-i" onclick="atab('aprod');sOn(this)"><span class="ic">➕</span> Products</div>
       <div class="sb-div"></div>
       <div class="sb-i" onclick="atab('aset');sOn(this)"><span class="ic">⚙️</span> Settings</div>
       <div class="sb-i" onclick="go('home')"><span class="ic">🌐</span> View Site</div>
     </div>
-    <div class="dash-main">
+    <div class="dash-main admin-dash-main">
+
+      <!-- OVERVIEW -->
       <div id="aov" class="asec on">
         <div class="dash-hd"><div><h1>Overview</h1><p>Platform metrics</p></div><button class="btn btn-ghost btn-sm" onclick="loadStats()">↻ Refresh</button></div>
         <div class="akpis">
@@ -740,8 +685,10 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
         </div>
         <div class="panel"><div class="panel-t">Recent Orders</div><div id="arec"><p style="color:var(--mut2);font-size:.82rem">No orders yet.</p></div></div>
       </div>
+
+      <!-- ORDERS -->
       <div id="aord" class="asec">
-        <div class="dash-hd"><div><h1>Orders</h1></div></div>
+        <div class="dash-hd"><div><h1>Orders</h1><p>Review and release credentials</p></div></div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.45rem">
           <div style="display:flex;gap:.35rem;flex-wrap:wrap">
             <button class="btn btn-ghost btn-sm" onclick="faord('all')">All</button>
@@ -757,8 +704,10 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
           </table>
         </div>
       </div>
+
+      <!-- USERS -->
       <div id="ausr" class="asec">
-        <div class="dash-hd"><div><h1>Users</h1></div></div>
+        <div class="dash-hd"><div><h1>Users</h1><p>Manage all accounts</p></div></div>
         <div class="tbl-wrap">
           <table class="tbl">
             <thead><tr><th>Name</th><th>Email</th><th>Account No.</th><th>Wallet</th><th>Orders</th><th>Status</th><th>Actions</th></tr></thead>
@@ -766,6 +715,49 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
           </table>
         </div>
       </div>
+
+      <!-- CREDIT WALLETS -->
+      <div id="awal" class="asec">
+        <div class="dash-hd"><div><h1>Credit Wallets</h1><p>Manually add balance to any user</p></div></div>
+        <div class="panel" style="max-width:480px">
+          <div class="panel-t">Add Wallet Balance</div>
+          <div class="fg"><label>User Email</label><input type="email" id="creditEmail" placeholder="user@example.com"></div>
+          <div class="fg"><label>Amount (₦)</label><input type="number" id="creditAmt" placeholder="e.g. 5000" min="0"></div>
+          <div class="fg"><label>Note</label><input type="text" id="creditNote" placeholder="e.g. Manual deposit confirmed"></div>
+          <button class="btn btn-green" style="width:100%;border-radius:8px;padding:.7rem;margin-top:.25rem" onclick="creditUserWallet()">➕ Add Balance to User Wallet</button>
+        </div>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div id="aprod" class="asec">
+        <div class="dash-hd"><div><h1>Products</h1><p>Manage store products</p></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:900px">
+          <div class="panel">
+            <div class="panel-t">Add New Product</div>
+            <div class="fg"><label>Product Name</label><input type="text" id="prdName" placeholder="e.g. Facebook USA Aged"></div>
+            <div class="fg"><label>Category</label>
+              <select id="prdCat">
+                <option>Facebook</option><option>Instagram</option><option>Twitter</option>
+                <option>TikTok</option><option>Email</option><option>TextPlus</option><option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label>Price (₦)</label><input type="number" id="prdPrice" placeholder="e.g. 5000"></div>
+            <div class="fg"><label>Description</label><input type="text" id="prdDesc" placeholder="Short description"></div>
+            <div class="fg"><label>Icon (emoji)</label><input type="text" id="prdIcon" placeholder="e.g. 📘" maxlength="4"></div>
+            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
+              <input type="checkbox" id="prdStock" checked>
+              <label style="font-size:.8rem;color:var(--mut2)">In Stock</label>
+            </div>
+            <button class="btn btn-primary" style="width:100%;border-radius:8px;padding:.7rem" onclick="addProduct()">Add Product to Store</button>
+          </div>
+          <div class="panel">
+            <div class="panel-t">All Products</div>
+            <div id="adminProdList" style="max-height:450px;overflow-y:auto"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
       <div id="aset" class="asec">
         <div class="dash-hd"><div><h1>Settings</h1></div></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:780px">
@@ -816,6 +808,17 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
   </div>
 </div>
 
+<!-- ORDER DETAIL MODAL -->
+<div class="mo" id="orddetmo">
+  <div class="mo-wide">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+      <h3 style="margin:0">📦 Order Details</h3>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('orddetmo').classList.remove('open')">✕</button>
+    </div>
+    <div id="ordDetContent"></div>
+  </div>
+</div>
+
 <!-- SUCCESS MODAL -->
 <div class="mo" id="sucmo">
   <div class="mo-box">
@@ -839,17 +842,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       <button class="btn btn-ghost" onclick="closeConf()">Cancel</button>
       <button class="btn btn-red" id="cok">Confirm</button>
     </div>
-  </div>
-</div>
-
-<!-- ORDER DETAIL MODAL -->
-<div class="mo" id="orddetmo">
-  <div class="mo-wide">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
-      <h3 style="margin:0">📦 Order Details</h3>
-      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('orddetmo').classList.remove('open')">✕</button>
-    </div>
-    <div id="ordDetContent"></div>
   </div>
 </div>
 
@@ -895,28 +887,29 @@ const stl=s=>s==='completed'?'t-g':s==='cancelled'?'t-r':s==='processing'?'t-b':
 const slbl=s=>s==='completed'?'Completed':s==='cancelled'?'Cancelled':s==='processing'?'Processing':'Pending';
 
 // ── PRODUCTS ──
-const PRODUCTS=[
-  {id:'tp1',name:'TextPlus Account',cat:'TextPlus',icon:'📱',price:2500,desc:'USA TextPlus number account. Instant delivery.',inStock:true},
+const BASE_PRODUCTS=[
+  {id:'tp1',name:'TextPlus Account',cat:'TextPlus',icon:'📱',price:2500,desc:'USA TextPlus number account.',inStock:true},
   {id:'fb1',name:'USA Facebook — 200+ Real Friends',cat:'Facebook',icon:'📘',price:12000,desc:'High quality USA Facebook with 200+ real friends.',inStock:true},
-  {id:'fb2',name:'USA Facebook — 100+ Real Friends',cat:'Facebook',icon:'📘',price:8000,desc:'USA Facebook account with 100+ real friends.',inStock:true},
+  {id:'fb2',name:'USA Facebook — 100+ Real Friends',cat:'Facebook',icon:'📘',price:8000,desc:'USA Facebook with 100+ real friends.',inStock:true},
   {id:'fb3',name:'USA Facebook — Empty',cat:'Facebook',icon:'📘',price:5000,desc:'Clean empty USA Facebook account.',inStock:true},
   {id:'fb4',name:'Random Facebook — Can Create Page',cat:'Facebook',icon:'📘',price:4000,desc:'Random Facebook with ability to create pages.',inStock:true},
-  {id:'fb5',name:'Facebook — Profile + Page Ready',cat:'Facebook',icon:'📘',price:4500,desc:'Facebook with profile and page already set up.',inStock:true},
+  {id:'fb5',name:'Facebook — Profile + Page Ready',cat:'Facebook',icon:'📘',price:4500,desc:'Facebook with profile and page set up.',inStock:true},
   {id:'tw1',name:'Twitter — 50 Followers',cat:'Twitter',icon:'🐦',price:3000,desc:'Twitter account with 50 followers.',inStock:true},
   {id:'tw2',name:'Twitter — 100 Followers',cat:'Twitter',icon:'🐦',price:4500,desc:'Twitter account with 100 followers.',inStock:true},
   {id:'tw3',name:'Twitter — 200 Followers',cat:'Twitter',icon:'🐦',price:6000,desc:'Twitter account with 200 followers.',inStock:true},
-  {id:'tw4',name:'Twitter — 500 Followers (Aged)',cat:'Twitter',icon:'🐦',price:9000,desc:'Aged Twitter account with 500 followers.',inStock:true},
-  {id:'tw5',name:'Twitter — 1000 Followers (Aged)',cat:'Twitter',icon:'🐦',price:17000,desc:'Aged Twitter account with 1000 followers.',inStock:true},
+  {id:'tw4',name:'Twitter — 500 Followers (Aged)',cat:'Twitter',icon:'🐦',price:9000,desc:'Aged Twitter with 500 followers.',inStock:true},
+  {id:'tw5',name:'Twitter — 1000 Followers (Aged)',cat:'Twitter',icon:'🐦',price:17000,desc:'Aged Twitter with 1000 followers.',inStock:true},
   {id:'tt1',name:'TikTok — 50 Followers',cat:'TikTok',icon:'🎵',price:2500,desc:'TikTok account with 50 followers.',inStock:true},
   {id:'tt2',name:'TikTok — 1000 Followers',cat:'TikTok',icon:'🎵',price:6000,desc:'TikTok account with 1000 followers.',inStock:true},
-  {id:'em1',name:'Gmail Account',cat:'Email',icon:'📧',price:2000,desc:'Fresh Gmail account. Ready to use.',inStock:true},
-  {id:'em2',name:'Webmail Account',cat:'Email',icon:'📨',price:300,desc:'Webmail account. Instant delivery.',inStock:true},
+  {id:'em1',name:'Gmail Account',cat:'Email',icon:'📧',price:2000,desc:'Fresh Gmail account.',inStock:true},
+  {id:'em2',name:'Webmail Account',cat:'Email',icon:'📨',price:300,desc:'Webmail account.',inStock:true},
   {id:'em3',name:'Outlook Account',cat:'Email',icon:'📩',price:300,desc:'Microsoft Outlook account.',inStock:true},
   {id:'ig1',name:'Instagram — 500 Followers',cat:'Instagram',icon:'📸',price:6000,desc:'Instagram with 500 followers.',inStock:true},
   {id:'ig2',name:'Instagram — 1000 Followers',cat:'Instagram',icon:'📸',price:8000,desc:'Instagram with 1000 followers.',inStock:true},
   {id:'ig3',name:'Instagram — Empty Account',cat:'Instagram',icon:'📸',price:1000,desc:'Clean empty Instagram account.',inStock:true},
-  {id:'ig4',name:'Instagram — Aged with Real Followers',cat:'Instagram',icon:'📸',price:8000,desc:'Aged Instagram with real followers (count may vary).',inStock:true},
+  {id:'ig4',name:'Instagram — Aged with Real Followers',cat:'Instagram',icon:'📸',price:8000,desc:'Aged Instagram with real followers.',inStock:true},
 ];
+let PRODUCTS=[...BASE_PRODUCTS];
 
 const CAT_CONFIG={
   'TextPlus':{icon:'📱',color:'#10b981'},
@@ -925,9 +918,10 @@ const CAT_CONFIG={
   'TikTok':{icon:'🎵',color:'#fe2c55'},
   'Email':{icon:'📧',color:'#ea4335'},
   'Instagram':{icon:'📸',color:'#e1306c'},
+  'Other':{icon:'📦',color:'#6366f1'},
 };
 
-// ── Monnify Auth ──
+// ── Monnify ──
 async function monnifyAuth(){
   try{
     const creds=btoa(MONN_KEY+':'+MONN_SECRET);
@@ -937,14 +931,13 @@ async function monnifyAuth(){
     });
     const d=await res.json();
     return d.responseBody?.accessToken||null;
-  }catch(e){console.error('Monnify auth error:',e);return null;}
+  }catch(e){console.error('Monnify auth:',e);return null;}
 }
 
-// ── Create Virtual Account ──
 async function createVirtualAccount(user){
   try{
     const token=await monnifyAuth();
-    if(!token){console.error('No Monnify token');return null;}
+    if(!token)return null;
     const res=await fetch(MONN_BASE+'/api/v2/bank-transfer/reserved-accounts',{
       method:'POST',
       headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'},
@@ -969,30 +962,23 @@ async function createVirtualAccount(user){
         accountReference:d.responseBody.accountReference
       };
     }
-    console.error('Monnify VA error:',d);
     return null;
-  }catch(e){console.error('Create VA error:',e);return null;}
+  }catch(e){console.error('Create VA:',e);return null;}
 }
 
-// ── Check Monnify Balance (poll transactions) ──
-async function getMonnifyBalance(acctRef){
+async function getMonnifyTransactions(acctRef){
   try{
     const token=await monnifyAuth();
-    if(!token)return null;
+    if(!token)return[];
     const res=await fetch(MONN_BASE+'/api/v1/bank-transfer/reserved-accounts/transactions?accountReference='+acctRef+'&page=0&size=100',{
       headers:{'Authorization':'Bearer '+token}
     });
     const d=await res.json();
-    if(d.requestSuccessful){
-      const txs=d.responseBody?.content||[];
-      const total=txs.filter(t=>t.paymentStatus==='PAID').reduce((s,t)=>s+Number(t.amountPaid||0),0);
-      return{total,txs};
-    }
-    return null;
-  }catch(e){console.error('Balance check error:',e);return null;}
+    return d.requestSuccessful?d.responseBody?.content||[]:[];
+  }catch(e){console.error('Monn txs:',e);return[];}
 }
 
-// ── Firebase Helpers ──
+// ── Firebase ──
 async function fbWait(){for(let i=0;i<25;i++){if(window.fbReady)return;await new Promise(r=>setTimeout(r,300));}}
 async function fbUsers(){if(!window.db)return DB.users;try{return(await window.fsGetDocs(window.fsColl(window.db,'lgf_users'))).docs.map(d=>({id:d.id,...d.data()}));}catch{return DB.users;}}
 async function fbOrders(){if(!window.db)return DB.orders;try{return(await window.fsGetDocs(window.fsColl(window.db,'lgf_orders'))).docs.map(d=>({...d.data(),id:d.id}));}catch{return DB.orders;}}
@@ -1004,7 +990,7 @@ async function fbSetAdmin(data){if(!window.db)return;try{await window.fsSet(wind
 async function fbGetWallet(uid){if(!window.db)return{balance:0,transactions:[]};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_wallets',String(uid)));return d.exists()?d.data():{balance:0,transactions:[]};}catch{return{balance:0,transactions:[]};}}
 async function fbSaveWallet(uid,w){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_wallets',String(uid)),w);}catch(e){console.error(e);}}
 
-// ── AccsZone API ──
+// ── AccsZone ──
 async function aczPost(endpoint,body){
   try{
     const res=await fetch(ACZ_BASE+endpoint,{
@@ -1013,10 +999,10 @@ async function aczPost(endpoint,body){
       body:JSON.stringify(body)
     });
     return await res.json();
-  }catch(e){console.error('ACZ error:',e);return null;}
+  }catch(e){console.error('ACZ:',e);return null;}
 }
 
-// ── Session Restore ──
+// ── Session ──
 window.addEventListener('load',async()=>{
   const s=localStorage.getItem('lgf_s');
   await fbWait();
@@ -1039,7 +1025,6 @@ window.addEventListener('load',async()=>{
 let navHist=[];
 function updateBack(){const b=document.getElementById('backFab');if(b)b.style.display=navHist.length?'block':'none';}
 function go(id){
-  // Block store if not logged in
   if(id==='store'&&(!CU||CU==='admin')){go('login');toast('Please login to access the store.');return;}
   const cur=document.querySelector('.page.active');
   if(cur&&cur.id!==id)navHist.push(cur.id);
@@ -1067,6 +1052,7 @@ function updateNavBtns(){
 }
 function epw(id,btn){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';btn.textContent=i.type==='password'?'👁':'🙈';}
 function mobOn(idx){document.querySelectorAll('.mob-btn').forEach((b,i)=>b.classList.toggle('on',i===idx));}
+function setAdmTab(el){document.querySelectorAll('.adm-tab').forEach(t=>t.classList.remove('on'));el.classList.add('on');}
 
 // ── Auth ──
 async function doLogin(){
@@ -1101,22 +1087,16 @@ async function doRegister(){
   if(!f||!l||!e||!p){toast('Fill all required fields.');return;}
   if(p.length<6){toast('Password min 6 characters.');return;}
   if(p!==p2){toast('Passwords do not match.');return;}
-  const btn=document.getElementById('regBtn');
-  btn.textContent='Creating account...';btn.disabled=true;
+  const btn=document.getElementById('regBtn');btn.textContent='Creating account...';btn.disabled=true;
   await fbWait();
   const users=await fbUsers();
   if(users.find(x=>x.email===e)){btn.textContent='Create Account →';btn.disabled=false;toast('Email already registered.');return;}
   const u={id:gid(),name:f+' '+l,email:e,phone:ph,pw:p,status:'active',joined:now(),virtualAccount:null};
-  // Create Monnify virtual account
   btn.textContent='Generating your account number...';
-  toast('Creating your personal bank account... ⚡');
+  toast('Creating your personal bank account ⚡');
   const va=await createVirtualAccount(u);
-  if(va){
-    u.virtualAccount=va;
-    toast('✅ Personal account number created!');
-  }else{
-    toast('Account created! Bank account will be assigned shortly.');
-  }
+  if(va){u.virtualAccount=va;toast('✅ Personal account number created!');}
+  else{toast('Account created! Bank account generating...');}
   await fbSaveUser(u);
   DB.users=[...users,u];CU=u;
   localStorage.setItem('lgf_s',e);
@@ -1138,7 +1118,6 @@ async function loadDash(u){
   document.getElementById('pname').value=u.name||'';
   document.getElementById('pemail').value=u.email||'';
   document.getElementById('pphone').value=u.phone||'';
-  // Virtual account info
   const va=u.virtualAccount;
   if(va){
     const num=va.accountNumber||'—';
@@ -1156,7 +1135,6 @@ async function loadDash(u){
     document.getElementById('kbank').textContent='Generating...';
     document.getElementById('vacctNum').textContent='Generating...';
     document.getElementById('vacctBank').textContent='Please wait';
-    // Try to create if missing
     retryVirtualAccount(u);
   }
   await loadWallet();
@@ -1166,18 +1144,16 @@ async function loadDash(u){
 async function retryVirtualAccount(u){
   const va=await createVirtualAccount(u);
   if(va){
-    u.virtualAccount=va;
-    CU.virtualAccount=va;
+    u.virtualAccount=va;CU.virtualAccount=va;
     await fbSaveUser(u);
-    const num=va.accountNumber;
-    document.getElementById('kacct').textContent=num;
+    document.getElementById('kacct').textContent=va.accountNumber;
     document.getElementById('kbank').textContent=va.bankName||'';
-    document.getElementById('vacctNum').textContent=num;
+    document.getElementById('vacctNum').textContent=va.accountNumber;
     document.getElementById('vacctBank').textContent=va.bankName||'';
     document.getElementById('vacctName').textContent=va.accountName||('Logifyhub_ '+u.name);
-    document.getElementById('pAcctNum').value=num;
+    document.getElementById('pAcctNum').value=va.accountNumber;
     document.getElementById('pAcctBank').value=va.bankName||'';
-    if(document.getElementById('coAcctNum'))document.getElementById('coAcctNum').textContent=num;
+    if(document.getElementById('coAcctNum'))document.getElementById('coAcctNum').textContent=va.accountNumber;
     if(document.getElementById('coAcctBank'))document.getElementById('coAcctBank').textContent=va.bankName||'';
     toast('✅ Your personal account number is ready!');
   }
@@ -1255,7 +1231,6 @@ async function updateProfile(){
 async function loadWallet(){
   if(!CU||CU==='admin')return;
   const w=await fbGetWallet(CU.id);
-  // Check Monnify for new deposits
   if(CU.virtualAccount?.accountReference){
     await syncMonnifyDeposits(w);
   }
@@ -1263,50 +1238,40 @@ async function loadWallet(){
   updateBalanceUI(bal);
   const log=document.getElementById('wtxlog');
   const txs=w.transactions||[];
-  if(!txs.length){log.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No transactions yet. Transfer to your account number to fund your wallet!</p>';return;}
+  if(!txs.length){
+    log.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No transactions yet. Transfer to your account number to fund your wallet!</p>';
+    return;
+  }
   log.innerHTML=txs.slice().reverse().map(t=>`
     <div class="tx-row">
       <div class="tx-l">
         <div class="tx-ico" style="background:${t.type==='deposit'?'rgba(34,197,94,.12)':'rgba(59,130,246,.1)'}">
           ${t.type==='deposit'?'↓':'↑'}
         </div>
-        <div>
-          <div class="tx-desc">${t.desc||t.type}</div>
-          <div class="tx-date">${t.date||''}</div>
-        </div>
+        <div><div class="tx-desc">${t.desc||t.type}</div><div class="tx-date">${t.date||''}</div></div>
       </div>
       <div class="tx-a ${t.type==='deposit'?'pos':'neg'}">${t.type==='deposit'?'+':'-'}${fmt(t.amount||0)}</div>
     </div>`).join('');
-  // Update last refresh time
   const el=document.getElementById('lastRefresh');
   if(el)el.textContent=new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
 }
 
 async function syncMonnifyDeposits(w){
   try{
-    const result=await getMonnifyBalance(CU.virtualAccount.accountReference);
-    if(!result)return;
-    const{txs:monnTxs}=result;
+    const txs=await getMonnifyTransactions(CU.virtualAccount.accountReference);
     const existingRefs=new Set((w.transactions||[]).map(t=>t.ref));
-    let newDeposits=0;
-    for(const mt of monnTxs){
+    let newAmt=0;
+    for(const mt of txs){
       if(mt.paymentStatus==='PAID'&&!existingRefs.has(mt.paymentReference)){
         const amt=Number(mt.amountPaid||0);
         w.balance=(w.balance||0)+amt;
         w.transactions=w.transactions||[];
-        w.transactions.push({
-          type:'deposit',amount:amt,
-          desc:'Bank transfer — '+mt.paymentDescription||'Deposit',
-          date:now(),ref:mt.paymentReference
-        });
-        newDeposits+=amt;
+        w.transactions.push({type:'deposit',amount:amt,desc:'Bank transfer',date:now(),ref:mt.paymentReference});
+        newAmt+=amt;
       }
     }
-    if(newDeposits>0){
-      await fbSaveWallet(CU.id,w);
-      toast('💰 '+fmt(newDeposits)+' received! Wallet updated.');
-    }
-  }catch(e){console.error('Sync error:',e);}
+    if(newAmt>0){await fbSaveWallet(CU.id,w);toast('💰 '+fmt(newAmt)+' received! Wallet updated.');}
+  }catch(e){console.error('Sync:',e);}
 }
 
 function updateBalanceUI(bal){
@@ -1314,24 +1279,20 @@ function updateBalanceUI(bal){
 }
 
 async function refreshWallet(){
-  toast('Checking for new deposits...');
+  toast('Checking for deposits...');
   await loadWallet();
   toast('Wallet refreshed!');
 }
 
 function startWalletRefresh(){
   stopWalletRefresh();
-  walletRefreshTimer=setInterval(()=>{
-    if(CU&&CU!=='admin')loadWallet();
-  },30000); // every 30 seconds
+  walletRefreshTimer=setInterval(()=>{if(CU&&CU!=='admin')loadWallet();},30000);
 }
-function stopWalletRefresh(){
-  if(walletRefreshTimer){clearInterval(walletRefreshTimer);walletRefreshTimer=null;}
-}
+function stopWalletRefresh(){if(walletRefreshTimer){clearInterval(walletRefreshTimer);walletRefreshTimer=null;}}
 
 function copyAcctNum(){
   const num=CU?.virtualAccount?.accountNumber;
-  if(!num){toast('No account number yet.');return;}
+  if(!num){toast('No account number yet. Please wait.');return;}
   navigator.clipboard.writeText(num).then(()=>toast('Account number copied! ✅')).catch(()=>{
     const t=document.createElement('textarea');t.value=num;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);toast('Copied!');
   });
@@ -1353,7 +1314,7 @@ function renderGroups(prods){
   if(!prods.length){wrap.innerHTML='<p style="color:var(--mut2);padding:2rem;font-size:.85rem">No products found.</p>';return;}
   const cats=[...new Set(prods.map(p=>p.cat))];
   wrap.innerHTML=cats.map(cat=>{
-    const cfg=CAT_CONFIG[cat]||{icon:'📦',color:'#3b82f6'};
+    const cfg=CAT_CONFIG[cat]||{icon:'📦',color:'#6366f1'};
     const items=prods.filter(p=>p.cat===cat);
     return`<div class="cat-section">
       <div class="cat-header">
@@ -1370,7 +1331,7 @@ function renderGroups(prods){
 function prodRowHTML(p){
   const safeP=encodeURIComponent(JSON.stringify(p));
   return`<div class="prod-row" onclick="openCheckout(JSON.parse(decodeURIComponent('${safeP}')))">
-    <div class="prod-row-icon" style="background:${CAT_CONFIG[p.cat]?.color||'#3b82f6'}18;color:${CAT_CONFIG[p.cat]?.color||'#3b82f6'}">${p.icon}</div>
+    <div class="prod-row-icon" style="background:${CAT_CONFIG[p.cat]?.color||'#6366f1'}18;color:${CAT_CONFIG[p.cat]?.color||'#6366f1'}">${p.icon}</div>
     <div class="prod-row-info">
       <div class="prod-row-name">${p.name}</div>
       <div class="prod-row-stock"><span class="stock-dot ${p.inStock?'dot-green':'dot-red'}"></span>${p.inStock?'In stock · Instant delivery':'Out of stock'}</div>
@@ -1387,16 +1348,14 @@ function prodRowHTML(p){
 
 function filterCat(cat,btn){
   if(btn){document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('on'));btn.classList.add('on');}
-  const filtered=cat==='all'?PRODUCTS:PRODUCTS.filter(p=>p.cat===cat);
-  renderGroups(filtered);
+  renderGroups(cat==='all'?PRODUCTS:PRODUCTS.filter(p=>p.cat===cat));
 }
 
 function searchProds(q){
-  const filtered=!q?PRODUCTS:PRODUCTS.filter(p=>
+  renderGroups(!q?PRODUCTS:PRODUCTS.filter(p=>
     p.name.toLowerCase().includes(q.toLowerCase())||
     p.cat.toLowerCase().includes(q.toLowerCase())
-  );
-  renderGroups(filtered);
+  ));
 }
 
 // ── Checkout ──
@@ -1430,17 +1389,12 @@ async function buyWithWallet(){
   const q=parseInt(document.getElementById('cq').value)||1;
   const tot=CP.price*q;
   if((w.balance||0)<tot){
-    toast('Insufficient balance. Fund your wallet by transferring to your account number.');return;
+    toast('Insufficient balance. Transfer to your account number to top up.');return;
   }
   toast('Processing your order ⚡');
-  // Try AccsZone API
   let credData=null;
   try{
-    const res=await aczPost('/orders',{
-      product:CP.name,quantity:q,
-      customer_email:CU.email,
-      reference:'LGF-'+gid()
-    });
+    const res=await aczPost('/orders',{product:CP.name,quantity:q,customer_email:CU.email,reference:'LGF-'+gid()});
     if(res&&(res.status==='success'||res.order||res.credentials)){
       const d=res.order||res.credentials||res;
       credData={
@@ -1449,29 +1403,20 @@ async function buyWithWallet(){
         raw:JSON.stringify(d)
       };
     }
-  }catch(e){console.error('ACZ error:',e);}
-  // Deduct wallet
+  }catch(e){console.error('ACZ:',e);}
   w.balance=(w.balance||0)-tot;
   w.transactions=w.transactions||[];
   w.transactions.push({type:'purchase',amount:tot,desc:q+'× '+CP.name,date:now()});
   await fbSaveWallet(CU.id,w);
   const id=gid();
-  const o={
-    id,uid:CU.id,name:CU.name,email:CU.email,
+  const o={id,uid:CU.id,name:CU.name,email:CU.email,
     product:CP.name,icon:CP.icon,cat:CP.cat,productId:CP.id,
     qty:q,total:tot,status:credData?'completed':'pending',
-    date:now(),method:'wallet',cred:credData||null
-  };
+    date:now(),method:'wallet',cred:credData||null};
   await fbSaveOrder(o);DB.orders.push(o);
   updateBalanceUI(w.balance);
-  if(credData){
-    showDelivered(credData);
-    toast('✅ Purchase complete!');
-  }else{
-    document.getElementById('oid').textContent=id;
-    document.getElementById('sucmo').classList.add('open');
-    toast('Order placed! Credentials coming soon.');
-  }
+  if(credData){showDelivered(credData);toast('✅ Purchase complete!');}
+  else{document.getElementById('oid').textContent=id;document.getElementById('sucmo').classList.add('open');}
 }
 
 function showDelivered(cred){
@@ -1492,6 +1437,8 @@ function atab(id){
   const e=document.getElementById(id);if(e)e.classList.add('on');
   if(id==='aord')raord();
   if(id==='ausr')rausr();
+  if(id==='aprod')renderAdminProdList();
+  window.scrollTo(0,0);
 }
 function sOn(el){document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));if(el)el.classList.add('on');}
 
@@ -1516,10 +1463,8 @@ function rstats(){
     <div class="tx-row">
       <div class="tx-l">
         <div class="tx-ico" style="background:rgba(59,130,246,.08)">${x.icon||'🛒'}</div>
-        <div>
-          <div class="tx-desc" style="font-size:.81rem">${x.name} — ${x.product}</div>
-          <div class="tx-date">${x.date||''}</div>
-        </div>
+        <div><div class="tx-desc" style="font-size:.81rem">${x.name} — ${x.product}</div>
+        <div class="tx-date">${x.date||''}</div></div>
       </div>
       <div style="text-align:right">
         <div style="font-family:'Montserrat';font-weight:700;font-size:.83rem">${fmt(x.total||0)}</div>
@@ -1535,7 +1480,7 @@ function raord(){
     <tr>
       <td><span style="font-family:monospace;font-size:.74rem;color:var(--primary2)">#LGF-${o.id}</span></td>
       <td><div style="font-weight:600;font-size:.81rem">${o.name}</div><div style="font-size:.7rem;color:var(--mut2)">${o.email}</div></td>
-      <td style="font-size:.79rem;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.icon||''} ${o.product}</td>
+      <td style="font-size:.79rem;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.icon||''} ${o.product}</td>
       <td style="font-family:'Montserrat';font-weight:700">${fmt(o.total||0)}</td>
       <td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td>
       <td>
@@ -1604,7 +1549,9 @@ async function doRelease(){
   await fbSaveOrder(o);
   const idx=DB.orders.findIndex(x=>x.id===curOid);
   if(idx>-1)DB.orders[idx]=o;
-  closeRel();raord();rstats();
+  closeRel();
+  document.getElementById('orddetmo').classList.remove('open');
+  raord();rstats();
   toast('✅ Credentials released!');
 }
 
@@ -1617,7 +1564,7 @@ function rausr(){
     return`<tr>
       <td style="font-weight:600">${u.name}</td>
       <td style="font-size:.78rem;color:var(--mut2)">${u.email}</td>
-      <td style="font-family:monospace;font-size:.76rem;color:var(--primary2)">${va?.accountNumber||'Pending'}</td>
+      <td style="font-family:monospace;font-size:.75rem;color:var(--primary2)">${va?.accountNumber||'Pending'}</td>
       <td id="uw-${u.id}" style="font-size:.79rem;color:var(--green)">...</td>
       <td>${ords}</td>
       <td><span class="tag ${u.status==='banned'?'t-r':'t-g'}">${u.status==='banned'?'Banned':'Active'}</span></td>
@@ -1656,6 +1603,74 @@ async function deleteUser(id){
   });
 }
 
+// ── Credit Wallet ──
+async function creditUserWallet(){
+  const email=document.getElementById('creditEmail').value.trim().toLowerCase();
+  const amt=parseFloat(document.getElementById('creditAmt').value);
+  const note=document.getElementById('creditNote').value.trim()||'Manual credit by admin';
+  if(!email||!amt||amt<=0){toast('Enter email and valid amount.');return;}
+  await fbWait();
+  const users=await fbUsers();
+  const u=users.find(x=>x.email===email);
+  if(!u){toast('User not found. Check email.');return;}
+  const w=await fbGetWallet(u.id);
+  w.balance=(w.balance||0)+amt;
+  w.transactions=w.transactions||[];
+  w.transactions.push({type:'deposit',amount:amt,desc:note,date:now(),ref:'ADMIN-'+gid()});
+  await fbSaveWallet(u.id,w);
+  document.getElementById('creditEmail').value='';
+  document.getElementById('creditAmt').value='';
+  document.getElementById('creditNote').value='';
+  toast('✅ '+fmt(amt)+' added to '+u.name+'\'s wallet!');
+}
+
+// ── Products Admin ──
+function addProduct(){
+  const name=document.getElementById('prdName').value.trim();
+  const cat=document.getElementById('prdCat').value;
+  const price=parseFloat(document.getElementById('prdPrice').value);
+  const desc=document.getElementById('prdDesc').value.trim();
+  const icon=document.getElementById('prdIcon').value.trim()||CAT_CONFIG[cat]?.icon||'📦';
+  const inStock=document.getElementById('prdStock').checked;
+  if(!name||!price){toast('Enter product name and price.');return;}
+  const p={id:'custom-'+gid(),name,cat,price,desc,icon,inStock,source:'manual'};
+  PRODUCTS.push(p);
+  document.getElementById('prdName').value='';
+  document.getElementById('prdPrice').value='';
+  document.getElementById('prdDesc').value='';
+  document.getElementById('prdIcon').value='';
+  renderAdminProdList();
+  toast('✅ Product added to store!');
+}
+
+function renderAdminProdList(){
+  const el=document.getElementById('adminProdList');if(!el)return;
+  el.innerHTML=PRODUCTS.map(p=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--bord)">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.icon} ${p.name}</div>
+        <div style="font-size:.7rem;color:var(--mut2)">${p.cat} · ${fmt(p.price)}</div>
+      </div>
+      <div style="display:flex;gap:.3rem;align-items:center;flex-shrink:0;margin-left:.5rem">
+        <span class="tag ${p.inStock?'t-g':'t-r'}" style="cursor:pointer" onclick="toggleStock('${p.id}')">${p.inStock?'In':'Out'}</span>
+        ${p.source==='manual'?`<button class="btn btn-xs btn-red" onclick="removeProduct('${p.id}')">✕</button>`:''}
+      </div>
+    </div>`).join('');
+}
+
+function toggleStock(id){
+  const p=PRODUCTS.find(x=>x.id===id);if(!p)return;
+  p.inStock=!p.inStock;renderAdminProdList();toast('Stock updated!');
+}
+
+function removeProduct(id){
+  conf('Remove this product?','It will be removed from the store.',()=>{
+    PRODUCTS=PRODUCTS.filter(x=>x.id!==id);
+    renderAdminProdList();toast('Product removed.');
+  });
+}
+
+// ── Settings ──
 async function chgPw(){
   const p1=document.getElementById('npw').value;
   const p2=document.getElementById('npw2').value;
@@ -1665,14 +1680,12 @@ async function chgPw(){
   document.getElementById('npw').value='';document.getElementById('npw2').value='';
   toast('✅ Admin password updated!');
 }
-
 async function saveACZKey(){
   const k=document.getElementById('aczKeyInp').value.trim();
   if(!k)return;ACZ_KEY=k;
   const cfg=await fbGetAdmin();cfg.aczKey=k;await fbSetAdmin(cfg);
   toast('✅ AccsZone key saved!');
 }
-
 async function saveMonnifyKeys(){
   const k=document.getElementById('monnKeyInp').value.trim();
   const s=document.getElementById('monnSecInp').value.trim();
